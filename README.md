@@ -11,5 +11,5 @@ But please note that i have a lot of work left to do on adding every reference t
 Controls:
 movements W-A-S-D and SPACE to stop
 
-The debug.drawline is for the editor view, and this is a draft/wip project and it had to work, not be a game. It is to show the basics principles of my pathfind i had developed to use for void expanse mods.
+The debug.drawline is for the editor view, and this is a draft/wip project and it had to work, not be a game.
 
