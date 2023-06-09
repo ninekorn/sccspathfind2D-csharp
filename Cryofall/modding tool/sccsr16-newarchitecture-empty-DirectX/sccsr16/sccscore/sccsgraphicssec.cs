@@ -182,25 +182,120 @@ namespace sccs
             }
 
 
-            int numberofvariants = 9;
 
 
 
 
 
-            float mobheight = 1.65f;
-            double mobhp = 200;
-            double mobspeed = 1.5;
-            string mobname = "Zombie";
+            //0 == mobsvariants
+            //1 == zones.
+            int typeofprogram = 1;
 
-            for (int i = 0; i < numberofvariants; i++)
+            if (typeofprogram == 0)
             {
-                createvariantpngs(i, mobname);
-                createvariantscripts(i, mobname, mobspeed,mobhp, mobheight);
+                int numberofvariants = 9;
+
+                //skeleton
+                //mobspeed 2.0
+                //StatDefaultHealthMax 99
+                //height 1.65f
+
+                //Zombie
+                //mobspeed 1.5
+                //StatDefaultHealthMax 200
+                //height 1.65f
+
+                float mobheight = 1.65f;
+                double mobhp = 200;
+                double mobspeed = 1.5;
+                string mobname = "Zombie";
+
+                /*
+                float mobheight = 1.65f;
+                double mobhp = 200;
+                double mobspeed = 1.5;
+                string mobname = "Skeleton";*/
+
+                for (int i = 0; i < numberofvariants; i++)
+                {
+                    createvariantpngs(i, mobname);
+                    createvariantscripts(i, mobname, mobspeed, mobhp, mobheight);
+                }
+
             }
-         
+            else if(typeofprogram == 1)
+            {
+                string pathToDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string folderNameCryofallPNGScriptVariantBuilder = "#Cryofallscriptgen";
+                DirectoryInfo directoryFolder = new DirectoryInfo(folderNameCryofallPNGScriptVariantBuilder);
+                directoryFolder.Refresh();
+
+                string prefinalpathtofiles = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + "original";
+                string prefinalpathtofilesmultiplied = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + "multiplied";
 
 
+                string zonearctic = @"\" + "Zones" + @"\" + "Arctic";
+                string zoneboreal = @"\" + "Zones" + @"\" + "Boreal";
+                string zonegeneric = @"\" + "Zones" + @"\" + "Generic";
+                string zonemobs = @"\" + "Zones" + @"\" + "Mobs";
+                string zoneruins = @"\" + "Zones" + @"\" + "Ruins";
+                string zonespecial = @"\" + "Zones" + @"\" + "Special";
+                string zonetemperate = @"\" + "Zones" + @"\" + "Temperate";
+                string zonetropical = @"\" + "Zones" + @"\" + "Tropical";
+
+
+                string[] arrayofzones = new string[8];
+
+                arrayofzones[0] = zonearctic;
+                arrayofzones[1] = zoneboreal;
+                arrayofzones[2] = zonegeneric;
+                arrayofzones[3] = zonemobs;
+                arrayofzones[4] = zoneruins;
+                arrayofzones[5] = zonespecial;
+                arrayofzones[6] = zonetemperate;
+                arrayofzones[7] = zonetropical;
+
+
+
+                //string currentfolderzone = prefinalpathtofiles + zonearctic;
+
+                int chosenindex = 0;
+                string currentfolderzone = arrayofzones[chosenindex];
+
+
+
+
+
+                /*
+                //string folderNameOriginalPNGS = "original";
+                string folderNameOriginalPNGS = "original" + @"\" + mobname;
+
+                DirectoryInfo dirnameOriginal = new DirectoryInfo(folderNameOriginalPNGS);
+                dirnameOriginal.Refresh();
+                ////Console.WriteLine("2_mainThreadStarter");
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(folderNameOriginalPNGS);
+                }
+                else
+                {
+                    //Console.WriteLine("1the directory exists");
+                }*/
+
+
+                int numberofvariants = 8;
+
+                for (int j = 0; j < 1; j++)//skeleton and zombie variants
+                {
+                    for (int i = 0; i < arrayofzones.Length; i++)
+                    {
+                        preparezones(i, currentfolderzone, pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder, i, prefinalpathtofiles, prefinalpathtofilesmultiplied);
+                    }
+                }
+              
+
+            }
 
 
 
@@ -225,7 +320,358 @@ namespace sccs
 
 
 
-        public unsafe void createvariantpngs(int variantindex , string mobname)
+        public unsafe void preparezones(int variantindex, string zonefolderselected, string pathoriginal, int indexofzone, string prefinalpathtofiles,string prefinalpathtofilesmultiplied)
+        {
+            
+
+
+
+
+
+
+
+            string zonearctic = "Arctic";
+            string zoneboreal = "Boreal";
+            string zonegeneric = "Generic";
+            string zonemobs = "Mobs";
+            string zoneruins = "Ruins";
+            string zonespecial = "Special";
+            string zonetemperate = "Temperate";
+            string zonetropical = "Tropical";
+
+            string chosenzonefolder = "";
+
+            if (indexofzone == 0)
+            {
+                chosenzonefolder = zonearctic;
+            }
+            else if (indexofzone == 1)
+            {
+                chosenzonefolder = zoneboreal;
+            }
+            else if (indexofzone == 2)
+            {
+                chosenzonefolder = zonegeneric;
+            }
+            else if (indexofzone == 3)
+            {
+                chosenzonefolder = zonemobs;
+            }
+            else if (indexofzone == 4)
+            {
+                chosenzonefolder = zoneruins;
+            }
+            else if (indexofzone == 5)
+            {
+                chosenzonefolder = zonespecial;
+            }
+            else if (indexofzone == 6)
+            {
+                chosenzonefolder = zonetemperate;
+            }
+            else if (indexofzone == 7)
+            {
+                chosenzonefolder = zonetropical;
+            }
+
+
+
+
+
+
+
+            //Console.WriteLine(prefinalpathtofiles);
+
+
+            if (!Directory.Exists(prefinalpathtofiles))
+            {
+                //create directory
+            }
+            else
+            {
+
+
+
+
+                if (!Directory.Exists(prefinalpathtofilesmultiplied))
+                {
+                    Directory.CreateDirectory(prefinalpathtofilesmultiplied);
+                }
+
+                if (!Directory.Exists(prefinalpathtofilesmultiplied + @"\" + "Zones"))
+                {
+                    Directory.CreateDirectory(prefinalpathtofilesmultiplied + @"\" + "Zones");
+
+                }
+
+
+                if (!Directory.Exists(prefinalpathtofilesmultiplied + @"\" + "Zones" + @"\" + chosenzonefolder))
+                {
+                    Directory.CreateDirectory(prefinalpathtofilesmultiplied + @"\" + "Zones" + @"\" + chosenzonefolder);
+
+                }
+
+
+
+
+                string thepathtofiles = prefinalpathtofiles + @"\" + "Zones" + @"\" + chosenzonefolder;
+
+
+                //Console.WriteLine(thepathtofiles);
+
+                var arrayoforiginalpngfilesfront = Directory.GetFiles(thepathtofiles);
+
+                int lengthofpath = pathoriginal.Length;
+                //string thepathtoremove = @"\" + "original" + "Zones" + @"\" + "Arctic";
+
+                for (int i = 0; i < arrayoforiginalpngfilesfront.Length; i++)
+                {
+                    var substring = arrayoforiginalpngfilesfront[i].Substring(lengthofpath, arrayoforiginalpngfilesfront[i].Length - lengthofpath);
+                    //Console.WriteLine(arrayoforiginalpngfilesfront[i]);
+                    //Console.WriteLine(substring);
+                    //Console.WriteLine(pathoriginal);
+
+                    var st = substring.Substring(zonefolderselected.Length + 2, substring.Length - zonefolderselected.Length - 2);
+                    //Console.WriteLine(st);
+
+
+                    //File.WriteAllText(filenamewithext, File.ReadAllText(filenamewithext).Replace(scriptcharacterskeletonstring, scriptcharacterskeletonstring + scriptnamevariant).Replace(scriptcharacterskeletonpngpath, scriptcharacterskeletonpngpathreplacement + scriptnamevariant + "/"));
+
+                    string strtoreplace = "//9SMODS";
+
+
+                    //.Add(GetScript<SpawnMobsSkeleton>().Configure(densityMultiplier: 0.2))
+
+
+                    double densitymul = 0.1;
+
+                    string densitymultiplier = densitymul + "";
+
+
+
+                    Console.WriteLine(prefinalpathtofilesmultiplied + st);
+
+                    string multipliedfilepath = prefinalpathtofilesmultiplied + @"\" + "Zones" + st;
+                    File.Copy(arrayoforiginalpngfilesfront[i], multipliedfilepath, true);
+
+
+                    DirectoryInfo directoryFolder = new DirectoryInfo(multipliedfilepath);
+                    directoryFolder.Refresh();
+
+
+
+
+                    //File.WriteAllText(multipliedfilepath, File.ReadAllText(multipliedfilepath).Replace(strtoreplace, strtoreplace + "TEST"));//
+
+
+
+                    //Console.WriteLine(multipliedfilepath);
+
+
+
+                    File.WriteAllText(multipliedfilepath, File.ReadAllText(multipliedfilepath).Replace(strtoreplace, strtoreplace + "\r" + "scripts" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "0" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "1" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "2" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "3" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "4" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "5" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "6" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "7" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "8" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+
+".Add(GetScript<SpawnMobs" + "Zombie" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "0" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "1" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "2" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "3" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "4" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "5" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "6" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "7" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
+".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "8" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + ";"
+                        ));
+
+
+
+
+
+
+
+
+
+                    /*
+
+                    if (indexofzone == 0)
+                    {
+                        if (st == "ZoneArcticCoastLake.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneArcticCoastOcean.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneArcticCoastForest.cs")
+                        {
+
+                        }
+                    }
+                    else if (indexofzone == 1)
+                    {
+                        if (st == "ZoneBorealCoastLake.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneBorealCoastOcean.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneBorealForest.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneBorealMountain.cs")
+                        {
+
+                        }
+                    }
+                    else if (indexofzone == 2)
+                    {
+                        if (st == "ZoneGenericPragmiumWasteland.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneGenericRoads.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneGenericVolcanic.cs")
+                        {
+
+                        }
+                    }
+                    else if (indexofzone == 3)
+                    {
+                        if (st == "ZoneMobsSpitter.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneMobsScorpion.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneMobsPsiGrove.cs")
+                        {
+
+                        }
+                    }
+                    else if (indexofzone == 4)
+                    {
+                        if (st == "ZoneRuinsLootIndustrial.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneRuinsLootLaboratory.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneRuinsLootMilitary.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneRuinsLootResidential.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneRuinsMobsNormal.cs")
+                        {
+
+                        }
+                    }
+                    else if (indexofzone == 5)
+                    {
+                        if (st == "ZoneEventBoss.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneSpecialConstructionRestricted.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneSpecialPlayerSpawn.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneSpecialRadiationTier1.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneSpecialRadiationTier2.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneSpecialRadiationTier3.cs")
+                        {
+
+                        }
+                    }
+                    else if (indexofzone == 6)
+                    {
+                        if (st == "ZoneTemperateBarren.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneTemperateClay.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneTemperateCoastLake.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneTemperateCoastOcean.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneTemperateForest.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneTemperateMeadow.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneTemperateMountain.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneTemperateSalt.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneTemperateSwamp.cs")
+                        {
+
+                        }
+                    }
+                    else if (indexofzone == 7)
+                    {
+                        if (st == "ZoneTropicalForest.cs")
+                        {
+
+                        }
+                        else if (st == "ZoneTropicalMountain.cs")
+                        {
+
+                        }
+                    }*/
+                }
+            }
+        }
+
+        public unsafe void createvariantpngs(int variantindex, string mobname)
         {
             //float rand = (float)sc_maths.getSomeRandNum(0.75f, 1);
 
@@ -236,9 +682,9 @@ namespace sccs
 
             float diff = maxrandm - minrandm;
 
-            rand = minrandm + (diff * rand);
+            rand = 1.0f;// minrandm + (diff * rand);
 
-            float minrandg = 0.5f; //0.998f
+            /*float minrandg = 0.5f; //0.998f
             float maxrandg = 0.99f;//1.015f //0.999f
 
             float minrandb = 0.5f; //0.998f
@@ -246,7 +692,16 @@ namespace sccs
 
             float minrandr = 0.5f; //0.998f
             float maxrandr = 0.99f;//1.015f //0.999f
+            */
 
+            float minrandg = 0.90f; 
+            float maxrandg = 0.99f;//1.015f //0.999f
+
+            float minrandb = 0.90f; //0.998f
+            float maxrandb = 0.99f;//1.015f //0.999f
+
+            float minrandr = 0.90f; //0.998f
+            float maxrandr = 0.99f;//1.015f //0.999f
 
             float brightnessrandg = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandg, maxrandg, 1.0f, 0, -1);
             float brightnessrandb = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandb, maxrandb, 1.0f, 0, -1);
@@ -258,17 +713,16 @@ namespace sccs
 
             float diffg = maxrandg - minrandg;
             randg = minrandg + (diffg * randg);
+            //randg *= 1.0f;
 
             float diffb = maxrandb - minrandb;
             randb = minrandb + (diffb * randb);
-            //randb *= 0.75f;
+            //randb *= 1.0f;
             //randb *= 1.15f;
 
             float diffr = maxrandr - minrandr;
             randr = minrandr + (diffr * randr);
-            randr *= 1.5f;
-
-
+            //randr *= 1.0f;
 
             //randr *= 1.15f;
             //randb = randg;
@@ -468,8 +922,6 @@ namespace sccs
             string finalPathmulFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder  + @"\" + "Front" + @"\" + "Male" + @"\";
 
 
-
-
             string originalfolder = "original" + @"\" + mobname;
             string finalPathoriBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + originalfolder + @"\" + "Back" + @"\" + "Male" + @"\";
             string finalPathoriFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + originalfolder + @"\" + "Front" + @"\" + "Male" + @"\";
@@ -480,6 +932,12 @@ namespace sccs
             sccstextureloader texturetoload;
 
             var arrayoforiginalpngfilesfront = Directory.GetFiles(finalPathOriginalFront);
+
+
+
+
+
+
 
             //Console.WriteLine(arrayoforiginalpngfilesfront.Length);
 
@@ -640,10 +1098,22 @@ namespace sccs
                                 byte valuereducedtoahundredb = (byte)(255 * percentg);
                                 byte valuereducedtoahundredr = (byte)(255 * percentg);*/
 
+                               /* byte invertblueandgreen = textureByteArray[bytePoser + 0];
+                                byte invertgreenandblue = textureByteArray[bytePoser + 1];
 
-                                textureByteArray[bytePoser + 0] = (byte)((int)(textureByteArray[bytePoser + 0] * brightnessmultiplierg * lastbrightnessmul));
-                                textureByteArray[bytePoser + 1] = (byte)((int)(textureByteArray[bytePoser + 1] * brightnessmultiplierb * lastbrightnessmul));
+                                textureByteArray[bytePoser + 0] = (byte)((int)(invertgreenandblue * brightnessmultiplierg * lastbrightnessmul));
+                                textureByteArray[bytePoser + 1] = (byte)((int)(invertblueandgreen * brightnessmultiplierb * lastbrightnessmul));
                                 textureByteArray[bytePoser + 2] = (byte)((int)(textureByteArray[bytePoser + 2] * brightnessmultiplierr * lastbrightnessmul));
+                                */
+
+                                byte invertblueandgreen = textureByteArray[bytePoser + 0];
+                                byte invertgreenandblue = textureByteArray[bytePoser + 2];
+
+                                textureByteArray[bytePoser + 0] = (byte)((int)(invertgreenandblue * brightnessmultiplierb * lastbrightnessmul));
+                                textureByteArray[bytePoser + 1] = (byte)((int)(textureByteArray[bytePoser + 1] * brightnessmultiplierg * lastbrightnessmul));
+                                textureByteArray[bytePoser + 2] = (byte)((int)(invertblueandgreen * brightnessmultiplierr * lastbrightnessmul));
+
+
 
 
                                 posY++;
@@ -819,10 +1289,21 @@ namespace sccs
                                 byte valuereducedtoahundredg = (byte)(255 * percentg);
                                 byte valuereducedtoahundredb = (byte)(255 * percentg);
                                 byte valuereducedtoahundredr = (byte)(255 * percentg);*/
-
+                                /*
                                 textureByteArray[bytePoser + 0] = (byte)((int)(textureByteArray[bytePoser + 0] * brightnessmultiplierg * lastbrightnessmul));
                                 textureByteArray[bytePoser + 1] = (byte)((int)(textureByteArray[bytePoser + 1] * brightnessmultiplierb * lastbrightnessmul));
-                                textureByteArray[bytePoser + 2] = (byte)((int)(textureByteArray[bytePoser + 2] * brightnessmultiplierr * lastbrightnessmul));
+                                textureByteArray[bytePoser + 2] = (byte)((int)(textureByteArray[bytePoser + 2] * brightnessmultiplierr * lastbrightnessmul));*/
+
+                                //byte invertblueandgreen = textureByteArray[bytePoser + 0];
+                                //byte invertgreenandblue = textureByteArray[bytePoser + 1];
+
+                                byte invertblueandgreen = textureByteArray[bytePoser + 0];
+                                byte invertgreenandblue = textureByteArray[bytePoser + 2];
+
+                                textureByteArray[bytePoser + 0] = (byte)((int)(invertgreenandblue * brightnessmultiplierb * lastbrightnessmul));
+                                textureByteArray[bytePoser + 1] = (byte)((int)(textureByteArray[bytePoser + 1] * brightnessmultiplierg * lastbrightnessmul));
+                                textureByteArray[bytePoser + 2] = (byte)((int)(invertblueandgreen * brightnessmultiplierr * lastbrightnessmul));
+
 
                                 posY++;
                             }
