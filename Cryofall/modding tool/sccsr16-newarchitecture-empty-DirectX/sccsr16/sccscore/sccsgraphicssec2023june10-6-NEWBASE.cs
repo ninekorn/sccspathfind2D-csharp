@@ -2588,6 +2588,278 @@ namespace sccs
                 }
                 //MODIFY THE MOB CHARACTER SKELETON SCRIPT
             }
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //string folderNameOriginalPNGS = "original";
+            /*string folderNameOriginalPNGS = "original" + @"\" + mobname;
+
+            DirectoryInfo dirnameOriginal = new DirectoryInfo(folderNameOriginalPNGS);
+            dirnameOriginal.Refresh();
+            ////Console.WriteLine("2_mainThreadStarter");
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(folderNameOriginalPNGS);
+            }
+            else
+            {
+                //Console.WriteLine("1the directory exists");
+            }*/
+
+            //string finalpathoriginalPNGSback = "Back";
+            //string finalpathoriginalPNGSfront = "Front";
+
+            /*string finalPathOriginalBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
+            string finalPathOriginalFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
+
+
+            if (!Directory.Exists(finalPathOriginalFront))
+            {
+                //Console.WriteLine("00the directory !exists");
+                //Directory.CreateDirectory(folderNameOriginalPNGS);
+            }
+            else
+            {
+                //Console.WriteLine("11the directory exists");
+            }*/
+
+
+
+
+
+
+
+
+
+
+
+
+            /*
+            //folderNameCryofallPNGScriptVariantBuilder += "Variant" + variantindex;
+            //string folderNamemulPNGS = "Skeleton" + "Variant" + variantindex;
+            string folderNamemulPNGS = "multiplied";
+            //string folderNamemulPNGS = "multiplied";// + @"\" + "Skeleton" + "Variant" + variantindex;
+            string themobfolder = mobname + "Variant" + variantindex;
+
+
+
+            //string folderNamemulPNGS = "multiplied";
+            DirectoryInfo dirnamemul = new DirectoryInfo(folderNamemulPNGS);
+            dirnamemul.Refresh();
+            ////Console.WriteLine("2_mainThreadStarter");
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(folderNamemulPNGS);
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+
+
+
+                /*
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" ))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+                string finalpathmobscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
+                string finalpathmobskeletonscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
+                string finalpathmobitemscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
+                string finalpathmobzonescript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
+
+                string finalpathmobscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
+                string finalpathmobskeletonscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
+                string finalpathmobitemscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
+                string finalpathmobzonescriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
+                */
+
+
+
+
+
+
+            /*
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+        }*/
+            /*
+            string finalPathmulBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
+            string finalPathmulFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
+            */
         }
 
 
@@ -2597,8 +2869,8 @@ namespace sccs
 
 
 
-        //MADE BY STEVE CHASSÉ AKA NINEKORN FOR MODS INSIDE OF THE GAME VOID EXPANSE WHERE I WANTED TO MULTIPLY DRONE FORMATION SCRIPTS TO HAVE RESULTS FASTER CODING.
-        static int someInitItems = 0;
+
+            static int someInitItems = 0;
         //UI THREAD TEST
         //////////////////////////////////
         //////////////////////////////////
@@ -5155,268 +5427,3 @@ File.WriteAllText(filenamewithext, File.ReadAllText(filenamewithext).Replace(scr
     Replace(scriptstaticvar, scriptstaticvar).
     Replace(scriptitemnames, scriptitemnames).
     Replace(replacethistoo, replacethistoo));*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//string folderNameOriginalPNGS = "original";
-/*string folderNameOriginalPNGS = "original" + @"\" + mobname;
-
-DirectoryInfo dirnameOriginal = new DirectoryInfo(folderNameOriginalPNGS);
-dirnameOriginal.Refresh();
-////Console.WriteLine("2_mainThreadStarter");
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(folderNameOriginalPNGS);
-}
-else
-{
-    //Console.WriteLine("1the directory exists");
-}*/
-
-//string finalpathoriginalPNGSback = "Back";
-//string finalpathoriginalPNGSfront = "Front";
-
-/*string finalPathOriginalBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
-string finalPathOriginalFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
-
-
-if (!Directory.Exists(finalPathOriginalFront))
-{
-    //Console.WriteLine("00the directory !exists");
-    //Directory.CreateDirectory(folderNameOriginalPNGS);
-}
-else
-{
-    //Console.WriteLine("11the directory exists");
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-//folderNameCryofallPNGScriptVariantBuilder += "Variant" + variantindex;
-//string folderNamemulPNGS = "Skeleton" + "Variant" + variantindex;
-string folderNamemulPNGS = "multiplied";
-//string folderNamemulPNGS = "multiplied";// + @"\" + "Skeleton" + "Variant" + variantindex;
-string themobfolder = mobname + "Variant" + variantindex;
-
-
-
-//string folderNamemulPNGS = "multiplied";
-DirectoryInfo dirnamemul = new DirectoryInfo(folderNamemulPNGS);
-dirnamemul.Refresh();
-////Console.WriteLine("2_mainThreadStarter");
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(folderNamemulPNGS);
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-
-
-
-    /*
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" ))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-    string finalpathmobscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
-    string finalpathmobskeletonscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
-    string finalpathmobitemscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
-    string finalpathmobzonescript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
-
-    string finalpathmobscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
-    string finalpathmobskeletonscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
-    string finalpathmobitemscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
-    string finalpathmobzonescriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
-    */
-
-
-
-
-
-
-/*
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-}*/
-/*
-string finalPathmulBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
-string finalPathmulFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
-*/

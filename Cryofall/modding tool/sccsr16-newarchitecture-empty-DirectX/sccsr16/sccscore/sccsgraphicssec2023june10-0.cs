@@ -82,7 +82,6 @@ using SharpDX.WIC;
 using SharpDX.RawInput;
 using static System.Net.Mime.MediaTypeNames;
 using Microsoft.VisualBasic.ApplicationServices;
-using Microsoft.VisualBasic;
 
 namespace sccs
 {
@@ -236,93 +235,47 @@ namespace sccs
 
                         //Console.WriteLine(themodfoldernamewithoutextension);
 
-                        string finalPathheader = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk"; // + @"\" + "images"
-                        var arrayoforiginalheader = Directory.GetFiles(finalPathheader);
-
-                        //Console.WriteLine(arrayoforiginalweapon[i]);
-                        string finalPathanims1 = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk"; // + @"\" + "images"
-                        string finalPathanims2 = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk"; // + @"\" + "images"
-
-                        if (!Directory.Exists(finalPathanims2))
-                        {
-                            Directory.CreateDirectory(finalPathanims2); // + @"\" + "Zones"
-                        }
-
-
-
-                        for (int i = 0; i < arrayoforiginalheader.Length; i++)
-                        {
-
-                            //Console.WriteLine(finalPathanims1);
-                            //Console.WriteLine(arrayoforiginalweapon[i]);
-
-                            string finalfilename = arrayoforiginalheader[i].Substring(finalPathanims1.Length, (arrayoforiginalheader[i].Length - (finalPathanims1.Length)));
-                            //Console.WriteLine(finalfilename);
-                            File.Copy(arrayoforiginalheader[i], finalPathanims2 + @"\" + finalfilename, true);
-                        }
-
-
-
                         if (themodfoldernamewithoutextension.ToLower() == "sccspathfind")
                         {
                             continue;
                         }
                         else if (themodfoldernamewithoutextension.ToLower() == "skeleton")
                         {
-                            
-
-
-
-
-                            /*float mobheight = 1.65f;
+                            float mobheight = 1.65f;
                             double mobhp = 99;
                             double mobspeed = 2.0;
-                            string mobname = "Skeleton";*/
+                            string mobname = "Skeleton";
 
-                            //string prefinalpathtofiles = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + "original";
 
-                            string pathtoanimationpngs = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Content\\Animations\\" + themodfoldernamewithoutextension + "\\images"; //back/male and /front/male
-                            string pathtoscripts = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
-                            string pathtoscriptsmul = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
-                    
+                            string pathtoanimationpngs = "C:\\Users\\steve\\Desktop\\#Cryofallscriptgen\\original" + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Content\\Animations\\" + themodfoldernamewithoutextension + "\\images";
+                            string pathtoscripts = "C:\\Users\\steve\\Desktop\\#Cryofallscriptgen\\original" + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
+
+
                             for (int i = 0; i < numberofvariants; i++)
                             {
-                                createvariantpngs(i, themodfoldernamewithoutextension, pathtoanimationpngs, themodfoldernamewithoutextension);
-                                createvariantscripts(i, themodfoldernamewithoutextension, pathtoscripts, pathtoscriptsmul, themodfoldernamewithoutextension);
+                                createvariantpngs(i, mobname, pathtoanimationpngs, themodfoldernamewithoutextension);
+                                //createvariantscripts(i, mobname, mobspeed, mobhp, mobheight, pathtoscripts, themodfoldernamewithoutextension);
                             }
                         }
                         else if (themodfoldernamewithoutextension.ToLower() == "zombie")
                         {
-
-
-
-
-
-
-                            /*
                             float mobheight = 1.65f;
                             double mobhp = 200;
                             double mobspeed = 1.5;
-                            string mobname = "Zombie";
-                            */
+                            string mobname = "zombie";
 
-                            //string prefinalpathtofiles = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + "original";
 
-                            string pathtoanimationpngs = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Content\\Animations\\" + themodfoldernamewithoutextension + "\\images"; //back/male and /front/male
-                            string pathtoscripts = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
-                            string pathtoscriptsmul = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
+                            string pathtoanimationpngs = "C:\\Users\\steve\\Desktop\\#Cryofallscriptgen\\original" + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Content\\Animations\\" + themodfoldernamewithoutextension + "\\images";
+                            string pathtoscripts = "C:\\Users\\steve\\Desktop\\#Cryofallscriptgen\\original" + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
 
                             for (int i = 0; i < numberofvariants; i++)
                             {
-                                createvariantpngs(i, themodfoldernamewithoutextension, pathtoanimationpngs, themodfoldernamewithoutextension);
-                                createvariantscripts(i, themodfoldernamewithoutextension, pathtoscripts, pathtoscriptsmul, themodfoldernamewithoutextension);
+                                createvariantpngs(i, mobname, pathtoanimationpngs, themodfoldernamewithoutextension);
+                                //createvariantscripts(i, mobname, mobspeed, mobhp, mobheight, pathtoscripts, themodfoldernamewithoutextension);
                             }
                         }
                         else if (themodfoldernamewithoutextension.ToLower() == "zones")
                         {
-                           
-
-
                             string zonearctic = @"\" + "Zones" + @"\" + "Arctic";
                             string zoneboreal = @"\" + "Zones" + @"\" + "Boreal";
                             string zonegeneric = @"\" + "Zones" + @"\" + "Generic";
@@ -344,12 +297,10 @@ namespace sccs
                             arrayofzones[7] = zonetropical;
 
                             int chosenindex = 0;
-
                             string currentfolderzone = arrayofzones[chosenindex];
 
-                            //string pathtozones = "C:\\Users\\steve\\Desktop\\#Cryofallscriptgen\\original" + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts" + @"\" + "Zones" + @"\" + "Zones";
 
-                            string pathtozones = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts" + @"\" + "Zones" + @"\" + "Zones";
+                            string pathtozones = "C:\\Users\\steve\\Desktop\\#Cryofallscriptgen\\original" + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts" + @"\" + "Zones" + @"\" + "Zones";
 
 
                             for (int j = 0; j < 1; j++)//skeleton and zombie variants
@@ -680,14 +631,9 @@ namespace sccs
                 //Console.WriteLine(thepathtofiles);
                 
                 
-                //Console.WriteLine(pathtozonescripts);
-
+                //Console.WriteLine(thepathtofiles);
 
                 var arrayoforiginalpngfilesfront = Directory.GetFiles(pathtozonescripts);
-
-                //Console.WriteLine(arrayoforiginalpngfilesfront.Length);
-
-
 
 
                 pathoriginal += @"\" + "original" + @"\";
@@ -698,46 +644,40 @@ namespace sccs
                 for (int i = 0; i < arrayoforiginalpngfilesfront.Length; i++)
                 {
                     var substring = arrayoforiginalpngfilesfront[i].Substring(lengthofpath, arrayoforiginalpngfilesfront[i].Length - lengthofpath);
-
-                    string pathtozonescripts1 = "Zones" + ".mpk" + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Zones" + @"\";
-
-                    var substring1 = substring.Substring(pathtozonescripts1.Length + chosenzonefolder.Length + 1, substring.Length - pathtozonescripts1.Length - (chosenzonefolder.Length + 1));
-
-                    //Console.WriteLine(substring1);
-
                     //Console.WriteLine(arrayoforiginalpngfilesfront[i]);
                     //Console.WriteLine(substring);
                     //Console.WriteLine(pathoriginal);
 
+
+
+
+
+
+
                     /*var st = substring.Substring(zonefolderselected.Length + 2, substring.Length - zonefolderselected.Length - 2);
                     Console.WriteLine(st);
-                    */
+
+
                     //File.WriteAllText(filenamewithext, File.ReadAllText(filenamewithext).Replace(scriptcharacterskeletonstring, scriptcharacterskeletonstring + scriptnamevariant).Replace(scriptcharacterskeletonpngpath, scriptcharacterskeletonpngpathreplacement + scriptnamevariant + "/"));
 
                     string strtoreplace = "//9SMODS";
 
+
                     //.Add(GetScript<SpawnMobsSkeleton>().Configure(densityMultiplier: 0.2))
+
 
                     double densitymul = 0.1;
 
                     string densitymultiplier = densitymul + "";
 
+
+
                     //Console.WriteLine("@" + prefinalpathtofilesmultiplied + st);
 
 
-                    /*
+
                     string finalpath = prefinalpathtofilesmultiplied + st;
 
-                    
-
-
-
-
-
-
-
-                    
-                    string multipliedfilepath = prefinalpathtofilesmultiplied + @"\" + "Zones" + st;
                     */
 
 
@@ -746,49 +686,22 @@ namespace sccs
 
 
 
-
-
-                    ///Console.WriteLine(prefinalpathtofilesmultiplied);
-
-
-
-
                     /*
+                    string multipliedfilepath = prefinalpathtofilesmultiplied + @"\" + "Zones" + st;
+
+
                     if (!Directory.Exists(prefinalpathtofilesmultiplied + @"\" + "Zones"))
                     {
                         Directory.CreateDirectory(prefinalpathtofilesmultiplied + @"\" + "Zones");
                     }
 
-                    */
 
 
 
-                    //Console.WriteLine(prefinalpathtofilesmultiplied);
+                    File.Copy(arrayoforiginalpngfilesfront[i], multipliedfilepath, true);
 
 
-                    //Console.WriteLine(substring1);
-
-
-                    string multipliedfilepath = prefinalpathtofilesmultiplied + @"\" + pathtozonescripts1 + @"\" + chosenzonefolder + @"\";
-                    if (!Directory.Exists(multipliedfilepath))
-                    {
-                        Directory.CreateDirectory(multipliedfilepath);
-                    }
-
-
-
-
-
-                    string thepathtofilewithext = multipliedfilepath + substring1;
-
-
-
-
-
-                    File.Copy(arrayoforiginalpngfilesfront[i], thepathtofilewithext, true);
-
-
-                    DirectoryInfo directoryFolder = new DirectoryInfo(thepathtofilewithext);
+                    DirectoryInfo directoryFolder = new DirectoryInfo(multipliedfilepath);
                     directoryFolder.Refresh();
 
 
@@ -802,7 +715,7 @@ namespace sccs
 
 
 
-                    File.WriteAllText(thepathtofilewithext, File.ReadAllText(thepathtofilewithext).Replace(strtoreplace, strtoreplace + "\r" + "scripts" +
+                    File.WriteAllText(multipliedfilepath, File.ReadAllText(multipliedfilepath).Replace(strtoreplace, strtoreplace + "\r" + "scripts" +
 ".Add(GetScript<SpawnMobs" + "Skeleton" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
 ".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "0" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
 ".Add(GetScript<SpawnMobs" + "Skeleton" + "Variant" + "1" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
@@ -825,11 +738,11 @@ namespace sccs
 ".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "7" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + "\r" +
 ".Add(GetScript<SpawnMobs" + "Zombie" + "Variant" + "8" + ">().Configure(densityMultiplier: " + densitymultiplier + "))" + ";"
                         ));
-                    
-                    
 
 
 
+                
+                    */
 
 
 
@@ -1087,11 +1000,6 @@ namespace sccs
             //Console.WriteLine(pathtoanimationpngs + finalPathOriginalFront + @"\" + "Male");
 
             var arrayoforiginalpngfilesfront = Directory.GetFiles(pathtoanimationpngs + finalPathOriginalFront + @"\" + "Male");
-            var arrayoforiginalpngfilesback = Directory.GetFiles(pathtoanimationpngs + finalPathOriginalBack + @"\" + "Male");
-
-
-        
-
 
             //Console.WriteLine(pathtoanimationpngs + finalPathOriginalFront);
 
@@ -1104,253 +1012,8 @@ namespace sccs
 
             string themobfolder = mobname + "Variant" + variantindex;
 
-            string finalPathmulBack = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + "images" + @"\" + "Back" + @"\" + "Male" + @"\";
-            string finalPathmulFront = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + "images" + @"\" + "Front" + @"\" + "Male" + @"\";
-
-
-
-            
-
-            string finalPathanims = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname; // + @"\" + "images"
-            var arrayoforiginalpngfilesanims = Directory.GetFiles(finalPathanims);
-
-            //Console.WriteLine(finalPathanims);
-
-
-            //Console.WriteLine(arrayoforiginalpngfilesanims[i]);
-            string finalPathanims1 = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname; // + @"\" + "images"
-            string finalPathanims2 = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder; // + @"\" + "images"
-
-
-            if (!Directory.Exists(finalPathanims2 + @"\" + "images" + @"\" + "Front" + @"\" + "Male"))
-            {
-                Directory.CreateDirectory(finalPathanims2 + @"\" + "images" + @"\" + "Front" + @"\" + "Male"); // + @"\" + "Zones"
-            }
-
-
-            if (!Directory.Exists(finalPathanims2 + @"\" + "images" + @"\" + "Back" + @"\" + "Male"))
-            {
-                Directory.CreateDirectory(finalPathanims2 + @"\" + "images" + @"\" + "Back" + @"\" + "Male"); // + @"\" + "Zones"
-            }
-
-
-
-
-
-            //copy anims
-            for (int i = 0; i < arrayoforiginalpngfilesanims.Length; i++)
-            {
-              
-                //Console.WriteLine(finalPathanims1);
-                //Console.WriteLine(arrayoforiginalpngfilesanims[i]);
-
-                
-                string finalfilename = arrayoforiginalpngfilesanims[i].Substring(finalPathanims1.Length, (arrayoforiginalpngfilesanims[i].Length - (finalPathanims1.Length)));
-                //Console.WriteLine(finalfilename);
-                File.Copy(arrayoforiginalpngfilesanims[i], finalPathanims2 + @"\" + finalfilename, true);
-            }
-            //copy anims
-            
-            //copy weapon not sure if that is necessary now
-            string finalPathweapon = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname + @"\" + "images"; // + @"\" + "images"
-            var arrayoforiginalweapon = Directory.GetFiles(finalPathweapon);
-            for (int i = 0; i < arrayoforiginalweapon.Length; i++)
-            {
-               
-                //Console.WriteLine(finalPathanims1);
-                //Console.WriteLine(arrayoforiginalweapon[i]);
-
-                string finalfilename = arrayoforiginalweapon[i].Substring(finalPathanims1.Length, (arrayoforiginalweapon[i].Length - (finalPathanims1.Length)));
-                //Console.WriteLine(finalfilename);
-                File.Copy(arrayoforiginalweapon[i], finalPathanims2 + @"\" + finalfilename, true);
-            }
-            //copy weapon not sure if that is necessary now
-            
-
-
-            //string finalPathmulBack2 = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + "images" + @"\" + "Back" + @"\" + "Male" + @"\";
-            //string finalPathmulFront2 = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + "images" + @"\" + "Front" + @"\" + "Male" + @"\";
-
-            
-            //copy anims
-            for (int i = 0; i < arrayoforiginalpngfilesfront.Length; i++)
-            {
-               
-                //Console.WriteLine(finalPathanims1);
-                //Console.WriteLine(arrayoforiginalpngfilesfront[i]);
-
-                string finalfilename = arrayoforiginalpngfilesfront[i].Substring(finalPathanims1.Length, (arrayoforiginalpngfilesfront[i].Length - (finalPathanims1.Length)));
-                //Console.WriteLine(finalfilename);
-                File.Copy(arrayoforiginalpngfilesfront[i], finalPathanims2 + @"\" + finalfilename, true);
-            }
-            //copy anims
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //AT VARIANT INDEX 0, ALSO COPY THE ORIGINAL FILES
-            if (variantindex == 0)
-            {
-                string finalPathanimsa = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname; // + @"\" + "images"
-
-                string finalPathanimsf = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname + @"\" + "images" + @"\" + "Front" + @"\" + "Male"; // + @"\" + "images"
-                string finalPathanimsb = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname + @"\" + "images" + @"\" + "Back" + @"\" + "Male"; // + @"\" + "images"
-
-                if (!Directory.Exists(finalPathanimsf))
-                {
-                    Directory.CreateDirectory(finalPathanimsf); // + @"\" + "Zones"
-                }
-                if (!Directory.Exists(finalPathanimsb))
-                {
-                    Directory.CreateDirectory(finalPathanimsb); // + @"\" + "Zones"
-                }
-
-
-                string finalPathPNGSf = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname + @"\" + "images" + @"\" + "Front" + @"\" + "Male"; // + @"\" + "images"
-                string finalPathPNGSb = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname + @"\" + "images" + @"\" + "Back" + @"\" + "Male"; // + @"\" + "images"
-
-
-                var arrayoforiginalpngsf = Directory.GetFiles(finalPathPNGSf);
-
-
-                //copy pngs front
-                for (int i = 0; i < arrayoforiginalpngsf.Length; i++)
-                {
-
-                    //Console.WriteLine(finalPathanims1);
-                    //Console.WriteLine(arrayoforiginalpngfilesanims[i]);
-
-
-                    string finalfilename = arrayoforiginalpngsf[i].Substring(finalPathPNGSf.Length+1, (arrayoforiginalpngsf[i].Length - (finalPathPNGSf.Length+1)));
-                    Console.WriteLine(finalfilename);
-                 
-                    File.Copy(arrayoforiginalpngsf[i], finalPathanimsf + @"\" + finalfilename, true);
-                }
-                //copy pngs front
-
-
-
-                
-                
-                var arrayoforiginalpngsb = Directory.GetFiles(finalPathPNGSb);
-                //copy pngs back
-                for (int i = 0; i < arrayoforiginalpngsb.Length; i++)
-                {
-
-                    //Console.WriteLine(finalPathanims1);
-                    //Console.WriteLine(arrayoforiginalpngfilesanims[i]);
-
-
-                    string finalfilename = arrayoforiginalpngsb[i].Substring(finalPathPNGSb.Length + 1, (arrayoforiginalpngsb[i].Length - (finalPathPNGSb.Length + 1)));
-                    //Console.WriteLine(finalfilename);
-
-                    File.Copy(arrayoforiginalpngsb[i], finalPathanimsb + @"\" + finalfilename, true);
-                }
-                //copy pngs back
-
-                
-
-
-
-
-
-
-
-
-
-
-                //copy weapon not sure if that is necessary now
-                string finalPathweapon1 = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname + @"\" + "images" ; // + @"\" + "images"
-                var arrayoforiginalweapon1 = Directory.GetFiles(finalPathweapon1);
-                //Console.WriteLine(finalPathweapon1);
-                string finalPathweapon2 = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname + @"\" + "images"; // + @"\" + "images"
-
-                DirectoryInfo directoryFolder0 = new DirectoryInfo(finalPathweapon1);
-                directoryFolder0.Refresh();
-
-                for (int i = 0; i < arrayoforiginalweapon1.Length; i++)
-                {
-                    //Console.WriteLine(finalPathanims3);
-                    //Console.WriteLine(arrayoforiginalweapon[i]);
-                    
-                    string finalfilename = arrayoforiginalweapon1[i].Substring(finalPathweapon1.Length+1, (arrayoforiginalweapon1[i].Length - (finalPathweapon1.Length+1)));
-                    Console.WriteLine(finalfilename);
-
-                    //DirectoryInfo directoryFolder1 = new DirectoryInfo(finalfilename);
-                    //directoryFolder1.Refresh();
-                    //Console.WriteLine(finalPathweapon1 + @"\" + finalfilename);
-                    File.Copy(arrayoforiginalweapon1[i], finalPathweapon2 + @"\" + finalfilename, true);
-                }
-                //copy weapon not sure if that is necessary now
-
-
-
-                //copy weapon not sure if that is necessary now
-                string finalPathweapon11 = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname; // + @"\" + "images"
-                var arrayoforiginalanims11 = Directory.GetFiles(finalPathweapon11);
-                //Console.WriteLine(finalPathweapon1);
-                string finalpathanims = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + mobname; // + @"\" + "images"
-
-                DirectoryInfo directoryFolder00 = new DirectoryInfo(finalPathweapon11);
-                directoryFolder00.Refresh();
-
-                for (int i = 0; i < arrayoforiginalanims11.Length; i++)
-                {
-                    //Console.WriteLine(finalPathanims3);
-                    //Console.WriteLine(arrayoforiginalweapon[i]);
-
-                    string finalfilename = arrayoforiginalanims11[i].Substring(finalPathweapon11.Length + 1, (arrayoforiginalanims11[i].Length - (finalPathweapon11.Length + 1)));
-                    //Console.WriteLine(finalfilename);
-
-                    //DirectoryInfo directoryFolder1 = new DirectoryInfo(finalfilename);
-                    //directoryFolder1.Refresh();
-                    //Console.WriteLine(finalPathweapon1 + @"\" + finalfilename);
-                    File.Copy(arrayoforiginalanims11[i], finalpathanims + @"\" + finalfilename, true);
-                }
-                //copy weapon not sure if that is necessary now
-
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            string finalPathmulBack = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + "images" + @"\" + "Back";// + @"\" + "Male" + @"\";
+            string finalPathmulFront = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + "images" + @"\" + "Front";// + @"\" + "Male" + @"\";
 
             if (!Directory.Exists(finalPathmulBack))
             {
@@ -1367,8 +1030,8 @@ namespace sccs
 
             //Console.WriteLine("TEST" + finalPathmulFront);
 
-            string finalPathoriBack = pathtoanimationpngs + finalPathOriginalBack + @"\" + "Male";
-            string finalPathoriFront = pathtoanimationpngs + finalPathOriginalFront + @"\" + "Male";
+            string finalPathoriBack = pathtoanimationpngs + finalPathOriginalBack;
+            string finalPathoriFront = pathtoanimationpngs + finalPathOriginalFront;
 
             for (int i = 0; i < arrayoforiginalpngfilesfront.Length; i++)
             {
@@ -1379,16 +1042,15 @@ namespace sccs
                 if (textureinit)
                 {
                     //Console.WriteLine("texture initialiased");
-                    
+
                     var factory = new SharpDX.WIC.ImagingFactory();
                     var filename = arrayoforiginalpngfilesfront[i];// "OnBoardComputer.png";
 
                     //string finalfilename = arrayoforiginalpngfilesfront[i].Substring(finalPathmulFront.Length-2, (arrayoforiginalpngfilesfront[i].Length-1 - finalPathmulFront.Length - 1));
 
-                    //Console.WriteLine("finalPathoriFront:" + finalPathoriFront);
-
-                    string finalfilename = arrayoforiginalpngfilesfront[i].Substring(finalPathoriFront.Length+1, (arrayoforiginalpngfilesfront[i].Length - finalPathoriFront.Length - 5));
-                    //Console.WriteLine("filename:" + finalfilename);
+                    string finalfilename = arrayoforiginalpngfilesfront[i].Substring(finalPathoriFront.Length, (arrayoforiginalpngfilesfront[i].Length - finalPathoriFront.Length - 4));
+                    ////Console.WriteLine("filename:" + finalfilename);
+ 
                     //Console.WriteLine("filename:" + filename);
 
                     var bitmapDecoder = new SharpDX.WIC.BitmapDecoder(
@@ -1513,16 +1175,16 @@ namespace sccs
                                 
                                 byte valuereducedtoahundredg = (byte)(255 * percentg);
                                 byte valuereducedtoahundredb = (byte)(255 * percentg);
-                                byte valuereducedtoahundredr = (byte)(255 * percentg);
+                                byte valuereducedtoahundredr = (byte)(255 * percentg);*/
 
-                                 //byte invertblueandgreen = textureByteArray[bytePoser + 0];
-                                 //byte invertgreenandblue = textureByteArray[bytePoser + 1];
+                                /* byte invertblueandgreen = textureByteArray[bytePoser + 0];
+                                 byte invertgreenandblue = textureByteArray[bytePoser + 1];
 
-                                 //textureByteArray[bytePoser + 0] = (byte)((int)(invertgreenandblue * brightnessmultiplierg * lastbrightnessmul));
-                                 //textureByteArray[bytePoser + 1] = (byte)((int)(invertblueandgreen * brightnessmultiplierb * lastbrightnessmul));
-                                 //textureByteArray[bytePoser + 2] = (byte)((int)(textureByteArray[bytePoser + 2] * brightnessmultiplierr * lastbrightnessmul));
-                                 
-                                */
+                                 textureByteArray[bytePoser + 0] = (byte)((int)(invertgreenandblue * brightnessmultiplierg * lastbrightnessmul));
+                                 textureByteArray[bytePoser + 1] = (byte)((int)(invertblueandgreen * brightnessmultiplierb * lastbrightnessmul));
+                                 textureByteArray[bytePoser + 2] = (byte)((int)(textureByteArray[bytePoser + 2] * brightnessmultiplierr * lastbrightnessmul));
+                                 */
+
                                 byte invertblueandgreen = textureByteArray[bytePoser + 0];
                                 byte invertgreenandblue = textureByteArray[bytePoser + 2];
 
@@ -1535,12 +1197,7 @@ namespace sccs
                         }
                     }
 
-                    //Console.WriteLine("TEST" + finalPathmulFront + finalfilename + ".png");
-
-
-
-                    //Console.WriteLine(finalPathmulFront);
-
+                    Console.WriteLine("TEST" + finalPathmulFront + finalfilename + ".png");
 
                     //break;
                     
@@ -1549,41 +1206,23 @@ namespace sccs
                     somebitmap.Save(finalPathmulFront + finalfilename + ".png");
 
                     bitmapcounter++;
-                    
+
                     device.ImmediateContext.UnmapSubresource(theonboardcomputertextureFINAL, 0);
                     DeleteObject(interptr1);
                     //DISCARDED
                     //DISCARDED
                     //DISCARDED
-
-
-
                 }
-                else
-                {
-
-                    /*string finalPathanims = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + "images" + @"\";
-
-                    File.Copy(arrayoforiginalpngfilesfront[i], finalPathanims, true);
-                    */
-
-                }
-
-
             }
 
 
 
-
-
-
-
-
+            
+            var arrayoforiginalpngfilesback = Directory.GetFiles(pathtoanimationpngs + finalPathOriginalBack + @"\" + "Male");
 
             for (int i = 0; i < arrayoforiginalpngfilesback.Length; i++)
             {
                 texturetoload = new sccstextureloader();
-
                 var textureinit = texturetoload.Initialize(device, arrayoforiginalpngfilesback[i]);
 
                 if (textureinit)
@@ -1593,13 +1232,9 @@ namespace sccs
                     var factory = new SharpDX.WIC.ImagingFactory();
                     var filename = arrayoforiginalpngfilesback[i];// "OnBoardComputer.png";
 
-                    //string finalfilename = arrayoforiginalpngfilesback[i].Substring(finalPathmulback.Length-2, (arrayoforiginalpngfilesback[i].Length-1 - finalPathmulback.Length - 1));
+                    string finalfilename = arrayoforiginalpngfilesback[i].Substring(finalPathoriBack.Length, (arrayoforiginalpngfilesback[i].Length - finalPathoriBack.Length - 4));
 
-                    //Console.WriteLine("finalPathoriback:" + finalPathoriback);
-
-                    string finalfilename = arrayoforiginalpngfilesback[i].Substring(finalPathoriBack.Length + 1, (arrayoforiginalpngfilesback[i].Length - finalPathoriBack.Length - 5));
-                    //Console.WriteLine("filename:" + finalfilename);
-                    //Console.WriteLine("filename:" + filename);
+                    //string finalfilename = arrayoforiginalpngfilesback[i].Substring(finalPathmulFront.Length - 2, (arrayoforiginalpngfilesback[i].Length - 1 - finalPathmulFront.Length - 1));
 
                     var bitmapDecoder = new SharpDX.WIC.BitmapDecoder(
                         factory,
@@ -1617,12 +1252,15 @@ namespace sccs
                         0.0,
                         SharpDX.WIC.BitmapPaletteType.Custom);
 
+
                     SharpDX.Direct3D11.Texture2D thetexture2d;
+
 
                     int stride = bitmapsourceresult.Size.Width * 4;
                     texturetoload.bufferfortests = new SharpDX.DataStream(bitmapsourceresult.Size.Height * stride, true, true);
                     //using (SharpDX.DataStream buffer = new SharpDX.DataStream(bitmapSource.Size.Height * stride, true, true))
                     {
+
                         bitmapsourceresult.CopyPixels(stride, texturetoload.bufferfortests);
                         thetexture2d = new SharpDX.Direct3D11.Texture2D(device, new SharpDX.Direct3D11.Texture2DDescription()
                         {
@@ -1690,16 +1328,19 @@ namespace sccs
                         }
                     }
 
-                    ////float brightnessmultiplierb = 0.95f; //green
+
+                    //float brightnessmultiplierb = 0.95f; //green
                     //float brightnessmultiplierg = 0.95f; //blue
                     //float brightnessmultiplierr = 1.15f; //red
-                    //float lastbrightnessmul = 1.25f;
 
+                    //float lastbrightnessmul = 1.25f;
                     float brightnessmultiplierb = randb; //green
                     float brightnessmultiplierg = randg; //blue
                     float brightnessmultiplierr = randr; //red
 
                     float lastbrightnessmul = rand;
+
+                    //Console.WriteLine(lastbrightnessmul);
 
                     int countgreenscreenpixelsareweinanoptiontransition = 0;
 
@@ -1720,19 +1361,18 @@ namespace sccs
                                 float percentb = (textureByteArray[bytePoser + 1] / 255);
                                 float percentr = (textureByteArray[bytePoser + 2] / 255);
 
-                                
+
                                 byte valuereducedtoahundredg = (byte)(255 * percentg);
                                 byte valuereducedtoahundredb = (byte)(255 * percentg);
                                 byte valuereducedtoahundredr = (byte)(255 * percentg);
-
-                                 //byte invertblueandgreen = textureByteArray[bytePoser + 0];
-                                 //byte invertgreenandblue = textureByteArray[bytePoser + 1];
-
-                                 //textureByteArray[bytePoser + 0] = (byte)((int)(invertgreenandblue * brightnessmultiplierg * lastbrightnessmul));
-                                 //textureByteArray[bytePoser + 1] = (byte)((int)(invertblueandgreen * brightnessmultiplierb * lastbrightnessmul));
-                                 //textureByteArray[bytePoser + 2] = (byte)((int)(textureByteArray[bytePoser + 2] * brightnessmultiplierr * lastbrightnessmul));
-                                 
+                                
+                                //textureByteArray[bytePoser + 0] = (byte)((int)(textureByteArray[bytePoser + 0] * brightnessmultiplierg * lastbrightnessmul));
+                                //textureByteArray[bytePoser + 1] = (byte)((int)(textureByteArray[bytePoser + 1] * brightnessmultiplierb * lastbrightnessmul));
+                                //textureByteArray[bytePoser + 2] = (byte)((int)(textureByteArray[bytePoser + 2] * brightnessmultiplierr * lastbrightnessmul));
                                 */
+                                //byte invertblueandgreen = textureByteArray[bytePoser + 0];
+                                //byte invertgreenandblue = textureByteArray[bytePoser + 1];
+
                                 byte invertblueandgreen = textureByteArray[bytePoser + 0];
                                 byte invertgreenandblue = textureByteArray[bytePoser + 2];
 
@@ -1740,19 +1380,11 @@ namespace sccs
                                 textureByteArray[bytePoser + 1] = (byte)((int)(textureByteArray[bytePoser + 1] * brightnessmultiplierg * lastbrightnessmul));
                                 textureByteArray[bytePoser + 2] = (byte)((int)(invertblueandgreen * brightnessmultiplierr * lastbrightnessmul));
 
+
                                 posY++;
                             }
                         }
                     }
-
-                    //Console.WriteLine("TEST" + finalPathmulback + finalfilename + ".png");
-
-
-
-                    //Console.WriteLine(finalPathmulBack);
-
-
-                    //break;
 
                     var somebitmap = new System.Drawing.Bitmap(columnsonboardcomputer, rowsonboardcomputer, columnsonboardcomputer * 4, System.Drawing.Imaging.PixelFormat.Format32bppArgb, Marshal.UnsafeAddrOfPinnedArrayElement(onboardcomputeiconpixeldata, 0));
                     //somebitmap.Save(@"C:\Users\steve\Desktop\screenRecord\" + bitmapcounter + "_" + rowsonboardcomputer.ToString("00") + columnsonboardcomputer.ToString("00") + ".png");
@@ -1764,11 +1396,7 @@ namespace sccs
                     DeleteObject(interptr1);
                     //DISCARDED
                     //DISCARDED
-                    //DISCARDED                 
-                }
-                else
-                {
-
+                    //DISCARDED
                 }
             }
 
@@ -1781,9 +1409,6 @@ namespace sccs
 
 
 
-            //COPYANIMATIONS
-            string finalPathmulBack1 = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\";
-            string finalPathmulFront1 = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\";
 
 
 
@@ -1807,6 +1432,231 @@ namespace sccs
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Console.WriteLine(randg);
+
+
+
+
+
+
+
+
+            /*//Console.WriteLine(randg);
+            //Console.WriteLine(randb);
+            //Console.WriteLine(randr);
+
+            //rand *= 0.01f;
+            //rand = rand / 100;
+
+            //Console.WriteLine(rand);
+            */
+            /*
+            string pathToDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            ////Console.WriteLine("2_mainThreadStarter");
+            string folderNameCryofallPNGScriptVariantBuilder = "#Cryofallscriptgen";
+            DirectoryInfo directoryFolder = new DirectoryInfo(folderNameCryofallPNGScriptVariantBuilder);
+            directoryFolder.Refresh();
+            //string pathToDesktopFolder = pathToDesktop + @"\" + folderName;
+
+
+            string folderNameOriginalPNGS = "original" + @"\" + mobname;
+            DirectoryInfo dirnameOriginal = new DirectoryInfo(folderNameOriginalPNGS);
+            dirnameOriginal.Refresh();
+            ////Console.WriteLine("2_mainThreadStarter");
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(folderNameOriginalPNGS);
+            }
+            else
+            {
+                //Console.WriteLine("1the directory exists");
+            }
+
+            //string finalpathoriginalPNGSback = "Back";
+            //string finalpathoriginalPNGSfront = "Front";
+
+
+            string finalPathOriginalBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
+            string finalPathOriginalFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
+
+
+
+            //Console.WriteLine(finalPathOriginalFront);
+
+
+            if (!Directory.Exists(finalPathOriginalFront))
+            {
+                //Console.WriteLine("00the directory !exists");
+                //Directory.CreateDirectory(folderNameOriginalPNGS);
+            }
+            else
+            {
+                //Console.WriteLine("11the directory exists");
+            }
+
+
+            //folderNameCryofallPNGScriptVariantBuilder += "Variant" + variantindex;
+            string folderNamemulPNGS = "multiplied";
+            string themobfolder = mobname + "Variant" + variantindex;
+
+            string theimagesfolder = "images";
+
+            // + @"\" + "Skeleton" + "Variant" + variantindex
+            DirectoryInfo dirnamemul = new DirectoryInfo(folderNamemulPNGS);
+            dirnamemul.Refresh();
+
+
+
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(folderNamemulPNGS);
+            }
+
+
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(folderNamemulPNGS);
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder);
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+
+
+
+            ////Console.WriteLine("1the directory exists");
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder);
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+
+
+
+
+
+            ////Console.WriteLine("1the directory exists");
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Back"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Back");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Back" + @"\" + "Male" + @"\"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Back" + @"\" + "Male" + @"\");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Front"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Front");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Front" + @"\" + "Male" + @"\"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Front" + @"\" + "Male" + @"\");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            /*
+            ////Console.WriteLine("2_mainThreadStarter");
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(folderNamemulPNGS);
+            }
+            else
+            {
+
+                
+            }*/
+            /*
+            string finalPathmulBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder  + @"\" + "Back" + @"\" + "Male" + @"\";
+            string finalPathmulFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder  + @"\" + "Front" + @"\" + "Male" + @"\";
+
+
+            string originalfolder = "original" + @"\" + mobname;
+            string finalPathoriBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + originalfolder + @"\" + "Back" + @"\" + "Male" + @"\";
+            string finalPathoriFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + originalfolder + @"\" + "Front" + @"\" + "Male" + @"\";
+
+
+
+            ////Console.WriteLine(finalPathOriginal);
+            sccstextureloader texturetoload;
+
+            var arrayoforiginalpngfilesfront = Directory.GetFiles(finalPathOriginalFront);
+
+            */
+
+
+
+
+
+            //Console.WriteLine(arrayoforiginalpngfilesfront.Length);
 
 
 
@@ -1816,8 +1666,58 @@ namespace sccs
 
 
 
-        public void createvariantscripts(int variantindex, string mobname,string pathtoscripts,string pathtoscriptsmul, string themodfoldernamewithoutextension)// double mobspeed, double mobhp, float mobheight
+        public void createvariantscripts(int variantindex, string mobname, double mobspeed, double mobhp, float mobheight,string pathtoscripts, string themodfoldernamewithoutextension)
         {
+
+
+
+            double theinitmobhp = mobhp;
+
+            float minrandm = 0.85f; //0.998f
+            float maxrandm = 1.15f;//1.015f //0.999f
+
+            float randhpmul = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandm, maxrandm, 1.0f, 0, -1);
+
+            float diff = maxrandm - minrandm;
+            randhpmul = minrandm + (diff * randhpmul);
+
+            double thefinalhp = (double)Math.Round(theinitmobhp * randhpmul);
+
+            //Console.WriteLine("hp:" + thefinalhp);
+
+
+
+
+
+            float theinitmobheight = mobheight;
+
+            float minrandheight = 0.985f; //0.998f
+            float maxrandheight = 1.025f;//1.015f //0.999f
+
+            float randheightmul = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandheight, maxrandheight, 1.0f, 0, -1);
+
+            float diffheight = maxrandheight - minrandheight;
+            randheightmul = minrandheight + (diffheight * randheightmul);
+
+            float thefinalheight = (float)(theinitmobheight * randheightmul);
+
+            Console.WriteLine("TODO height line 1642:" + thefinalheight);
+
+
+
+
+
+            double theinitmobmovespeed = mobspeed;
+
+            float minrandmovespeed = 0.985f; //0.998f
+            float maxrandmovespeed = 1.025f;//1.015f //0.999f
+
+            float randmovespeedmul = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandmovespeed, maxrandmovespeed, 1.0f, 0, -1);
+
+            float diffmovespeed = maxrandmovespeed - minrandmovespeed;
+            randmovespeedmul = minrandmovespeed + (diffmovespeed * randmovespeedmul);
+
+            double thefinalmovespeed = (double)(theinitmobmovespeed * randmovespeedmul);
 
 
 
@@ -1867,415 +1767,51 @@ namespace sccs
 
             var arrayoforiginalscriptfilesMOB = Directory.GetFiles(pathtoscripts + @"\" + "Characters" + @"\" + "Mobs");
 
-            //Console.WriteLine(pathtoscripts);
+            string finalpathmobscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
+            string finalpathmobskeletonscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
+            string finalpathmobitemscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
+            string finalpathmobzonescript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
 
-            string finalpathmobscript = pathtoscriptsmul + @"\" + "Characters" + @"\" + "Mobs" + @"\";
-            string finalpathmobskeletonscript = pathtoscriptsmul + @"\" + "CharacterSkeletons" + @"\";
-            string finalpathmobitemscript = pathtoscriptsmul + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
-            string finalpathmobzonescript = pathtoscriptsmul + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
-
-            string finalpathmobscriptori = pathtoscripts + @"\" + "Characters" + @"\" + "Mobs" + @"\";
-            string finalpathmobskeletonscriptori = pathtoscripts + @"\" + "CharacterSkeletons" + @"\";
-            string finalpathmobitemscriptori = pathtoscripts + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
-            string finalpathmobzonescriptori = pathtoscripts + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
-
-
-            Directory.CreateDirectory(finalpathmobscript);
-            Directory.CreateDirectory(finalpathmobskeletonscript);
-            Directory.CreateDirectory(finalpathmobitemscript);
-            Directory.CreateDirectory(finalpathmobzonescript);
-
-
-
-
-
-
-
-
-
-
-
-
-            
-          
-
-
+            string finalpathmobscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
+            string finalpathmobskeletonscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
+            string finalpathmobitemscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
+            string finalpathmobzonescriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
 
 
 
             //MODIFY THE MOB SCRIPT
             for (int i = 0; i < arrayoforiginalscriptfilesMOB.Length; i++)
             {
-                
-                var prefinalfilename0 = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
 
-                var thefinalfilename0 = prefinalfilename0 + "Variant" + variantindex;
+                //Console.WriteLine(arrayoforiginalscriptfilesMOB[i]);
 
-                var filenamewithext0 = finalpathmobscript + (thefinalfilename0) + ".cs";     
-                
+                //string prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscript.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscript.Length));
+
                 string prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-                
-                string thefinalfilename = prefinalfilename; // + "Variant" + variantindex
 
-                string filenamewithext = finalpathmobscriptori + (thefinalfilename) + ".cs";
+                string thefinalfilename = prefinalfilename + "Variant" + variantindex;
 
-                var readalltextstring = File.ReadAllText(filenamewithext);
-                
-                string thehporiginal = "StatDefaultHealthMax => ";
+                string filenamewithext = finalpathmobscript + (thefinalfilename) + ".cs";
 
-                var thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
+                File.Copy(arrayoforiginalscriptfilesMOB[i], filenamewithext, true);
 
-                string substringofthehealth = readalltextstring.Substring(thefiledata, 64);
-
-                string theendofline = ";";
-                string thearrow = "=>";
-                
-                var thefiledata1 = substringofthehealth.IndexOf(theendofline);
-                var thefiledata2 = substringofthehealth.IndexOf(thearrow);
-                
-                string substringofthehp = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1 , 32);
-                double resultparsedstr;
-                double.TryParse(substringofthehp, out resultparsedstr);
-                double thehpofthemob = resultparsedstr;
-
-
-
-
-                //Console.WriteLine("hp:" + thehpofthemob + "/hpdoublestr:" + substringofthehp);
-
-
-
-
-
-
-
-
-
-                prefinalfilename0 = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-                thefinalfilename0 = prefinalfilename0 + "Variant" + variantindex;
-
-                filenamewithext0 = finalpathmobscript + (thefinalfilename0) + ".cs";
-
-                prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-                thefinalfilename = prefinalfilename; // + "Variant" + variantindex
-
-                filenamewithext = finalpathmobscriptori + (thefinalfilename) + ".cs";
-
-                readalltextstring = File.ReadAllText(filenamewithext);
-
-                thehporiginal = "StatMoveSpeed => ";
-
-                thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-
-                substringofthehealth = readalltextstring.Substring(thefiledata, 64);
-
-                theendofline = ";";
-                thearrow = "=>";
-
-                thefiledata1 = substringofthehealth.IndexOf(theendofline);
-                thefiledata2 = substringofthehealth.IndexOf(thearrow);
-
-                string substringofthespeed1 = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1 + 24, 8 + 4);
-                //double resultparsedstr;
-                double.TryParse(substringofthespeed1, out resultparsedstr);
-                double thespeedofthemob = resultparsedstr;
-
-
-
-                //Console.WriteLine("thespeedofthemob:" + thespeedofthemob);
-
-
-
-                Console.WriteLine("substringofthespeed1:" + substringofthespeed1);
-
-
-
-                /*
-                prefinalfilename0 = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-                thefinalfilename0 = prefinalfilename0 + "Variant" + variantindex;
-
-                filenamewithext0 = finalpathmobscript + (thefinalfilename0) + ".cs";
-                */
-
-
-                prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-                thefinalfilename = prefinalfilename; // + "Variant" + variantindex
-
-                filenamewithext = finalpathmobscriptori + (thefinalfilename) + ".cs";
-                string filenamewithextmul = finalpathmobscript; // + (thefinalfilename) + ".cs"
-
-
-
-                readalltextstring = File.ReadAllText(filenamewithext);
-
-                thehporiginal = "CharacterWorldHeight => ";
-
-                thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-                
-                string substringoftheheight = readalltextstring.Substring(thefiledata + thehporiginal.Length, 32 + 4);
-
-
-
-                
-                float resultparsedstrfloat;
-                float.TryParse(substringoftheheight, out resultparsedstrfloat);
-                //string finalstr = substringofthehp.Substring(0, substringofthehp.Length - 1 - thefiledata1);//
-                float theheightofthemob = resultparsedstrfloat;
-                
-
-
-
-
-
-
-
-
-
-
-                double theinitmobhp = thehpofthemob;
-
-                float minrandm = 0.85f; //0.998f
-                float maxrandm = 1.15f;//1.015f //0.999f
-
-                float randhpmul = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandm, maxrandm, 1.0f, 0, -1);
-
-                float diff = maxrandm - minrandm;
-                randhpmul = minrandm + (diff * randhpmul);
-
-                double thefinalhp = (double)Math.Round(theinitmobhp * randhpmul);
-
-                //Console.WriteLine("hp:" + thefinalhp);
-
-
-
-
-
-                float theinitmobheight = theheightofthemob;
-
-                float minrandheight = 0.985f; //0.998f
-                float maxrandheight = 1.025f;//1.015f //0.999f
-
-                float randheightmul = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandheight, maxrandheight, 1.0f, 0, -1);
-
-                float diffheight = maxrandheight - minrandheight;
-                randheightmul = minrandheight + (diffheight * randheightmul);
-
-                float thefinalheight = (float)(theinitmobheight * randheightmul);
-
-                //Console.WriteLine("height:" + thefinalheight);
-
-
-
-
-
-                double theinitmobmovespeed = thespeedofthemob;
-
-                float minrandmovespeed = 0.985f; //0.998f
-                float maxrandmovespeed = 1.025f;//1.015f //0.999f
-
-                float randmovespeedmul = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandmovespeed, maxrandmovespeed, 1.0f, 0, -1);
-
-                float diffmovespeed = maxrandmovespeed - minrandmovespeed;
-                randmovespeedmul = minrandmovespeed + (diffmovespeed * randmovespeedmul);
-
-                double thefinalmovespeed = (double)(theinitmobmovespeed * randmovespeedmul);
-
-                thefinalmovespeed = Math.Round(thefinalmovespeed * 1000) / 1000;
-
-                //Directory.CreateDirectory(filenamewithextmul + "Variant" + variantindex);
-                File.Copy(arrayoforiginalscriptfilesMOB[i], filenamewithextmul + (thefinalfilename + "Variant" + variantindex) + ".cs", true);
-               
-                DirectoryInfo directoryFolder0 = new DirectoryInfo(filenamewithextmul + (thefinalfilename + "Variant" + variantindex) + ".cs");
+                DirectoryInfo directoryFolder0 = new DirectoryInfo(finalpathmobscript);
                 directoryFolder0.Refresh();
 
-
-
-
-
-
-
-
-                string scriptcharacterskeletonstring = "Skeleton" + mobname;
-                string scriptnamevariant = "Variant" + variantindex;
-
-                //string themobhp = "StatDefaultHealthMax => " + thehpofthemob + ";";
-                //string themobhpmodded = "StatDefaultHealthMax => " + thefinalhp + ";";
-
-                //string themobheight = "CharacterWorldHeight => " + theheightofthemob + "f;";
-                //string themobheightmodded = "CharacterWorldHeight => " + thefinalheight + "f;";
-
-                //string themobmovespeed = "StatMoveSpeed => " + thespeedofthemob + ";";
-                //string themobmovespeedmodded = "StatMoveSpeed => " + thefinalmovespeed + ";";
-
-                string scriptvarnames = "class Mob" + mobname;
-                string scriptstaticvar = "currentMob" + mobname + "Class";
-
-                string scriptitemnames = "Mob" + mobname + "Sword";
-
-                string replacethistoo = "static Mob" + mobname;
-
-
-
-
-                string originalsub = substringoftheheight;
-                substringoftheheight = substringoftheheight.Replace(theheightofthemob.ToString(), thefinalheight.ToString());
-                //string substringoftheheight = readalltextstring.Substring(thefiledata, thehporiginal.Length + 32);
-
-                //string readalltextstringfinalforheight = readalltextstring.Replace(originalsub, substringoftheheight);
-
-                //Console.WriteLine(thefinalheight);
-
-
-
-
-                string substringofthehpori = substringofthehp;
-                substringofthehp = substringofthehp.Replace(thehpofthemob.ToString(), thefinalhp.ToString());
-                //Console.WriteLine("/hpdoublestr:" + substringofthehp);          
-                string originalsub1 = substringofthehpori;
-                //string readalltextstringfinalforhp = readalltextstring.Replace(originalsub1, substringofthehp);
-
-
-
-
-
-
-
-
-                //substringofthespeed1
-
-
-
-                int adder = 0;
-                int numbertoreach = 10;
-                int themodulomul =  0;
-
-                for (int n = 0; n < (int)(thefinalmovespeed); n++)
-                {
-                    if (adder >= numbertoreach)
-                    {
-                        themodulomul++;
-                        adder = 0;
-                    }
-                    adder++;
-                }
-
-
-                string thefinalmovespeedstr = thefinalmovespeed.ToString(); //  2.015
-
-                int maxdigit = 8;
-
-                int digitsleft = maxdigit - adder;
-
-                string zerostoadd = "";
-                for (int a = 0;a< digitsleft;a++)
-                {
-                    zerostoadd += "0";
-                }
-
-                zerostoadd += thefinalmovespeedstr;
-
-                /*
-                double testingsomething = ;
-
-                if ()
-                {
-                    
-                }*/
-
-                double swapthefinalmovespeed = thefinalmovespeed;
-
-                int[] arrayofdigits = new int[3];
-
-                for (int r = 0; r < 3; r++)
-                {
-                    double beforevalue = swapthefinalmovespeed;
-                    double theremnantdigit = (int)(Math.Truncate((swapthefinalmovespeed - Math.Round(swapthefinalmovespeed)) * 10));
-                    arrayofdigits[r] = (int)theremnantdigit;
-                    swapthefinalmovespeed = ((swapthefinalmovespeed - Math.Round(swapthefinalmovespeed)) * 10);
-                    //swapthefinalmovespeed = (int)(Math.Truncate((swapthefinalmovespeed - Math.Round(swapthefinalmovespeed)) * 10));
-                    //arrayofdigits[r] = (int)swapthefinalmovespeed;// beforevalue
-                }
-
-
-
-                string substringofthespeedori = substringofthespeed1;
-                substringofthespeed1 = substringofthespeed1.Replace(substringofthespeed1, zerostoadd);
-                //Console.WriteLine("/hpdoublestr:" + substringofthehp);          
-                //string originalspeedsub1 = substringofthespeedori;
-                //string readalltextstringfinalforspeed = readalltextstring.Replace(originalspeedsub1, substringofthespeed1);
-
-
-                //Console.WriteLine("originalspeedsub1:" + originalspeedsub1);
-                //Console.WriteLine("substringofthespeed1:" + substringofthespeed1);
-                //Console.WriteLine("thefinalmovespeed:" + thefinalmovespeed);
-                //Console.WriteLine("thespeedofthemob.ToString():" + thespeedofthemob.ToString());
-                /*
-                File.WriteAllText(filenamewithextmul + (thefinalfilename + "Variant" + variantindex) + ".cs", File.ReadAllText(filenamewithextmul + (thefinalfilename + "Variant" + variantindex) + ".cs").
-                    Replace(originalsub1, substringofthehp).
-                    Replace(originalsub, substringoftheheight).
-                    Replace(substringofthespeedori, substringofthespeed1));*/
-
-
-                File.WriteAllText(filenamewithextmul + (thefinalfilename + "Variant" + variantindex) + ".cs", File.ReadAllText(filenamewithextmul + (thefinalfilename + "Variant" + variantindex) + ".cs").
-                 Replace(scriptvarnames, scriptvarnames + scriptnamevariant).
-                 Replace(scriptcharacterskeletonstring, scriptcharacterskeletonstring + scriptnamevariant).
-                 Replace(originalsub1, substringofthehp).
-                 Replace(originalsub, substringoftheheight).
-                 Replace(substringofthespeedori, substringofthespeed1).
-                 Replace(scriptstaticvar, scriptstaticvar + scriptnamevariant).
-                 Replace(scriptitemnames, scriptitemnames + scriptnamevariant).
-                 Replace(replacethistoo, replacethistoo + scriptnamevariant));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                //File.WriteAllText(filenamewithextmul + (thefinalfilename + "Variant" + variantindex) + ".cs", readalltextstringfinalforhp);
-                //Console.WriteLine("hp:" + thehpofthemob + "/hpdoublestr:" + substringofthehp);
-
-
-
-
-
-
-
-
-
-
-
-
-
-                /*
                 //string scriptname = "MobSkeleton";
                 string scriptcharacterskeletonstring = "Skeleton" + mobname;
                 string scriptnamevariant = "Variant" + variantindex;
 
-                string themobhp = "StatDefaultHealthMax => " + thehpofthemob + ";";
+                string themobhp = "StatDefaultHealthMax => " + mobhp + ";";
                 string themobhpmodded = "StatDefaultHealthMax => " + thefinalhp + ";";
 
 
                 //Console.WriteLine(mobheight);
 
-
-                string themobheight = "CharacterWorldHeight => " + theheightofthemob + "f;";
+                string themobheight = "CharacterWorldHeight => " + mobheight + "f;";
                 string themobheightmodded = "CharacterWorldHeight => " + thefinalheight + "f;";
 
-                string themobmovespeed = "StatMoveSpeed => " + thespeedofthemob + ";";
+                string themobmovespeed = "StatMoveSpeed => " + mobspeed + ";";
                 string themobmovespeedmodded = "StatMoveSpeed => " + thefinalmovespeed + ";";
 
 
@@ -2289,21 +1825,19 @@ namespace sccs
 
                 string replacethistoo = "static Mob" + mobname;
 
-                File.WriteAllText(filenamewithextmul + (thefinalfilename + "Variant" + variantindex) + ".cs", File.ReadAllText(filenamewithextmul + (thefinalfilename + "Variant" + variantindex) + ".cs").
-                    Replace(scriptvarnames, scriptvarnames + scriptnamevariant).
-                    Replace(scriptcharacterskeletonstring, scriptcharacterskeletonstring + scriptnamevariant).
+                File.WriteAllText(filenamewithext, File.ReadAllText(filenamewithext).Replace(scriptvarnames, scriptvarnames + scriptnamevariant).Replace(scriptcharacterskeletonstring, scriptcharacterskeletonstring + scriptnamevariant).
                     Replace(themobhp, themobhpmodded).
                     Replace(themobheight, themobheightmodded).
                     Replace(themobmovespeed, themobmovespeedmodded).
                     Replace(scriptstaticvar, scriptstaticvar + scriptnamevariant).
                     Replace(scriptitemnames, scriptitemnames + scriptnamevariant).
-                    Replace(replacethistoo, replacethistoo + scriptnamevariant));*/
+                    Replace(replacethistoo, replacethistoo + scriptnamevariant));
             }
             //MODIFY THE MOB SCRIPT
 
 
 
-            
+
 
             var arrayoforiginalscriptfilesCHARACTERSKELETON = Directory.GetFiles(pathtoscripts + @"\" + "CharacterSkeletons");
 
@@ -2344,6 +1878,9 @@ namespace sccs
 
 
 
+
+
+
             var arrayoforiginalscriptfilesITEM = Directory.GetFiles(pathtoscripts + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons");
 
             //var arrayoforiginalscriptfilesITEM = Directory.GetFiles(finalpathmobitemscriptori);
@@ -2364,7 +1901,10 @@ namespace sccs
                 DirectoryInfo directoryFolder0 = new DirectoryInfo(finalpathmobitemscript);
                 directoryFolder0.Refresh();
 
+
+
                 string scriptname = mobname + "Sword";
+
 
                 //string scriptreplace0 = "Skeleton";
                 //string scriptreplace1 = "Sword";
@@ -2384,7 +1924,7 @@ namespace sccs
 
 
 
-            
+
 
             var arrayoforiginalscriptfilesSpawn = Directory.GetFiles(pathtoscripts + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs");
 
@@ -2423,6 +1963,7 @@ namespace sccs
                 File.WriteAllText(filenamewithext, File.ReadAllText(filenamewithext).Replace(scriptname, scriptname + scriptnamevariant).Replace(thescriptname, thescriptname + scriptnamevariant));
             }
             //MODIFY THE MOB CHARACTER SKELETON SCRIPT
+
             
 
 
@@ -2430,164 +1971,264 @@ namespace sccs
 
 
 
-            //AT VARIANT INDEX 0, ALSO COPY THE ORIGINAL FILES
-            if (variantindex == 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //string folderNameOriginalPNGS = "original";
+            /*string folderNameOriginalPNGS = "original" + @"\" + mobname;
+
+            DirectoryInfo dirnameOriginal = new DirectoryInfo(folderNameOriginalPNGS);
+            dirnameOriginal.Refresh();
+            ////Console.WriteLine("2_mainThreadStarter");
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder))
             {
-                //MODIFY THE MOB SCRIPT
-                for (int i = 0; i < arrayoforiginalscriptfilesMOB.Length; i++)
-                {
-
-
-                    var prefinalfilename1 = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-                    var thefinalfilename1 = prefinalfilename1;
-
-                    var filenamewithext1 = finalpathmobscript + (thefinalfilename1) + ".cs";
-
-
-
-
-                    ////Console.WriteLine(finalfilename);
-                    File.Copy(arrayoforiginalscriptfilesMOB[i], filenamewithext1, true);
-
-
-
-                    DirectoryInfo directoryFolder0 = new DirectoryInfo(filenamewithext1);
-                    directoryFolder0.Refresh();
-
-
-                }
-                //MODIFY THE MOB SCRIPT
-
-
-
-                
-
-                //var arrayoforiginalscriptfilesCHARACTERSKELETON = Directory.GetFiles(pathtoscripts + @"\" + "CharacterSkeletons");
-
-                //var arrayoforiginalscriptfilesCHARACTERSKELETON = Directory.GetFiles(finalpathmobskeletonscriptori);
-
-                //MODIFY THE MOB CHARACTER SKELETON SCRIPT
-                for (int i = 0; i < arrayoforiginalscriptfilesCHARACTERSKELETON.Length; i++)
-                {
-                    string prefinalfilename = arrayoforiginalscriptfilesCHARACTERSKELETON[i].Substring(finalpathmobskeletonscriptori.Length, (arrayoforiginalscriptfilesCHARACTERSKELETON[i].Length - finalpathmobskeletonscriptori.Length - 3));
-
-                    //string prefinalfilename = arrayoforiginalscriptfilesCHARACTERSKELETON[i].Substring(finalpathmobskeletonscript.Length-2, (arrayoforiginalscriptfilesCHARACTERSKELETON[i].Length - 1 - finalpathmobskeletonscript.Length));
-                    string thefinalfilename = prefinalfilename ;
-
-                    //Console.WriteLine(prefinalfilename);
-
-                    string filenamewithext = finalpathmobskeletonscript + (thefinalfilename) + ".cs";
-
-                    ////Console.WriteLine(finalfilename);
-                    File.Copy(arrayoforiginalscriptfilesCHARACTERSKELETON[i], filenamewithext, true);
-
-                    DirectoryInfo directoryFolder0 = new DirectoryInfo(finalpathmobskeletonscript);
-                    directoryFolder0.Refresh();
-
-                    //string scriptname = "MobSkeleton";
-                    string scriptcharacterskeletonstring = "Skeleton" + mobname;
-                    string scriptnamevariant = "Variant" + variantindex;
-
-                    string scriptcharacterskeletonpngpath = mobname + "/";
-                    string scriptcharacterskeletonpngpathreplacement = mobname;
-
-                    //string prefinalfilenamecorrect = arrayoforiginalscriptfilesCHARACTERSKELETON[i].Substring(finalpathmobskeletonscript.Length, (arrayoforiginalscriptfilesCHARACTERSKELETON[i].Length - 1 - finalpathmobskeletonscript.Length - 2));
-
-                    File.WriteAllText(filenamewithext, File.ReadAllText(filenamewithext).Replace(scriptcharacterskeletonstring, scriptcharacterskeletonstring).Replace(scriptcharacterskeletonpngpath, scriptcharacterskeletonpngpathreplacement + "/"));
-                }
-                //MODIFY THE MOB CHARACTER SKELETON SCRIPT
-
-
-
-
-
-
-
-
-                //var arrayoforiginalscriptfilesITEM = Directory.GetFiles(pathtoscripts + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons");
-
-                //var arrayoforiginalscriptfilesITEM = Directory.GetFiles(finalpathmobitemscriptori);
-
-                //MODIFY THE MOB CHARACTER SKELETON SCRIPT
-                for (int i = 0; i < arrayoforiginalscriptfilesITEM.Length; i++)
-                {
-                    string prefinalfilename = arrayoforiginalscriptfilesITEM[i].Substring(finalpathmobitemscriptori.Length, (arrayoforiginalscriptfilesITEM[i].Length - finalpathmobitemscriptori.Length - 3));
-                    string thefinalfilename = prefinalfilename ;
-
-                    //Console.WriteLine(prefinalfilename);
-
-                    string filenamewithext = finalpathmobitemscript + (thefinalfilename) + ".cs";
-
-                    //Console.WriteLine(finalfilename);
-                    File.Copy(arrayoforiginalscriptfilesITEM[i], filenamewithext, true);
-
-                    DirectoryInfo directoryFolder0 = new DirectoryInfo(finalpathmobitemscript);
-                    directoryFolder0.Refresh();
-
-
-
-                    string scriptname = mobname + "Sword";
-
-
-                    //string scriptreplace0 = "Skeleton";
-                    //string scriptreplace1 = "Sword";
-                    //string scriptcharacterskeletonstring = "Skeleton" + mobname;
-                    string scriptnamevariant = "Variant" + variantindex;
-                    //string replacescriptname = "ItemWeaponMobSkeletonSword";
-
-                    //string scriptcharacterskeletonpngpath = "Skeleton/";
-                    //string scriptcharacterskeletonpngpathreplacement = "Skeleton";
-
-                    //string prefinalfilenamecorrect = arrayoforiginalscriptfilesITEM[i].Substring(finalpathmobskeletonscript.Length, (arrayoforiginalscriptfilesITEM[i].Length - 1 - finalpathmobskeletonscript.Length - 2));
-
-                    File.WriteAllText(filenamewithext, File.ReadAllText(filenamewithext).Replace(scriptname, scriptname));
-                }
-                //MODIFY THE MOB CHARACTER SKELETON SCRIPT
-
-
-
-
-
-
-                //var arrayoforiginalscriptfilesSpawn = Directory.GetFiles(pathtoscripts + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs");
-
-                //var arrayoforiginalscriptfilesSpawn = Directory.GetFiles(finalpathmobzonescriptori);
-                //MODIFY THE MOB CHARACTER SKELETON SCRIPT
-                for (int i = 0; i < arrayoforiginalscriptfilesSpawn.Length; i++)
-                {
-
-                    string prefinalfilename = arrayoforiginalscriptfilesSpawn[i].Substring(finalpathmobzonescriptori.Length, (arrayoforiginalscriptfilesSpawn[i].Length - finalpathmobzonescriptori.Length - 3));
-
-                    //string prefinalfilename = arrayoforiginalscriptfilesSpawn[i].Substring(finalpathmobzonescript.Length, (arrayoforiginalscriptfilesSpawn[i].Length - finalpathmobzonescript.Length - 4));
-                    //string prefinalfilename = arrayoforiginalscriptfilesSpawn[i].Substring(finalpathmobzonescript.Length - 2, (arrayoforiginalscriptfilesSpawn[i].Length - 1 - finalpathmobzonescript.Length));
-                    string thefinalfilename = prefinalfilename ;
-
-                    //Console.WriteLine(prefinalfilename);
-
-                    string filenamewithext = finalpathmobzonescript + (thefinalfilename) + ".cs";
-
-                    ////Console.WriteLine(finalfilename);
-                    File.Copy(arrayoforiginalscriptfilesSpawn[i], filenamewithext, true);
-
-                    DirectoryInfo directoryFolder0 = new DirectoryInfo(finalpathmobzonescript);
-                    directoryFolder0.Refresh();
-
-                    string scriptname = "Mob" + mobname;
-                    string thescriptname = "SpawnMobs" + mobname;
-
-                    //string scriptcharacterskeletonstring = "Skeleton" + mobname;
-                    string scriptnamevariant = "Variant" + variantindex;
-
-                    //string scriptcharacterskeletonpngpath = "Skeleton/";
-                    //string scriptcharacterskeletonpngpathreplacement = "Skeleton";
-
-                    //string prefinalfilenamecorrect = arrayoforiginalscriptfilesITE[i].Substring(finalpathmobskeletonscript.Length, (arrayoforiginalscriptfilesITEM[i].Length - 1 - finalpathmobskeletonscript.Length - 2));
-
-                    File.WriteAllText(filenamewithext, File.ReadAllText(filenamewithext).Replace(scriptname, scriptname).Replace(thescriptname, thescriptname));
-                }
-                //MODIFY THE MOB CHARACTER SKELETON SCRIPT
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(folderNameOriginalPNGS);
             }
+            else
+            {
+                //Console.WriteLine("1the directory exists");
+            }*/
+
+            //string finalpathoriginalPNGSback = "Back";
+            //string finalpathoriginalPNGSfront = "Front";
+
+            /*string finalPathOriginalBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
+            string finalPathOriginalFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
+
+
+            if (!Directory.Exists(finalPathOriginalFront))
+            {
+                //Console.WriteLine("00the directory !exists");
+                //Directory.CreateDirectory(folderNameOriginalPNGS);
+            }
+            else
+            {
+                //Console.WriteLine("11the directory exists");
+            }*/
+
+
+
+
+
+
+
+
+
+
+
+
+            /*
+            //folderNameCryofallPNGScriptVariantBuilder += "Variant" + variantindex;
+            //string folderNamemulPNGS = "Skeleton" + "Variant" + variantindex;
+            string folderNamemulPNGS = "multiplied";
+            //string folderNamemulPNGS = "multiplied";// + @"\" + "Skeleton" + "Variant" + variantindex;
+            string themobfolder = mobname + "Variant" + variantindex;
+
+
+
+            //string folderNamemulPNGS = "multiplied";
+            DirectoryInfo dirnamemul = new DirectoryInfo(folderNamemulPNGS);
+            dirnamemul.Refresh();
+            ////Console.WriteLine("2_mainThreadStarter");
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(folderNamemulPNGS);
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+
+
+
+                /*
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+
+
+
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" ))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+                if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs"))
+                {
+                    //Console.WriteLine("1the directory !exists");
+                    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs");
+                }
+                else
+                {
+                    ////Console.WriteLine("1the directory exists");
+                }
+
+                string finalpathmobscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
+                string finalpathmobskeletonscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
+                string finalpathmobitemscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
+                string finalpathmobzonescript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
+
+                string finalpathmobscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
+                string finalpathmobskeletonscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
+                string finalpathmobitemscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
+                string finalpathmobzonescriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
+                */
+
+
+
+
+
+
+            /*
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+
+            if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\"))
+            {
+                //Console.WriteLine("1the directory !exists");
+                Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\");
+            }
+            else
+            {
+                ////Console.WriteLine("1the directory exists");
+            }
+        }*/
+            /*
+            string finalPathmulBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
+            string finalPathmulFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
+            */
         }
 
 
@@ -2597,7 +2238,7 @@ namespace sccs
 
 
 
-        //MADE BY STEVE CHASSÉ AKA NINEKORN FOR MODS INSIDE OF THE GAME VOID EXPANSE WHERE I WANTED TO MULTIPLY DRONE FORMATION SCRIPTS TO HAVE RESULTS FASTER CODING.
+
         static int someInitItems = 0;
         //UI THREAD TEST
         //////////////////////////////////
@@ -4041,1382 +3682,3 @@ else
 {
     //Console.WriteLine("1the directory exists");
 }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-var arrayoforiginalpngfilesback = Directory.GetFiles(pathtoanimationpngs + finalPathOriginalBack + @"\" + "Male");
-
-for (int i = 0; i < arrayoforiginalpngfilesback.Length; i++)
-{
-    texturetoload = new sccstextureloader();
-    var textureinit = texturetoload.Initialize(device, arrayoforiginalpngfilesback[i]);
-
-    if (textureinit)
-    {
-        //Console.WriteLine("texture initialiased");
-
-        var factory = new SharpDX.WIC.ImagingFactory();
-        var filename = arrayoforiginalpngfilesback[i];// "OnBoardComputer.png";
-
-        string finalfilename = arrayoforiginalpngfilesback[i].Substring(finalPathoriBack.Length, (arrayoforiginalpngfilesback[i].Length - finalPathoriBack.Length - 4));
-
-        //string finalfilename = arrayoforiginalpngfilesback[i].Substring(finalPathmulFront.Length - 2, (arrayoforiginalpngfilesback[i].Length - 1 - finalPathmulFront.Length - 1));
-
-        var bitmapDecoder = new SharpDX.WIC.BitmapDecoder(
-            factory,
-            filename,
-            SharpDX.WIC.DecodeOptions.CacheOnDemand
-        );
-
-        var bitmapsourceresult = new SharpDX.WIC.FormatConverter(factory);
-
-        bitmapsourceresult.Initialize(
-            bitmapDecoder.GetFrame(0),
-            SharpDX.WIC.PixelFormat.Format32bppPRGBA,
-            SharpDX.WIC.BitmapDitherType.None,
-            null,
-            0.0,
-            SharpDX.WIC.BitmapPaletteType.Custom);
-
-
-        SharpDX.Direct3D11.Texture2D thetexture2d;
-
-
-        int stride = bitmapsourceresult.Size.Width * 4;
-        texturetoload.bufferfortests = new SharpDX.DataStream(bitmapsourceresult.Size.Height * stride, true, true);
-        //using (SharpDX.DataStream buffer = new SharpDX.DataStream(bitmapSource.Size.Height * stride, true, true))
-        {
-
-            bitmapsourceresult.CopyPixels(stride, texturetoload.bufferfortests);
-            thetexture2d = new SharpDX.Direct3D11.Texture2D(device, new SharpDX.Direct3D11.Texture2DDescription()
-            {
-                CpuAccessFlags = CpuAccessFlags.Read,
-                BindFlags = BindFlags.None,//BindFlags.None, //| BindFlags.RenderTarget
-                Format = SharpDX.DXGI.Format.B8G8R8A8_UNorm,
-                Width = bitmapsourceresult.Size.Width,
-                Height = bitmapsourceresult.Size.Height,
-                OptionFlags = ResourceOptionFlags.None,
-                MipLevels = 1,
-                ArraySize = 1,
-                SampleDescription = { Count = 1, Quality = 0 },
-                Usage = ResourceUsage.Staging
-            }, new SharpDX.DataRectangle(texturetoload.bufferfortests.DataPointer, stride));
-        }
-
-        var _textureDescriptionFINAL = new Texture2DDescription
-        {
-            CpuAccessFlags = CpuAccessFlags.Read,
-            BindFlags = BindFlags.None,//BindFlags.None, //| BindFlags.RenderTarget //BindFlags.ShaderResource | BindFlags.RenderTarget, //
-            Format = SharpDX.DXGI.Format.B8G8R8A8_UNorm,
-            Width = texturetoload.texture.Description.Width,
-            Height = texturetoload.texture.Description.Height,
-            OptionFlags = ResourceOptionFlags.None,
-            MipLevels = 1,
-            ArraySize = 1,
-            SampleDescription = { Count = 1, Quality = 0 },
-            Usage = ResourceUsage.Staging // ResourceUsage.Default//
-        };
-
-        //sccs.Program.MessageBox((IntPtr)0, "width:" + texturetoload.texture.Description.Width, "sccsmsg", 0);
-
-        var theonboardcomputertextureFINAL = new Texture2D(device, _textureDescriptionFINAL);
-
-        device.ImmediateContext.CopyResource(thetexture2d, theonboardcomputertextureFINAL);
-
-        //DISCARDED
-        //DISCARDED
-        //DISCARDED
-        var dataBox1 = device.ImmediateContext.MapSubresource(theonboardcomputertextureFINAL, 0, SharpDX.Direct3D11.MapMode.Read, SharpDX.Direct3D11.MapFlags.None);
-
-        //device.ImmediateContext.UnmapSubresource(theonboardcomputertextureFINAL, 0);
-
-        var memoryBitmapStrideonboardcomputer = theonboardcomputertextureFINAL.Description.Width * 4;
-
-        var columnsonboardcomputer = theonboardcomputertextureFINAL.Description.Width;
-        var rowsonboardcomputer = theonboardcomputertextureFINAL.Description.Height;
-        IntPtr interptr1 = dataBox1.DataPointer;
-
-        var onboardcomputeiconpixeldata = new byte[memoryBitmapStrideonboardcomputer * theonboardcomputertextureFINAL.Description.Height];
-
-        // It can happen that the stride on the GPU is bigger then the stride on the bitmap in main memory (_width * 4)
-        if (dataBox1.RowPitch == memoryBitmapStrideonboardcomputer)
-        {
-            //sccs.Program.MessageBox((IntPtr)0, "Stride is the same", "sccsmsg", 0);
-            // Stride is the same
-            Marshal.Copy(interptr1, onboardcomputeiconpixeldata, 0, memoryBitmapStrideonboardcomputer * theonboardcomputertextureFINAL.Description.Height);
-        }
-        else
-        {
-            // Stride not the same - copy line by line
-            for (int y = 0; y < theonboardcomputertextureFINAL.Description.Height; y++)
-            {
-                Marshal.Copy(interptr1 + y * dataBox1.RowPitch, onboardcomputeiconpixeldata, y * memoryBitmapStrideonboardcomputer, memoryBitmapStrideonboardcomputer);
-            }
-        }
-
-
-        //float brightnessmultiplierb = 0.95f; //green
-        //float brightnessmultiplierg = 0.95f; //blue
-        //float brightnessmultiplierr = 1.15f; //red
-
-        //float lastbrightnessmul = 1.25f;
-        float brightnessmultiplierb = randb; //green
-        float brightnessmultiplierg = randg; //blue
-        float brightnessmultiplierr = randr; //red
-
-        float lastbrightnessmul = rand;
-
-        //Console.WriteLine(lastbrightnessmul);
-
-        int countgreenscreenpixelsareweinanoptiontransition = 0;
-
-        fixed (byte* textureByteArray = onboardcomputeiconpixeldata) //, totalArray = _totalArray
-        {
-            int posY = 0;
-            for (int yyyy = 0; yyyy < theonboardcomputertextureFINAL.Description.Height; yyyy++)
-            {
-                for (int xxxx = 0; xxxx < theonboardcomputertextureFINAL.Description.Width; xxxx++)
-                {
-                    var bytePoser = ((yyyy * theonboardcomputertextureFINAL.Description.Width) + xxxx) * 4;
-
-                    /*byte originalg = textureByteArray[bytePoser + 0];
-                    byte originalb = textureByteArray[bytePoser + 1];
-                    byte originalr = textureByteArray[bytePoser + 2];
-
-                    float percentg = (textureByteArray[bytePoser + 0] / 255);
-                    float percentb = (textureByteArray[bytePoser + 1] / 255);
-                    float percentr = (textureByteArray[bytePoser + 2] / 255);
-
-
-                    byte valuereducedtoahundredg = (byte)(255 * percentg);
-                    byte valuereducedtoahundredb = (byte)(255 * percentg);
-                    byte valuereducedtoahundredr = (byte)(255 * percentg);
-
-                    //textureByteArray[bytePoser + 0] = (byte)((int)(textureByteArray[bytePoser + 0] * brightnessmultiplierg * lastbrightnessmul));
-                    //textureByteArray[bytePoser + 1] = (byte)((int)(textureByteArray[bytePoser + 1] * brightnessmultiplierb * lastbrightnessmul));
-                    //textureByteArray[bytePoser + 2] = (byte)((int)(textureByteArray[bytePoser + 2] * brightnessmultiplierr * lastbrightnessmul));
-
-                    //byte invertblueandgreen = textureByteArray[bytePoser + 0];
-                    //byte invertgreenandblue = textureByteArray[bytePoser + 1];
-
-                    byte invertblueandgreen = textureByteArray[bytePoser + 0];
-                    byte invertgreenandblue = textureByteArray[bytePoser + 2];
-
-                    textureByteArray[bytePoser + 0] = (byte)((int)(invertgreenandblue * brightnessmultiplierb * lastbrightnessmul));
-                    textureByteArray[bytePoser + 1] = (byte)((int)(textureByteArray[bytePoser + 1] * brightnessmultiplierg * lastbrightnessmul));
-                    textureByteArray[bytePoser + 2] = (byte)((int)(invertblueandgreen * brightnessmultiplierr * lastbrightnessmul));
-
-
-                    posY++;
-                }
-            }
-        }
-
-        var somebitmap = new System.Drawing.Bitmap(columnsonboardcomputer, rowsonboardcomputer, columnsonboardcomputer * 4, System.Drawing.Imaging.PixelFormat.Format32bppArgb, Marshal.UnsafeAddrOfPinnedArrayElement(onboardcomputeiconpixeldata, 0));
-        //somebitmap.Save(@"C:\Users\steve\Desktop\screenRecord\" + bitmapcounter + "_" + rowsonboardcomputer.ToString("00") + columnsonboardcomputer.ToString("00") + ".png");
-        somebitmap.Save(finalPathmulBack + finalfilename + ".png");
-
-        bitmapcounter++;
-
-        device.ImmediateContext.UnmapSubresource(theonboardcomputertextureFINAL, 0);
-        DeleteObject(interptr1);
-        //DISCARDED
-        //DISCARDED
-        //DISCARDED
-    }
-}*/
-
-
-
-//Console.WriteLine(randg);
-
-
-
-
-
-
-
-
-/*//Console.WriteLine(randg);
-//Console.WriteLine(randb);
-//Console.WriteLine(randr);
-
-//rand *= 0.01f;
-//rand = rand / 100;
-
-//Console.WriteLine(rand);
-*/
-/*
-string pathToDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-////Console.WriteLine("2_mainThreadStarter");
-string folderNameCryofallPNGScriptVariantBuilder = "#Cryofallscriptgen";
-DirectoryInfo directoryFolder = new DirectoryInfo(folderNameCryofallPNGScriptVariantBuilder);
-directoryFolder.Refresh();
-//string pathToDesktopFolder = pathToDesktop + @"\" + folderName;
-
-
-string folderNameOriginalPNGS = "original" + @"\" + mobname;
-DirectoryInfo dirnameOriginal = new DirectoryInfo(folderNameOriginalPNGS);
-dirnameOriginal.Refresh();
-////Console.WriteLine("2_mainThreadStarter");
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(folderNameOriginalPNGS);
-}
-else
-{
-    //Console.WriteLine("1the directory exists");
-}
-
-//string finalpathoriginalPNGSback = "Back";
-//string finalpathoriginalPNGSfront = "Front";
-
-
-string finalPathOriginalBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
-string finalPathOriginalFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
-
-
-
-//Console.WriteLine(finalPathOriginalFront);
-
-
-if (!Directory.Exists(finalPathOriginalFront))
-{
-    //Console.WriteLine("00the directory !exists");
-    //Directory.CreateDirectory(folderNameOriginalPNGS);
-}
-else
-{
-    //Console.WriteLine("11the directory exists");
-}
-
-
-//folderNameCryofallPNGScriptVariantBuilder += "Variant" + variantindex;
-string folderNamemulPNGS = "multiplied";
-string themobfolder = mobname + "Variant" + variantindex;
-
-string theimagesfolder = "images";
-
-// + @"\" + "Skeleton" + "Variant" + variantindex
-DirectoryInfo dirnamemul = new DirectoryInfo(folderNamemulPNGS);
-dirnamemul.Refresh();
-
-
-
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(folderNamemulPNGS);
-}
-
-
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(folderNamemulPNGS);
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder);
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-
-
-
-////Console.WriteLine("1the directory exists");
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder);
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-
-
-
-
-
-////Console.WriteLine("1the directory exists");
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Back"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Back");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Back" + @"\" + "Male" + @"\"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Back" + @"\" + "Male" + @"\");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Front"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Front");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Front" + @"\" + "Male" + @"\"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder + @"\" + "Front" + @"\" + "Male" + @"\");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-/*
-////Console.WriteLine("2_mainThreadStarter");
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(folderNamemulPNGS);
-}
-else
-{
-
-
-}*/
-/*
-string finalPathmulBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder  + @"\" + "Back" + @"\" + "Male" + @"\";
-string finalPathmulFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Content" + @"\" + "Animations" + @"\" + themobfolder + @"\" + theimagesfolder  + @"\" + "Front" + @"\" + "Male" + @"\";
-
-
-string originalfolder = "original" + @"\" + mobname;
-string finalPathoriBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + originalfolder + @"\" + "Back" + @"\" + "Male" + @"\";
-string finalPathoriFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + originalfolder + @"\" + "Front" + @"\" + "Male" + @"\";
-
-
-
-////Console.WriteLine(finalPathOriginal);
-sccstextureloader texturetoload;
-
-var arrayoforiginalpngfilesfront = Directory.GetFiles(finalPathOriginalFront);
-
-*/
-
-
-
-
-
-//Console.WriteLine(arrayoforiginalpngfilesfront.Length);
-
-
-
-//Console.WriteLine(arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscript.Length);
-//Console.WriteLine(arrayoforiginalscriptfilesMOB[i]);
-
-//string prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscript.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscript.Length));
-
-//Console.WriteLine(finalpathmobscript);
-
-
-
-/*
-theendofline = ";";
-thearrow = "=>";
-
-thefiledata1 = substringofthehealth.IndexOf(theendofline);
-thefiledata2 = substringofthehealth.IndexOf(thearrow);
-
-substringofthehp = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1, 16);
-float resultparsedstrfloat;
-float.TryParse(substringofthehp, out resultparsedstrfloat);
-float theheightofthemob = resultparsedstrfloat;
-*/
-
-
-
-
-
-
-
-
-//Console.WriteLine(resultparsedstr);
-
-//float resultparsedstr;
-//float.TryParse(substringofthehp, out resultparsedstr);
-/*
-int locationofnumber = substringofthehp.Length - thefiledata1;
-
-var thefiledata3 = substringofthehp.IndexOf(theendofline);
-
-substringofthehp = substringofthehp.Remove(thefiledata3, 1);
-
-double resultparsedstr;
-double.TryParse(substringofthehp, out resultparsedstr);
-//string finalstr = substringofthehp.Substring(0, substringofthehp.Length - 1 - thefiledata1);//
-double thehpofthemob = resultparsedstr;
-*/
-
-//Console.WriteLine(thehpofthemob);
-
-
-
-
-
-
-
-
-
-
-/*
-if (thefinalfilename0.Contains("MobThumper".ToLower()))
-{
-
-}
-else
-{
-
-}*/
-
-
-/*
-
-
-prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-thefinalfilename = prefinalfilename; // + "Variant" + variantindex
-
-filenamewithext = finalpathmobscriptori + (thefinalfilename) + ".cs";
-
-//Console.WriteLine(filenamewithext);
-
-//var thefiledata = File.ReadAllText(filenamewithext).Contains("StatDefaultHealthMax");
-
-readalltextstring = File.ReadAllText(filenamewithext);
-
-
-//Console.WriteLine("TEST:" + readalltextstring);
-
-
-thehporiginal = "StatMoveSpeed => ";
-
-thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-
-substringofthehealth = readalltextstring.Substring(thefiledata, 64);
-
-theendofline = ";";
-thearrow = "=>";
-
-thefiledata1 = substringofthehealth.IndexOf(theendofline);
-thefiledata2 = substringofthehealth.IndexOf(thearrow);
-
-substringofthehp = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1, 16 - 1);//
-
-
-Console.WriteLine("TEST:" + substringofthehp);
-
-
-*/
-
-
-
-
-
-
-
-
-
-/*
-//float resultparsedstr;
-//float.TryParse(substringofthehp, out resultparsedstr);
-
- locationofnumber = substringofthehp.Length - thefiledata1;
-
- thefiledata3 = substringofthehp.IndexOf(theendofline);
-
-substringofthehp = substringofthehp.Remove(thefiledata3, 1);
-
-double.TryParse(substringofthehp, out resultparsedstr);
-//string finalstr = substringofthehp.Substring(0, substringofthehp.Length - 1 - thefiledata1);//
-double thespeedofthemob = resultparsedstr;
-
-
-Console.WriteLine("TEST:" + thespeedofthemob);
-*/
-/*
-if (thefinalfilename0.Contains("MobThumper".ToLower()))
-{
-
-}
-else
-{
-
-}
-*/
-
-
-
-
-/*
-
-
-
-
-prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-thefinalfilename = prefinalfilename + "Variant" + variantindex;
-
-filenamewithext = finalpathmobscript + (thefinalfilename) + ".cs";
-
-//Console.WriteLine(filenamewithext);
-
-//var thefiledata = File.ReadAllText(filenamewithext).Contains("StatDefaultHealthMax");
-
-readalltextstring = File.ReadAllText(filenamewithext);
-
-thehporiginal = "CharacterWorldHeight => ";
-
-thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-
-substringofthehealth = readalltextstring.Substring(thefiledata, 32);
-
-theendofline = ";";
-thearrow = "=>";
-
-thefiledata1 = substringofthehealth.IndexOf(theendofline);
-thefiledata2 = substringofthehealth.IndexOf(thearrow);
-
-substringofthehp = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1, 8 - 1);//
-
-//float resultparsedstr;
-//float.TryParse(substringofthehp, out resultparsedstr);
-
-locationofnumber = substringofthehp.Length - thefiledata1;
-
-thefiledata3 = substringofthehp.IndexOf(theendofline);
-
-substringofthehp = substringofthehp.Remove(thefiledata3, 1);
-
-float resultparsedstrfloat;
-float.TryParse(substringofthehp, out resultparsedstrfloat);
-//string finalstr = substringofthehp.Substring(0, substringofthehp.Length - 1 - thefiledata1);//
-float thesheightofthemob = resultparsedstrfloat;
-
-*/
-
-
-
-
-
-
-
-
-/*
-string prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-string thefinalfilename = prefinalfilename + "Variant" + variantindex;
-
-string filenamewithext = finalpathmobscript + (thefinalfilename) + ".cs";
-
-//Console.WriteLine(filenamewithext);
-
-//var thefiledata = File.ReadAllText(filenamewithext).Contains("StatDefaultHealthMax");
-
-var readalltextstring = File.ReadAllText(filenamewithext);
-
-string thehporiginal = "StatDefaultHealthMax => ";
-
-var thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-
-string substringofthehealth = readalltextstring.Substring(thefiledata, 64);
-
-string theendofline = ";";
-string thearrow = "=>";
-
-var thefiledata1 = substringofthehealth.IndexOf(theendofline);
-var thefiledata2 = substringofthehealth.IndexOf(thearrow);
-
-string substringofthehp = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1, 16 - 1);//
-
-//float resultparsedstr;
-//float.TryParse(substringofthehp, out resultparsedstr);
-
-int locationofnumber = substringofthehp.Length - thefiledata1;
-
-var thefiledata3 = substringofthehp.IndexOf(theendofline);
-
-substringofthehp = substringofthehp.Remove(thefiledata3, 1);
-
-double resultparsedstr;
-double.TryParse(substringofthehp, out resultparsedstr);
-//string finalstr = substringofthehp.Substring(0, substringofthehp.Length - 1 - thefiledata1);//
-double thehpofthemob = resultparsedstr;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-thefinalfilename = prefinalfilename + "Variant" + variantindex;
-
-filenamewithext = finalpathmobscript + (thefinalfilename) + ".cs";
-
-//Console.WriteLine(filenamewithext);
-
-//var thefiledata = File.ReadAllText(filenamewithext).Contains("StatDefaultHealthMax");
-
-readalltextstring = File.ReadAllText(filenamewithext);
-
-thehporiginal = "StatMoveSpeed => ";
-
-thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-
-substringofthehealth = readalltextstring.Substring(thefiledata, 64);
-
-theendofline = ";";
-thearrow = "=>";
-
-thefiledata1 = substringofthehealth.IndexOf(theendofline);
-thefiledata2 = substringofthehealth.IndexOf(thearrow);
-
-substringofthehp = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1, 16 - 1);//
-
-//float resultparsedstr;
-//float.TryParse(substringofthehp, out resultparsedstr);
-
-locationofnumber = substringofthehp.Length - thefiledata1;
-
-thefiledata3 = substringofthehp.IndexOf(theendofline);
-
-substringofthehp = substringofthehp.Remove(thefiledata3, 1);
-
-double.TryParse(substringofthehp, out resultparsedstr);
-//string finalstr = substringofthehp.Substring(0, substringofthehp.Length - 1 - thefiledata1);//
-double thespeedofthemob = resultparsedstr;
-
-*/
-
-
-
-
-
-
-/*
-var prefinalfilename0 = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-var thefinalfilename0 = prefinalfilename0 ;
-
-var filenamewithext0 = finalpathmobscript + (thefinalfilename0) + ".cs";
-
-string prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-string thefinalfilename = prefinalfilename; // 
-
-string filenamewithext = finalpathmobscriptori + (thefinalfilename) + ".cs";
-
-var readalltextstring = File.ReadAllText(filenamewithext);
-
-string thehporiginal = "StatDefaultHealthMax => ";
-
-var thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-
-string substringofthehealth = readalltextstring.Substring(thefiledata, 64);
-
-string theendofline = ";";
-string thearrow = "=>";
-
-var thefiledata1 = substringofthehealth.IndexOf(theendofline);
-var thefiledata2 = substringofthehealth.IndexOf(thearrow);
-
-string substringofthehp = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1, 32);
-double resultparsedstr;
-double.TryParse(substringofthehp, out resultparsedstr);
-double thehpofthemob = resultparsedstr;
-
-
-
-*/
-//Console.WriteLine("hp:" + thehpofthemob + "/hpdoublestr:" + substringofthehp);
-
-
-
-
-/*
-
-
-
-
-prefinalfilename0 = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-thefinalfilename0 = prefinalfilename0 ;
-
-filenamewithext0 = finalpathmobscript + (thefinalfilename0) + ".cs";
-
-prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-thefinalfilename = prefinalfilename; // 
-
-filenamewithext = finalpathmobscriptori + (thefinalfilename) + ".cs";
-
-readalltextstring = File.ReadAllText(filenamewithext);
-
-thehporiginal = "StatMoveSpeed => ";
-
-thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-
-substringofthehealth = readalltextstring.Substring(thefiledata, 64);
-
-theendofline = ";";
-thearrow = "=>";
-
-thefiledata1 = substringofthehealth.IndexOf(theendofline);
-thefiledata2 = substringofthehealth.IndexOf(thearrow);
-
-string substringofthespeed1 = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1 + 24, 8 + 4);
-//double resultparsedstr;
-double.TryParse(substringofthespeed1, out resultparsedstr);
-double thespeedofthemob = resultparsedstr;
-
-
-
-//Console.WriteLine("thespeedofthemob:" + thespeedofthemob);
-
-
-
-Console.WriteLine("substringofthespeed1:" + substringofthespeed1);
-
-
-
-
-//prefinalfilename0 = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-// thefinalfilename0 = prefinalfilename0 ;
-
-//filenamewithext0 = finalpathmobscript + (thefinalfilename0) + ".cs";
-
-
-
-prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-thefinalfilename = prefinalfilename; // 
-
-filenamewithext = finalpathmobscriptori + (thefinalfilename) + ".cs";
-string filenamewithextmul = finalpathmobscript; // + (thefinalfilename) + ".cs"
-
-
-
-readalltextstring = File.ReadAllText(filenamewithext);
-
-thehporiginal = "CharacterWorldHeight => ";
-
-thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-
-string substringoftheheight = readalltextstring.Substring(thefiledata + thehporiginal.Length, 32 + 4);
-
-
-
-
-float resultparsedstrfloat;
-float.TryParse(substringoftheheight, out resultparsedstrfloat);
-//string finalstr = substringofthehp.Substring(0, substringofthehp.Length - 1 - thefiledata1);//
-float theheightofthemob = resultparsedstrfloat;
-
-
-
-
-
-
-
-
-
-//Console.WriteLine(filenamewithext);
-
-//var thefiledata = File.ReadAllText(filenamewithext).Contains("StatDefaultHealthMax");
-
-readalltextstring = File.ReadAllText(filenamewithext);
-
-thehporiginal = "CharacterWorldHeight => ";
-
-thefiledata = File.ReadAllText(filenamewithext).IndexOf(thehporiginal);
-
-substringofthehealth = readalltextstring.Substring(thefiledata, 32);
-
-theendofline = ";";
-thearrow = "=>";
-
-thefiledata1 = substringofthehealth.IndexOf(theendofline);
-thefiledata2 = substringofthehealth.IndexOf(thearrow);
-
-substringofthehp = substringofthehealth.Substring(thefiledata2 + thearrow.Length + 1, 8 - 1);//
-
-//float resultparsedstr;
-//float.TryParse(substringofthehp, out resultparsedstr);
-
-int locationofnumber = substringofthehp.Length - thefiledata1;
-
-var thefiledata3 = substringofthehp.IndexOf(theendofline);
-
-substringofthehp = substringofthehp.Remove(thefiledata3, 1);
-
-//float resultparsedstrfloat;
-float.TryParse(substringofthehp, out resultparsedstrfloat);
-//string finalstr = substringofthehp.Substring(0, substringofthehp.Length - 1 - thefiledata1);//
-float thesheightofthemob = resultparsedstrfloat;
-
-
-
-
-string scriptcharacterskeletonstring = "Skeleton" + mobname;
-string scriptnamevariant = "Variant" + variantindex;
-
-//string themobhp = "StatDefaultHealthMax => " + thehpofthemob + ";";
-//string themobhpmodded = "StatDefaultHealthMax => " + thefinalhp + ";";
-
-//string themobheight = "CharacterWorldHeight => " + theheightofthemob + "f;";
-//string themobheightmodded = "CharacterWorldHeight => " + thefinalheight + "f;";
-
-//string themobmovespeed = "StatMoveSpeed => " + thespeedofthemob + ";";
-//string themobmovespeedmodded = "StatMoveSpeed => " + thefinalmovespeed + ";";
-
-string scriptvarnames = "class Mob" + mobname;
-string scriptstaticvar = "currentMob" + mobname + "Class";
-
-string scriptitemnames = "Mob" + mobname + "Sword";
-
-string replacethistoo = "static Mob" + mobname;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-double theinitmobhp = thehpofthemob;
-
-float minrandm = 0.85f; //0.998f
-float maxrandm = 1.15f;//1.015f //0.999f
-
-float randhpmul = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandm, maxrandm, 1.0f, 0, -1);
-
-float diff = maxrandm - minrandm;
-randhpmul = minrandm + (diff * randhpmul);
-
-double thefinalhp = (double)Math.Round(theinitmobhp * randhpmul);
-
-//Console.WriteLine("hp:" + thefinalhp);
-
-
-
-
-
-float theinitmobheight = theheightofthemob;
-
-float minrandheight = 0.985f; //0.998f
-float maxrandheight = 1.025f;//1.015f //0.999f
-
-float randheightmul = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandheight, maxrandheight, 1.0f, 0, -1);
-
-float diffheight = maxrandheight - minrandheight;
-randheightmul = minrandheight + (diffheight * randheightmul);
-
-float thefinalheight = (float)(theinitmobheight * randheightmul);
-
-//Console.WriteLine("height:" + thefinalheight);
-
-
-
-
-
-double theinitmobmovespeed = thespeedofthemob;
-
-float minrandmovespeed = 0.985f; //0.998f
-float maxrandmovespeed = 1.025f;//1.015f //0.999f
-
-float randmovespeedmul = (float)sc_maths.getSomeRandNumThousandDecimalfloat(minrandmovespeed, maxrandmovespeed, 1.0f, 0, -1);
-
-float diffmovespeed = maxrandmovespeed - minrandmovespeed;
-randmovespeedmul = minrandmovespeed + (diffmovespeed * randmovespeedmul);
-
-double thefinalmovespeed = (double)(theinitmobmovespeed * randmovespeedmul);
-
-thefinalmovespeed = Math.Round(thefinalmovespeed * 1000) / 1000;
-
-
-
-
-
-
-
-int adder = 0;
-int numbertoreach = 10;
-int themodulomul = 0;
-
-for (int n = 0; n < (int)(thefinalmovespeed); n++)
-{
-    if (adder >= numbertoreach)
-    {
-        themodulomul++;
-        adder = 0;
-    }
-    adder++;
-}
-
-
-string thefinalmovespeedstr = thefinalmovespeed.ToString(); //  2.015
-
-int maxdigit = 8;
-
-int digitsleft = maxdigit - adder;
-
-string zerostoadd = "";
-for (int a = 0; a < digitsleft; a++)
-{
-    zerostoadd += "0";
-}
-
-zerostoadd += thefinalmovespeedstr;
-
-
-
-
-
-
-
-string substringofthespeedori = substringofthespeed1;
-substringofthespeed1 = substringofthespeed1.Replace(substringofthespeed1, zerostoadd);
-
-
-
-string originalsub = substringoftheheight;
-substringoftheheight = substringoftheheight.Replace(theheightofthemob.ToString(), thefinalheight.ToString());
-//string substringoftheheight = readalltextstring.Substring(thefiledata, thehporiginal.Length + 32);
-
-//string readalltextstringfinalforheight = readalltextstring.Replace(originalsub, substringoftheheight);
-
-//Console.WriteLine(thefinalheight);
-
-string substringofthehpori = substringofthehp;
-substringofthehp = substringofthehp.Replace(thehpofthemob.ToString(), thefinalhp.ToString());
-//Console.WriteLine("/hpdoublestr:" + substringofthehp);          
-string originalsub1 = substringofthehpori;
-//string readalltextstringfinalforhp = readalltextstring.Replace(originalsub1, substringofthehp);
-
-*/
-
-
-/*
-File.WriteAllText(filenamewithextmul + (thefinalfilename ) + ".cs", File.ReadAllText(filenamewithextmul + (thefinalfilename ) + ".cs").
- Replace(scriptvarnames, scriptvarnames).
- Replace(scriptcharacterskeletonstring, scriptcharacterskeletonstring).
- Replace(originalsub1, substringofthehp).
- Replace(originalsub, substringoftheheight).
- Replace(substringofthespeedori, substringofthespeed1).
- Replace(scriptstaticvar, scriptstaticvar).
- Replace(scriptitemnames, scriptitemnames).
- Replace(replacethistoo, replacethistoo));
-
-*/
-
-
-
-
-
-
-
-/*
-
-//Console.WriteLine(arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscript.Length);
-//Console.WriteLine(arrayoforiginalscriptfilesMOB[i]);
-
-//string prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscript.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscript.Length));
-
-//Console.WriteLine(finalpathmobscript);
-
-prefinalfilename = arrayoforiginalscriptfilesMOB[i].Substring(finalpathmobscriptori.Length, (arrayoforiginalscriptfilesMOB[i].Length - finalpathmobscriptori.Length - 3));
-
-
-
-
-thefinalfilename = prefinalfilename ;
-
-filenamewithext = finalpathmobscript + (thefinalfilename) + ".cs";
-
-Console.WriteLine(filenamewithext);
-
-
-File.Copy(arrayoforiginalscriptfilesMOB[i], filenamewithext, true);
-
-
-
-DirectoryInfo directoryFolder0 = new DirectoryInfo(finalpathmobscript);
-directoryFolder0.Refresh();
-
-//string scriptname = "MobSkeleton";
-string scriptcharacterskeletonstring = "Skeleton" + mobname;
-string scriptnamevariant = "Variant" + variantindex;
-
-string themobhp = "StatDefaultHealthMax => " + thehpofthemob + ";";
-string themobhpmodded = "StatDefaultHealthMax => " + thesheightofthemob + ";";
-
-
-//Console.WriteLine(mobheight);
-
-string themobheight = "CharacterWorldHeight => " + thesheightofthemob + "f;";
-string themobheightmodded = "CharacterWorldHeight => " + thesheightofthemob + "f;";
-
-string themobmovespeed = "StatMoveSpeed => " + thespeedofthemob + ";";
-string themobmovespeedmodded = "StatMoveSpeed => " + thespeedofthemob + ";";
-
-
-string scriptvarnames = "class Mob" + mobname;
-string scriptstaticvar = "currentMob" + mobname + "Class";
-
-
-
-string scriptitemnames = "Mob" + mobname + "Sword";
-
-
-string replacethistoo = "static Mob" + mobname;
-
-File.WriteAllText(filenamewithext, File.ReadAllText(filenamewithext).Replace(scriptvarnames, scriptvarnames).Replace(scriptcharacterskeletonstring, scriptcharacterskeletonstring).
-    Replace(themobhp, themobhpmodded).
-    Replace(themobheight, themobheightmodded).
-    Replace(themobmovespeed, themobmovespeedmodded).
-    Replace(scriptstaticvar, scriptstaticvar).
-    Replace(scriptitemnames, scriptitemnames).
-    Replace(replacethistoo, replacethistoo));*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//string folderNameOriginalPNGS = "original";
-/*string folderNameOriginalPNGS = "original" + @"\" + mobname;
-
-DirectoryInfo dirnameOriginal = new DirectoryInfo(folderNameOriginalPNGS);
-dirnameOriginal.Refresh();
-////Console.WriteLine("2_mainThreadStarter");
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(folderNameOriginalPNGS);
-}
-else
-{
-    //Console.WriteLine("1the directory exists");
-}*/
-
-//string finalpathoriginalPNGSback = "Back";
-//string finalpathoriginalPNGSfront = "Front";
-
-/*string finalPathOriginalBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
-string finalPathOriginalFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
-
-
-if (!Directory.Exists(finalPathOriginalFront))
-{
-    //Console.WriteLine("00the directory !exists");
-    //Directory.CreateDirectory(folderNameOriginalPNGS);
-}
-else
-{
-    //Console.WriteLine("11the directory exists");
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-//folderNameCryofallPNGScriptVariantBuilder += "Variant" + variantindex;
-//string folderNamemulPNGS = "Skeleton" + "Variant" + variantindex;
-string folderNamemulPNGS = "multiplied";
-//string folderNamemulPNGS = "multiplied";// + @"\" + "Skeleton" + "Variant" + variantindex;
-string themobfolder = mobname + "Variant" + variantindex;
-
-
-
-//string folderNamemulPNGS = "multiplied";
-DirectoryInfo dirnamemul = new DirectoryInfo(folderNamemulPNGS);
-dirnamemul.Refresh();
-////Console.WriteLine("2_mainThreadStarter");
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(folderNamemulPNGS);
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-
-
-
-    /*
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-
-
-
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" ))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-    if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs"))
-    {
-        //Console.WriteLine("1the directory !exists");
-        Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs");
-    }
-    else
-    {
-        ////Console.WriteLine("1the directory exists");
-    }
-
-    string finalpathmobscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
-    string finalpathmobskeletonscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
-    string finalpathmobitemscript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
-    string finalpathmobzonescript = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
-
-    string finalpathmobscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Characters" + @"\" + "Mobs" + @"\";
-    string finalpathmobskeletonscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "CharacterSkeletons" + @"\";
-    string finalpathmobitemscriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Items" + @"\" + "Weapons" + @"\" + "MobWeapons" + @"\";
-    string finalpathmobzonescriptori = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNameOriginalPNGS + @"\" + "Scripts" + @"\" + "Zones" + @"\" + "Scripts" + @"\" + "Mobs" + @"\";
-    */
-
-
-
-
-
-
-/*
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-
-if (!Directory.Exists(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\"))
-{
-    //Console.WriteLine("1the directory !exists");
-    Directory.CreateDirectory(pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\");
-}
-else
-{
-    ////Console.WriteLine("1the directory exists");
-}
-}*/
-/*
-string finalPathmulBack = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Back" + @"\" + "Male" + @"\";
-string finalPathmulFront = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + folderNamemulPNGS + @"\" + "Front" + @"\" + "Male" + @"\";
-*/

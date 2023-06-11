@@ -29,6 +29,13 @@
     <Compile Remove="sccscore\sccsgraphicssec2023june04-0.cs" />
     <Compile Remove="sccscore\sccsgraphicssec2023june04-1.cs" />
     <Compile Remove="sccscore\sccsgraphicssec2023june04-2.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-0.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-1.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-2.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-3.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-4-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-5-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-6-NEWBASE.cs" />
     <Compile Remove="sccscore\sccsupdate.cs" />
     <Compile Remove="sccscore\scintermediateupdate.cs" />
     <Compile Remove="sccscore\updatePrim.cs" />
