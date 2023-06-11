@@ -230,133 +230,141 @@ namespace sccs
                     {
                         string themodfoldername = $"{modfolder.Substring(modfolder.LastIndexOf(Path.DirectorySeparatorChar) + 1)}";
 
-                        //Console.WriteLine(themodfoldername);
-
-                        string themodfoldernamewithoutextension = themodfoldername.Substring(0, themodfoldername.Length - 4);
-
-                        //Console.WriteLine(themodfoldernamewithoutextension);
-
-                        string finalPathheader = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk"; // + @"\" + "images"
-                        var arrayoforiginalheader = Directory.GetFiles(finalPathheader);
-
-                        //Console.WriteLine(arrayoforiginalweapon[i]);
-                        string finalPathanims1 = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk"; // + @"\" + "images"
-                        string finalPathanims2 = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk"; // + @"\" + "images"
-
-                        if (!Directory.Exists(finalPathanims2))
-                        {
-                            Directory.CreateDirectory(finalPathanims2); // + @"\" + "Zones"
-                        }
 
 
-
-                        for (int i = 0; i < arrayoforiginalheader.Length; i++)
+                        if (themodfoldername != "sccspathfind.mpk")
                         {
 
-                            //Console.WriteLine(finalPathanims1);
+
+
+
+
+                            string themodfoldernamewithoutextension = themodfoldername.Substring(0, themodfoldername.Length - 4);
+
+                            //Console.WriteLine(themodfoldernamewithoutextension);
+
+                            string finalPathheader = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk"; // + @"\" + "images"
+                            var arrayoforiginalheader = Directory.GetFiles(finalPathheader);
+
                             //Console.WriteLine(arrayoforiginalweapon[i]);
+                            string finalPathanims1 = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk"; // + @"\" + "images"
+                            string finalPathanims2 = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk"; // + @"\" + "images"
 
-                            string finalfilename = arrayoforiginalheader[i].Substring(finalPathanims1.Length, (arrayoforiginalheader[i].Length - (finalPathanims1.Length)));
-                            //Console.WriteLine(finalfilename);
-                            File.Copy(arrayoforiginalheader[i], finalPathanims2 + @"\" + finalfilename, true);
-                        }
-
-
-
-                        if (themodfoldernamewithoutextension.ToLower() == "sccspathfind")
-                        {
-                            continue;
-                        }
-                        else if (themodfoldernamewithoutextension.ToLower() == "skeleton")
-                        {
-                            
-
-
-
-
-                            /*float mobheight = 1.65f;
-                            double mobhp = 99;
-                            double mobspeed = 2.0;
-                            string mobname = "Skeleton";*/
-
-                            //string prefinalpathtofiles = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + "original";
-
-                            string pathtoanimationpngs = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Content\\Animations\\" + themodfoldernamewithoutextension + "\\images"; //back/male and /front/male
-                            string pathtoscripts = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
-                            string pathtoscriptsmul = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
-                    
-                            for (int i = 0; i < numberofvariants; i++)
+                            if (!Directory.Exists(finalPathanims2))
                             {
-                                createvariantpngs(i, themodfoldernamewithoutextension, pathtoanimationpngs, themodfoldernamewithoutextension);
-                                createvariantscripts(i, themodfoldernamewithoutextension, pathtoscripts, pathtoscriptsmul, themodfoldernamewithoutextension);
+                                Directory.CreateDirectory(finalPathanims2); // + @"\" + "Zones"
                             }
-                        }
-                        else if (themodfoldernamewithoutextension.ToLower() == "zombie")
-                        {
 
 
 
-
-
-
-                            /*
-                            float mobheight = 1.65f;
-                            double mobhp = 200;
-                            double mobspeed = 1.5;
-                            string mobname = "Zombie";
-                            */
-
-                            //string prefinalpathtofiles = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + "original";
-
-                            string pathtoanimationpngs = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Content\\Animations\\" + themodfoldernamewithoutextension + "\\images"; //back/male and /front/male
-                            string pathtoscripts = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
-                            string pathtoscriptsmul = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
-
-                            for (int i = 0; i < numberofvariants; i++)
+                            for (int i = 0; i < arrayoforiginalheader.Length; i++)
                             {
-                                createvariantpngs(i, themodfoldernamewithoutextension, pathtoanimationpngs, themodfoldernamewithoutextension);
-                                createvariantscripts(i, themodfoldernamewithoutextension, pathtoscripts, pathtoscriptsmul, themodfoldernamewithoutextension);
+
+                                //Console.WriteLine(finalPathanims1);
+                                //Console.WriteLine(arrayoforiginalweapon[i]);
+
+                                string finalfilename = arrayoforiginalheader[i].Substring(finalPathanims1.Length, (arrayoforiginalheader[i].Length - (finalPathanims1.Length)));
+                                //Console.WriteLine(finalfilename);
+                                File.Copy(arrayoforiginalheader[i], finalPathanims2 + @"\" + finalfilename, true);
                             }
-                        }
-                        else if (themodfoldernamewithoutextension.ToLower() == "zones")
-                        {
-                           
 
 
-                            string zonearctic = @"\" + "Zones" + @"\" + "Arctic";
-                            string zoneboreal = @"\" + "Zones" + @"\" + "Boreal";
-                            string zonegeneric = @"\" + "Zones" + @"\" + "Generic";
-                            string zonemobs = @"\" + "Zones" + @"\" + "Mobs";
-                            string zoneruins = @"\" + "Zones" + @"\" + "Ruins";
-                            string zonespecial = @"\" + "Zones" + @"\" + "Special";
-                            string zonetemperate = @"\" + "Zones" + @"\" + "Temperate";
-                            string zonetropical = @"\" + "Zones" + @"\" + "Tropical";
 
-                            string[] arrayofzones = new string[8];
-
-                            arrayofzones[0] = zonearctic;
-                            arrayofzones[1] = zoneboreal;
-                            arrayofzones[2] = zonegeneric;
-                            arrayofzones[3] = zonemobs;
-                            arrayofzones[4] = zoneruins;
-                            arrayofzones[5] = zonespecial;
-                            arrayofzones[6] = zonetemperate;
-                            arrayofzones[7] = zonetropical;
-
-                            int chosenindex = 0;
-
-                            string currentfolderzone = arrayofzones[chosenindex];
-
-                            //string pathtozones = "C:\\Users\\steve\\Desktop\\#Cryofallscriptgen\\original" + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts" + @"\" + "Zones" + @"\" + "Zones";
-
-                            string pathtozones = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts" + @"\" + "Zones" + @"\" + "Zones";
-
-
-                            for (int j = 0; j < 1; j++)//skeleton and zombie variants
+                            if (themodfoldernamewithoutextension.ToLower() == "sccspathfind")
                             {
-                                for (int i = 0; i < arrayofzones.Length; i++)
+                                continue;
+                            }
+                            else if (themodfoldernamewithoutextension.ToLower() == "skeleton")
+                            {
+
+
+
+
+
+                                /*float mobheight = 1.65f;
+                                double mobhp = 99;
+                                double mobspeed = 2.0;
+                                string mobname = "Skeleton";*/
+
+                                //string prefinalpathtofiles = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + "original";
+
+                                string pathtoanimationpngs = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Content\\Animations\\" + themodfoldernamewithoutextension + "\\images"; //back/male and /front/male
+                                string pathtoscripts = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
+                                string pathtoscriptsmul = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
+
+                                for (int i = 0; i < numberofvariants; i++)
                                 {
-                                    preparezones(i, currentfolderzone, pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder, i, prefinalpathtofiles, prefinalpathtofilesmultiplied, pathtozones);
+                                    createvariantpngs(i, themodfoldernamewithoutextension, pathtoanimationpngs, themodfoldernamewithoutextension);
+                                    createvariantscripts(i, themodfoldernamewithoutextension, pathtoscripts, pathtoscriptsmul, themodfoldernamewithoutextension);
+                                }
+                            }
+                            else if (themodfoldernamewithoutextension.ToLower() == "zombie")
+                            {
+
+
+
+
+
+
+                                /*
+                                float mobheight = 1.65f;
+                                double mobhp = 200;
+                                double mobspeed = 1.5;
+                                string mobname = "Zombie";
+                                */
+
+                                //string prefinalpathtofiles = pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder + @"\" + "original";
+
+                                string pathtoanimationpngs = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Content\\Animations\\" + themodfoldernamewithoutextension + "\\images"; //back/male and /front/male
+                                string pathtoscripts = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
+                                string pathtoscriptsmul = prefinalpathtofilesmultiplied + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts";
+
+                                for (int i = 0; i < numberofvariants; i++)
+                                {
+                                    createvariantpngs(i, themodfoldernamewithoutextension, pathtoanimationpngs, themodfoldernamewithoutextension);
+                                    createvariantscripts(i, themodfoldernamewithoutextension, pathtoscripts, pathtoscriptsmul, themodfoldernamewithoutextension);
+                                }
+                            }
+                            else if (themodfoldernamewithoutextension.ToLower() == "zones")
+                            {
+
+
+
+                                string zonearctic = @"\" + "Zones" + @"\" + "Arctic";
+                                string zoneboreal = @"\" + "Zones" + @"\" + "Boreal";
+                                string zonegeneric = @"\" + "Zones" + @"\" + "Generic";
+                                string zonemobs = @"\" + "Zones" + @"\" + "Mobs";
+                                string zoneruins = @"\" + "Zones" + @"\" + "Ruins";
+                                string zonespecial = @"\" + "Zones" + @"\" + "Special";
+                                string zonetemperate = @"\" + "Zones" + @"\" + "Temperate";
+                                string zonetropical = @"\" + "Zones" + @"\" + "Tropical";
+
+                                string[] arrayofzones = new string[8];
+
+                                arrayofzones[0] = zonearctic;
+                                arrayofzones[1] = zoneboreal;
+                                arrayofzones[2] = zonegeneric;
+                                arrayofzones[3] = zonemobs;
+                                arrayofzones[4] = zoneruins;
+                                arrayofzones[5] = zonespecial;
+                                arrayofzones[6] = zonetemperate;
+                                arrayofzones[7] = zonetropical;
+
+                                int chosenindex = 0;
+
+                                string currentfolderzone = arrayofzones[chosenindex];
+
+                                //string pathtozones = "C:\\Users\\steve\\Desktop\\#Cryofallscriptgen\\original" + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts" + @"\" + "Zones" + @"\" + "Zones";
+
+                                string pathtozones = prefinalpathtofiles + @"\" + themodfoldernamewithoutextension + ".mpk" + "\\Scripts" + @"\" + "Zones" + @"\" + "Zones";
+
+
+                                for (int j = 0; j < 1; j++)//skeleton and zombie variants
+                                {
+                                    for (int i = 0; i < arrayofzones.Length; i++)
+                                    {
+                                        preparezones(i, currentfolderzone, pathToDesktop + @"\" + folderNameCryofallPNGScriptVariantBuilder, i, prefinalpathtofiles, prefinalpathtofilesmultiplied, pathtozones);
+                                    }
                                 }
                             }
                         }
