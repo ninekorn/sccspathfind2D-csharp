@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<mods>
+  <unpacked_mod>
+    <mod_id>core_1.0.0</mod_id>
+    <is_core_mod>1</is_core_mod>
+    <path>Core/Core.cpk</path>
+  </unpacked_mod>
+  <unpacked_mod>
+    <mod_id>sccspathfind</mod_id>
+    <is_core_mod>0</is_core_mod>
+    <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\sccspathfind.mpk</path>
+  </unpacked_mod>
+  <unpacked_mod>
+    <mod_id>Skeleton</mod_id>
+    <is_core_mod>0</is_core_mod>
+    <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\Skeleton.mpk</path>
+  </unpacked_mod>
+  <unpacked_mod>
+    <mod_id>Zombie</mod_id>
+    <is_core_mod>0</is_core_mod>
+    <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\Zombie.mpk</path>
+  </unpacked_mod>
+  <unpacked_mod>
+    <mod_id>Zones</mod_id>
+    <is_core_mod>0</is_core_mod>
+    <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\Zones.mpk</path>
+  </unpacked_mod>
+</mods>
