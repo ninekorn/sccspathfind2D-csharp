@@ -1,7 +1,7 @@
 using sharpdx libraries
 
 
-[b]c# variant zombie/skeleton builder/creator rev 0.1002 - works with cryofall v1.33.1.15:[/b]
+#c# variant zombie/skeleton builder/creator rev 0.1002 - works with cryofall v1.33.1.15:
 List of changes:
 
 1. i inserted the code inside of a thread so that the creation of the variant mobs happen faster. 
@@ -15,7 +15,7 @@ compiled exe - https://github.com/ninekorn/sccspathfind2D-csharp/tree/main/Cryof
 
 uncompiled - https://github.com/ninekorn/sccspathfind2D-csharp/tree/main/Cryofall/modding%20tool/sccsr16-uncompiled
 
-[b]c# variant zombie/skeleton builder/creator rev 0.1000 - works with cryofall v1.33.1.15:[/b]
+#c# variant zombie/skeleton builder/creator rev 0.1000 - works with cryofall v1.33.1.15:
 
 hey everyone. i released a 10min ish tutorial on youtube for how to instantly make skeleton/zombie variants with the variantbuilder modding tool i released on github but you can also read the steps below. It doesn't get you started on learning c# as it really is a draft though and not a very good example of organisation in code. Below is the tutorial on how to use this skeleton/zombie mobs variant builder/creator and it would be preferable to get to know how to install a mod in Cryofall first and i left a link at step 9 to get started with modding Cryofall or Void Expanse.
 
