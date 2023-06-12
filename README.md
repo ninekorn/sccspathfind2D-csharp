@@ -10,7 +10,9 @@ List of changes:
 I started working on trying to also build/create variant mobs for the original game in order to make variants of it but this isn't working yet. What it means, is that in my next revisions, even the original mobs of cryofall should be able to be multiplied into variants. I am just not done with that yet.
 
 download links:
+
 compiled exe - https://github.com/ninekorn/sccspathfind2D-csharp/tree/main/Cryofall/modding%20tool/sccsr16-compiled/Release-rev0.1002/net6.0-windows
+
 uncompiled - https://github.com/ninekorn/sccspathfind2D-csharp/tree/main/Cryofall/modding%20tool/sccsr16-uncompiled
 
 [b]c# variant zombie/skeleton builder/creator rev 0.1000 - works with cryofall v1.33.1.15:[/b]
@@ -30,36 +32,36 @@ rev 0.1000 WIP - c# mob variant builder/creator. Now this project sccsr16-mobcre
 7. modify the insides of modsconfig.xml so that your desktop path is set instead of mine so that Cryofall finds the mods in Documents/Cryofall/Mods otherwise, you can find my ModsConfig.xml in the path sccspathfind2D-csharp/Cryofall/moddingtool/#backups/ModsConfig.xml and copy/paste it in your Documents/Cryofall/Mods folder.
 8. from Documents/Cryofall/Mods, open the file ModsConfig.xml that you have just pasted there at the last step and where below is the path of my desktop/documents with my name steve you should change that name and make corrections if needed for the correct path to your Documents/Cryofall/Mods:
 
-[code]
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<mods>
-  <unpacked_mod>
-    <mod_id>core_1.0.0</mod_id>
-    <is_core_mod>1</is_core_mod>
-    <path>Core/Core.cpk</path>
-  </unpacked_mod>
-  <unpacked_mod>
-    <mod_id>sccspathfind</mod_id>
-    <is_core_mod>0</is_core_mod>
-    <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\sccspathfind.mpk</path>
-  </unpacked_mod>
-  <unpacked_mod>
-    <mod_id>Skeleton</mod_id>
-    <is_core_mod>0</is_core_mod>
-    <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\Skeleton.mpk</path>
-  </unpacked_mod>
-  <unpacked_mod>
-    <mod_id>Zombie</mod_id>
-    <is_core_mod>0</is_core_mod>
-    <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\Zombie.mpk</path>
-  </unpacked_mod>
-  <unpacked_mod>
-    <mod_id>Zones</mod_id>
-    <is_core_mod>0</is_core_mod>
-    <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\Zones.mpk</path>
-  </unpacked_mod>
-</mods>
-[/code]
+
+    <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+    <mods>
+      <unpacked_mod>
+        <mod_id>core_1.0.0</mod_id>
+        <is_core_mod>1</is_core_mod>
+        <path>Core/Core.cpk</path>
+      </unpacked_mod>
+      <unpacked_mod>
+        <mod_id>sccspathfind</mod_id>
+        <is_core_mod>0</is_core_mod>
+        <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\sccspathfind.mpk</path>
+      </unpacked_mod>
+      <unpacked_mod>
+        <mod_id>Skeleton</mod_id>
+        <is_core_mod>0</is_core_mod>
+        <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\Skeleton.mpk</path>
+      </unpacked_mod>
+      <unpacked_mod>
+        <mod_id>Zombie</mod_id>
+        <is_core_mod>0</is_core_mod>
+        <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\Zombie.mpk</path>
+      </unpacked_mod>
+      <unpacked_mod>
+        <mod_id>Zones</mod_id>
+        <is_core_mod>0</is_core_mod>
+        <path>C:\Users\steve\Documents\AtomicTorchStudio\CryoFall\Mods\Zones.mpk</path>
+      </unpacked_mod>
+    </mods>
+
 
 9. Make sure that your core.cpk in your path C:\Program Files (x86)\Steam\steamapps\common\CryoFall\Core is unpacked. In order to unpack a core.cpk in order to mod Cryofall or Void Expanse, you can follow the tutorial here https://www.youtube.com/watch?v=c-qHWtr8Om0&t=1s where i show how to unpack core.cpk but for Void Expanse and it's the same for Cryofall. you can also unpack by double clicking C:\Program Files (x86)\Steam\steamapps\common\CryoFall\Core\Extract Core and Mods.cmd to unpack core.cpk.
 
