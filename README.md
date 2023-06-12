@@ -5,7 +5,7 @@ using sharpdx libraries
 List of changes:
 
 1. i inserted the code inside of a thread so that the creation of the variant mobs happen faster. 
-2. i added better console debug messages in order to know what the program is doing.
+2. i added better console debug messages in order to see what the program is doing.
 
 I started working on trying to also build/create variant mobs for the original game in order to make variants of it but this isn't working yet. What it means, is that in my next revisions, even the original mobs of cryofall should be able to be multiplied into variants. I am just not done with that yet.
 
