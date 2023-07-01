@@ -1,6 +1,10 @@
 using sharpdx libraries
 
+c# variant builder/creator for the Cryofall original mobs (with exceptions) and zombie/skeleton - rev 0.1003 - works with cryofall v1.33.1.15:
 
+the original mobs can now be multiplied into variants with different hp/speed/height. with exceptions. In order to also multiply the original mobs, you need to also put the folder Mobs.mpk from the path sccspathfind\Cryofall\modding tool\#backups\rev20000 into the "original" folder that is placed on the desktop. The rest of the process remains the same as last revision. I didn't have the time to clean my code and leave comments in there.
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #c# variant zombie/skeleton builder/creator rev 0.1002 - works with cryofall v1.33.1.15:
 List of changes:
 
