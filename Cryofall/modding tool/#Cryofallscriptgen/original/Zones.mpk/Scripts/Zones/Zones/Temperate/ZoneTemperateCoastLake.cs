@@ -27,7 +27,7 @@
                 .Add(GetScript<SpawnMobsRiverSnail>())
                 .Add(GetScript<SpawnMobsTurtle>());
 
-            //9SMODS
+            //9SMODS\\
         }
     }
 }

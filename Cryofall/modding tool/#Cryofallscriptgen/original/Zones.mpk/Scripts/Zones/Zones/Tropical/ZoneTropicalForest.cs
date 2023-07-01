@@ -39,7 +39,7 @@
                 .Add(GetScript<SpawnMobsTropicalBoar>().Configure(densityMultiplier: 0.8))
                 .Add(GetScript<SpawnMobsSnakeGreen>().Configure(densityMultiplier: 0.5));
 
-            //9SMODS
+            //9SMODS\\
         }
     }
 }

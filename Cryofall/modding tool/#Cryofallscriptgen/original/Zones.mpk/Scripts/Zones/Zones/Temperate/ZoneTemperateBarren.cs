@@ -43,7 +43,7 @@
                 // mutants
                 .Add(GetScript<SpawnMobsMutantHyena>());
 
-            //9SMODS
+            //9SMODS\\
         }
     }
 }

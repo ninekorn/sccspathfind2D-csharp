@@ -20,7 +20,10 @@
             // mobs
             scripts
                 .Add(GetScript<SpawnMobsCrab>())
-                .Add(GetScript<SpawnMobsRiverSnail>());//9SMODS
+                .Add(GetScript<SpawnMobsRiverSnail>());
+
+
+            //9SMODS\\
         }
     }
 }

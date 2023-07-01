@@ -11,7 +11,11 @@
         {
             // minerals and mobs
             scripts
-                .Add(GetScript<SpawnPragmiumWasteland>());//9SMODS
+                .Add(GetScript<SpawnPragmiumWasteland>());
+
+
+
+            //9SMODS\\
         }
     }
 }

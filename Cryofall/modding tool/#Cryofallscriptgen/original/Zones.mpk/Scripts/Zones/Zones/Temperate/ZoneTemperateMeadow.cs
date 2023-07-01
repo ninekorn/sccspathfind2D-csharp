@@ -27,7 +27,7 @@
                 .Add(GetScript<SpawnMobsWildBoar>())
                 .Add(GetScript<SpawnMobsSnakeGreen>());
 
-            //9SMODS
+            //9SMODS\\
         }
     }
 }

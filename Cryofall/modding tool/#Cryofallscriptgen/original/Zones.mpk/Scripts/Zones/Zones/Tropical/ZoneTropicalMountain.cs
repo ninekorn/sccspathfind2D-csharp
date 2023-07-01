@@ -26,7 +26,7 @@
             scripts
                 .Add(GetScript<SpawnMobsCrawler>());
 
-            //9SMODS
+            //9SMODS\\
         }
     }
 }

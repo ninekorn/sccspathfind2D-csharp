@@ -23,7 +23,7 @@
                 .Add(GetScript<SpawnMobsStarfish>())
                 .Add(GetScript<SpawnMobsTurtle>());
 
-            //9SMODS
+            //9SMODS\\
         }
     }
 }

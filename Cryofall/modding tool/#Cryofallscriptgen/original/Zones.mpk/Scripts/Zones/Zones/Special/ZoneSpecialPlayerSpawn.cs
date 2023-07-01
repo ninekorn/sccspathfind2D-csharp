@@ -12,7 +12,7 @@
             // Special zone - no logic here
             // See ServerPlayerSpawnManager which uses this zone as the players spawn positions provider.
 
-            //9SMODS
+            //9SMODS\\
         }
     }
 }

@@ -11,7 +11,9 @@
         {
             // loot
             scripts
-                .Add(GetScript<SpawnLootRoads>());//9SMODS
+                .Add(GetScript<SpawnLootRoads>());
+
+            //9SMODS\\
         }
     }
 }

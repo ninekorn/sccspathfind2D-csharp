@@ -11,7 +11,9 @@
         {
             // loot
             scripts
-                .Add(GetScript<SpawnLootRuinsIndustrial>());//9SMODS
+                .Add(GetScript<SpawnLootRuinsIndustrial>());
+
+            //9SMODS\\
         }
     }
 }

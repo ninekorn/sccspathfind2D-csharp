@@ -14,7 +14,9 @@
                 
             // loot
             scripts
-                .Add(GetScript<SpawnLootStone>());//9SMODS
+                .Add(GetScript<SpawnLootStone>());
+            
+            //9SMODS\\
 
             // mobs
                 // none

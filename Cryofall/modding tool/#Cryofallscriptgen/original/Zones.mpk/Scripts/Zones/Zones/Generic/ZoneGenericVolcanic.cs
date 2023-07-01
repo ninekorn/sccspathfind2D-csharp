@@ -19,7 +19,10 @@
 
             // mobs
             scripts
-                .Add(GetScript<SpawnMobsVolcanic>());//9SMODS
+                .Add(GetScript<SpawnMobsVolcanic>());
+
+
+            //9SMODS\\
         }
     }
 }

@@ -10,7 +10,10 @@
         protected override void PrepareZone(ZoneScripts scripts)
         {
             scripts
-                .Add(GetScript<SpawnMobsPsiGrove>());//9SMODS
+                .Add(GetScript<SpawnMobsPsiGrove>());
+
+
+            //9SMODS\\
         }
     }
 }

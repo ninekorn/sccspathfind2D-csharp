@@ -13,7 +13,7 @@
             // See StatusEffectRadiation which uses this zone to determine what characters are affected by radiation
 
 
-            //9SMODS
+            //9SMODS\\
         }
     }
 }

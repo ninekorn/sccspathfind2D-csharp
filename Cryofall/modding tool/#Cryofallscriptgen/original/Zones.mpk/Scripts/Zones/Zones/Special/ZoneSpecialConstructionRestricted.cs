@@ -15,7 +15,7 @@
             // Used to restrict building in certain map areas.
             Instance = this;
 
-            //9SMODS
+            //9SMODS\\
         }
     }
 }

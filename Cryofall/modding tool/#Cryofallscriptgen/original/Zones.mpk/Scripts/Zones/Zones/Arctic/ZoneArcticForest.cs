@@ -28,7 +28,9 @@
             scripts
                 .Add(GetScript<SpawnMobsWolfPolar>())
                 .Add(GetScript<SpawnMobsBearPolar>())
-                .Add(GetScript<SpawnMobsBroodNest>());//9SMODS
+                .Add(GetScript<SpawnMobsBroodNest>());
+
+            //9SMODS\\
         }
     }
 }

@@ -11,7 +11,11 @@
         {
             // loot
             scripts
-                .Add(GetScript<SpawnLootRuinsResidential>());//9SMODS
+                .Add(GetScript<SpawnLootRuinsResidential>());
+
+
+            //9SMODS\\
+
         }
     }
 }

@@ -49,7 +49,9 @@
                 .Add(GetScript<SpawnMobsBear>())
                 // mutants
                 .Add(GetScript<SpawnMobsMutantWolf>())
-                .Add(GetScript<SpawnMobsMutantBoar>());//9SMODS
+                .Add(GetScript<SpawnMobsMutantBoar>());
+
+            //9SMODS\\
         }
     }
 }
