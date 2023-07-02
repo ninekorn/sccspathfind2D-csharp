@@ -25,10 +25,10 @@
                 .Add(GetScript<SpawnLootPileStone>().Configure(densityMultiplier: 0.2));
 
             // mobs
-            scripts
-                .Add(GetScript<SpawnMobsWolfPolar>())
-                .Add(GetScript<SpawnMobsBearPolar>())
-                .Add(GetScript<SpawnMobsBroodNest>());
+            //scripts
+            //    .Add(GetScript<SpawnMobsWolfPolar>())
+            //    .Add(GetScript<SpawnMobsBearPolar>())
+            //    .Add(GetScript<SpawnMobsBroodNest>());
 
             //9SMODS\\
         }

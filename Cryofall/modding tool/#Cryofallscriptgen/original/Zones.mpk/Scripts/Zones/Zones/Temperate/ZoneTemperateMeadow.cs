@@ -21,11 +21,11 @@
                 .Add(GetScript<SpawnLootGeneric>().Configure(densityMultiplier: 1.35)); // loot (stone, grass, twigs)
 
             // mobs
-            scripts
-                .Add(GetScript<SpawnMobsWolf>())
-                .Add(GetScript<SpawnMobsChicken>())
-                .Add(GetScript<SpawnMobsWildBoar>())
-                .Add(GetScript<SpawnMobsSnakeGreen>());
+            //scripts
+            //    .Add(GetScript<SpawnMobsWolf>())
+            //    .Add(GetScript<SpawnMobsChicken>())
+            //    .Add(GetScript<SpawnMobsWildBoar>())
+            //    .Add(GetScript<SpawnMobsSnakeGreen>());
 
             //9SMODS\\
         }

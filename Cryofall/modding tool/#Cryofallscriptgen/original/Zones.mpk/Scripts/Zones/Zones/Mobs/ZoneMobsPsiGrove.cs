@@ -9,8 +9,8 @@
 
         protected override void PrepareZone(ZoneScripts scripts)
         {
-            scripts
-                .Add(GetScript<SpawnMobsPsiGrove>());
+            //scripts
+            //    .Add(GetScript<SpawnMobsPsiGrove>());
 
 
             //9SMODS\\

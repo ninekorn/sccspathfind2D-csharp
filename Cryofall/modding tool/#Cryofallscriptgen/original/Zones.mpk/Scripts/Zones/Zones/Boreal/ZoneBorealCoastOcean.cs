@@ -18,9 +18,9 @@
                 .Add(GetScript<SpawnLootStone>());
 
             // mobs
-            scripts
-                .Add(GetScript<SpawnMobsCrab>())
-                .Add(GetScript<SpawnMobsRiverSnail>());
+            //scripts
+            //    .Add(GetScript<SpawnMobsCrab>())
+            //    .Add(GetScript<SpawnMobsRiverSnail>());
 
 
             //9SMODS\\

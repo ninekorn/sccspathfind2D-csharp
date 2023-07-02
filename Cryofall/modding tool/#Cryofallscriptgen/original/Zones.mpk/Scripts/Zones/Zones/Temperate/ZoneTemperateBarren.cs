@@ -33,15 +33,15 @@
                 .Add(GetScript<SpawnResourceSulfur>().Configure(densityMultiplier: 0.10));
 
             // mobs
-            scripts
-                .Add(GetScript<SpawnMobsCloakedLizard>().Configure(densityMultiplier: 0.5))
-                .Add(GetScript<SpawnMobsHoneyBadger>())
-                .Add(GetScript<SpawnMobsPangolin>())
-                .Add(GetScript<SpawnMobsSnakeBrown>())
-                .Add(GetScript<SpawnMobsHyena>())
-                .Add(GetScript<SpawnMobsThumper>())
-                // mutants
-                .Add(GetScript<SpawnMobsMutantHyena>());
+            //scripts
+            //    .Add(GetScript<SpawnMobsCloakedLizard>().Configure(densityMultiplier: 0.5))
+            //    .Add(GetScript<SpawnMobsHoneyBadger>())
+            //    .Add(GetScript<SpawnMobsPangolin>())
+            //    .Add(GetScript<SpawnMobsSnakeBrown>())
+            //    .Add(GetScript<SpawnMobsHyena>())
+            //    .Add(GetScript<SpawnMobsThumper>())
+            // mutants
+            //    .Add(GetScript<SpawnMobsMutantHyena>());
 
             //9SMODS\\
         }

@@ -9,8 +9,8 @@
 
         protected override void PrepareZone(ZoneScripts scripts)
         {
-            scripts
-                .Add(GetScript<SpawnMobsSpitter>());
+            //scripts
+            //    .Add(GetScript<SpawnMobsSpitter>());
 
             //9SMODS\\
         }

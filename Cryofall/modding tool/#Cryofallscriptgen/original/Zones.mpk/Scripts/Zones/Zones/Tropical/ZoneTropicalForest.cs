@@ -31,13 +31,13 @@
                 .Add(GetScript<SpawnLootPileStone>().Configure(densityMultiplier: 0.2));
 
             // mobs
-            scripts
-                // passive
-                .Add(GetScript<SpawnMobsChicken>())
-                .Add(GetScript<SpawnMobsPangolin>())
-                // aggressive
-                .Add(GetScript<SpawnMobsTropicalBoar>().Configure(densityMultiplier: 0.8))
-                .Add(GetScript<SpawnMobsSnakeGreen>().Configure(densityMultiplier: 0.5));
+            //scripts
+            // passive
+            //    .Add(GetScript<SpawnMobsChicken>())
+            //    .Add(GetScript<SpawnMobsPangolin>())
+            // aggressive
+            //    .Add(GetScript<SpawnMobsTropicalBoar>().Configure(densityMultiplier: 0.8))
+            //    .Add(GetScript<SpawnMobsSnakeGreen>().Configure(densityMultiplier: 0.5));
 
             //9SMODS\\
         }

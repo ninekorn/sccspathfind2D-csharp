@@ -22,9 +22,9 @@
                 .Add(GetScript<SpawnLootPileMinerals>());
 
             // mobs
-            scripts
-                .Add(GetScript<SpawnMobsCloakedLizard>().Configure(densityMultiplier: 0.5))
-                .Add(GetScript<SpawnMobsCrawler>());
+            //scripts
+            //    .Add(GetScript<SpawnMobsCloakedLizard>().Configure(densityMultiplier: 0.5))
+            //    .Add(GetScript<SpawnMobsCrawler>());
 
             //9SMODS\\
         }

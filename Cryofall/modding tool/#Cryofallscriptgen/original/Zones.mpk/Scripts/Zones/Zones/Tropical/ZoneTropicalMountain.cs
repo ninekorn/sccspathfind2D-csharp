@@ -23,8 +23,8 @@
                 .Add(GetScript<SpawnLootPileMinerals>());
 
             // mobs
-            scripts
-                .Add(GetScript<SpawnMobsCrawler>());
+            //scripts
+            //    .Add(GetScript<SpawnMobsCrawler>());
 
             //9SMODS\\
         }

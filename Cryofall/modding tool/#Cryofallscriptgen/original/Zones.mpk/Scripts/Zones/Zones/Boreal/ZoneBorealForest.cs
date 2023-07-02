@@ -41,15 +41,15 @@
                 .Add(GetScript<SpawnLootPileStone>().Configure(densityMultiplier: 0.2));
 
             // mobs
-            scripts
-                // aggressive
-                .Add(GetScript<SpawnMobsWolf>())
-                .Add(GetScript<SpawnMobsWildBoar>())
-                .Add(GetScript<SpawnMobsSnakeBlue>())
-                .Add(GetScript<SpawnMobsBear>())
-                // mutants
-                .Add(GetScript<SpawnMobsMutantWolf>())
-                .Add(GetScript<SpawnMobsMutantBoar>());
+            //scripts
+            // aggressive
+            //  .Add(GetScript<SpawnMobsWolf>())
+            //  .Add(GetScript<SpawnMobsWildBoar>())
+            //  .Add(GetScript<SpawnMobsSnakeBlue>())
+            //   .Add(GetScript<SpawnMobsBear>())
+            // mutants
+            //   .Add(GetScript<SpawnMobsMutantWolf>())
+            //   .Add(GetScript<SpawnMobsMutantBoar>());
 
             //9SMODS\\
         }

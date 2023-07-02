@@ -43,14 +43,14 @@
                 .Add(GetScript<SpawnLootGeneric>().Configure(densityMultiplier: 0.5)); // loot (stone, grass, twigs)
 
             // mobs
-            scripts
-                // passive
-                .Add(GetScript<SpawnMobsRiverSnail>())
-                // aggressive
-                .Add(GetScript<SpawnMobsBlackBeetle>())
-                .Add(GetScript<SpawnMobsBurrower>())
-                .Add(GetScript<SpawnMobsSnakeGreen>())
-                .Add(GetScript<SpawnMobsWildBoar>());
+            //scripts
+            // passive
+            //    .Add(GetScript<SpawnMobsRiverSnail>())
+            // aggressive
+            //    .Add(GetScript<SpawnMobsBlackBeetle>())
+            //    .Add(GetScript<SpawnMobsBurrower>())
+            //    .Add(GetScript<SpawnMobsSnakeGreen>())
+            //    .Add(GetScript<SpawnMobsWildBoar>());
 
             //9SMODS\\
         }

@@ -18,10 +18,10 @@
                 .Add(GetScript<SpawnLootStone>());
 
             // mobs
-            scripts
-                .Add(GetScript<SpawnMobsCrab>().Configure(densityMultiplier: 0.8))
-                .Add(GetScript<SpawnMobsStarfish>())
-                .Add(GetScript<SpawnMobsTurtle>());
+            //scripts
+            //    .Add(GetScript<SpawnMobsCrab>().Configure(densityMultiplier: 0.8))
+            //    .Add(GetScript<SpawnMobsStarfish>())
+            //    .Add(GetScript<SpawnMobsTurtle>());
 
             //9SMODS\\
         }
