@@ -1,0 +1,225 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>10.0</LangVersion>
+    <!--UseWPF>true</UseWPF-->
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <!--TargetFramework>net48</TargetFramework-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="#Cryofallscriptgen\**" />
+    <Compile Remove="ab3d_dxengine_vr\**" />
+    <Compile Remove="Forces\**" />
+    <EmbeddedResource Remove="#Cryofallscriptgen\**" />
+    <EmbeddedResource Remove="ab3d_dxengine_vr\**" />
+    <EmbeddedResource Remove="Forces\**" />
+    <None Remove="#Cryofallscriptgen\**" />
+    <None Remove="ab3d_dxengine_vr\**" />
+    <None Remove="Forces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="directx.cs" />
+    <Compile Remove="Form1 - 2023july06-0-newbase.cs" />
+    <Compile Remove="Form1 - 2023july06-0-newbase.Designer.cs" />
+    <Compile Remove="Form1-2023july03-0.cs" />
+    <Compile Remove="Form1-2023july03-0.Designer.cs" />
+    <Compile Remove="Form1-2023july05-2-fail.cs" />
+    <Compile Remove="Form1-2023july05-2-fail.Designer.cs" />
+    <Compile Remove="Form1-2023july05-8-NEWBASE.cs" />
+    <Compile Remove="Form1-2023july05-8-NEWBASE.Designer.cs" />
+    <Compile Remove="Form12023july03-1fail.cs" />
+    <Compile Remove="Form12023july03-2-newbase.cs" />
+    <Compile Remove="Form12023july03-2-newbase.Designer.cs" />
+    <Compile Remove="Form12023july03-3-newbase.cs" />
+    <Compile Remove="Form12023july03-3-newbase.Designer.cs" />
+    <Compile Remove="Form12023july03-4-newbase.cs" />
+    <Compile Remove="Form12023july03-4-newbase.Designer.cs" />
+    <Compile Remove="Form12023july03-5-newbase.cs" />
+    <Compile Remove="Form12023july03-5-newbase.Designer.cs" />
+    <Compile Remove="Form12023july03fail.cs" />
+    <Compile Remove="Form12023july03fail.Designer.cs" />
+    <Compile Remove="Form12023july04-1-fail.cs" />
+    <Compile Remove="Form12023july04-1-fail.Designer.cs" />
+    <Compile Remove="Form12023july04-10-test-0.cs" />
+    <Compile Remove="Form12023july04-10-test-1.cs" />
+    <Compile Remove="Form12023july04-10-test-1.Designer.cs" />
+    <Compile Remove="Form12023july04-10-test.cs" />
+    <Compile Remove="Form12023july04-10-test.Designer.cs" />
+    <Compile Remove="Form12023july04-11-NEWBASE.cs" />
+    <Compile Remove="Form12023july04-11-NEWBASE.Designer.cs" />
+    <Compile Remove="Form12023july04-12-fail.cs" />
+    <Compile Remove="Form12023july04-12-fail.Designer.cs" />
+    <Compile Remove="Form12023july04-12-NEWBASE.cs" />
+    <Compile Remove="Form12023july04-12-NEWBASE.Designer.cs" />
+    <Compile Remove="Form12023july04-13-CLEANER.cs" />
+    <Compile Remove="Form12023july04-13-CLEANER.Designer.cs" />
+    <Compile Remove="Form12023july04-13-SIMPLER.cs" />
+    <Compile Remove="Form12023july04-13-SIMPLER.Designer.cs" />
+    <Compile Remove="Form12023july04-14-NEWBASE.cs" />
+    <Compile Remove="Form12023july04-14-NEWBASE.Designer.cs" />
+    <Compile Remove="Form12023july04-2-fail.cs" />
+    <Compile Remove="Form12023july04-2-fail.Designer.cs" />
+    <Compile Remove="Form12023july04-3-newbase.cs" />
+    <Compile Remove="Form12023july04-3-newbase.Designer.cs" />
+    <Compile Remove="Form12023july04-4-fail.cs" />
+    <Compile Remove="Form12023july04-4-fail.Designer.cs" />
+    <Compile Remove="Form12023july04-5-newbase.cs" />
+    <Compile Remove="Form12023july04-5-newbase.Designer.cs" />
+    <Compile Remove="Form12023july04-6-newbase.cs" />
+    <Compile Remove="Form12023july04-6-newbase.Designer.cs" />
+    <Compile Remove="Form12023july04-6-newbaseflatfail.cs" />
+    <Compile Remove="Form12023july04-6-newbaseflatfail.Designer.cs" />
+    <Compile Remove="Form12023july04-7-newbase.cs" />
+    <Compile Remove="Form12023july04-7-newbase.Designer.cs" />
+    <Compile Remove="Form12023july04-7-newbaseflatfail.cs" />
+    <Compile Remove="Form12023july04-7-newbaseflatfail.Designer.cs" />
+    <Compile Remove="Form12023july04-8-fail.cs" />
+    <Compile Remove="Form12023july04-8-fail.Designer.cs" />
+    <Compile Remove="Form12023july04-9-sameas3.cs" />
+    <Compile Remove="Form12023july04-9-sameas3.Designer.cs" />
+    <Compile Remove="Form12023july04-9.cs" />
+    <Compile Remove="Form12023july04-9.Designer.cs" />
+    <Compile Remove="Form12023july04-sameas3.cs" />
+    <Compile Remove="Form12023july04-sameas3.Designer.cs" />
+    <Compile Remove="Form12023july05-0.cs" />
+    <Compile Remove="Form12023july05-0.Designer.cs" />
+    <Compile Remove="Form12023july05-04-fail.cs" />
+    <Compile Remove="Form12023july05-04-fail.Designer.cs" />
+    <Compile Remove="Form12023july05-05-NEWBASE.cs" />
+    <Compile Remove="Form12023july05-05-NEWBASE.Designer.cs" />
+    <Compile Remove="Form12023july05-06-NEWBASE.cs" />
+    <Compile Remove="Form12023july05-06-NEWBASE.Designer.cs" />
+    <Compile Remove="Form12023july05-07-brokenwtf.cs" />
+    <Compile Remove="Form12023july05-07-brokenwtf.Designer.cs" />
+    <Compile Remove="Form12023july05-07-newbase.cs" />
+    <Compile Remove="Form12023july05-07-newbase.Designer.cs" />
+    <Compile Remove="Form12023july05-1-failbase.cs" />
+    <Compile Remove="Form12023july05-1-failbase.Designer.cs" />
+    <Compile Remove="Form12023july05-1-NEWBASE.cs" />
+    <Compile Remove="Form12023july05-1-NEWBASE.Designer.cs" />
+    <Compile Remove="Form12023july05-3-NEWBASE.cs" />
+    <Compile Remove="Form12023july05-3-NEWBASE.Designer.cs" />
+    <Compile Remove="Program -2022july31-LTS.cs" />
+    <Compile Remove="Program -LTS.cs" />
+    <Compile Remove="Program2023july03-0.cs" />
+    <Compile Remove="sccscore\directx.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023july01-1-newbase.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023july01-2-newbase.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023july01-3-newbase.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023july01-4-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023july01-backup-0.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023july02-backup-0.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023july03-0.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023july03-1.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june04-0.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june04-1.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june04-2.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-0.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-1.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-2.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-3.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-4-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-5-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june10-6-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june12-0.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june12-1-newbase.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june12-2-garbage.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june12-3.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june12-4.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june27.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june29-0-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june29-0.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june29-1.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june29-2-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june29-3-newbase.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june29-4-newbase.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june30-0-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june30-0.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june30-1-NEWBASE-clean.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june30-2-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june30-3-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june30-4.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec2023june30-5-NEWBASE.cs" />
+    <Compile Remove="sccscore\sccsgraphicssec27june2023.cs" />
+    <Compile Remove="sccscore\sccsupdate.cs" />
+    <Compile Remove="sccscore\scintermediateupdate.cs" />
+    <Compile Remove="sccscore\updatePrim.cs" />
+    <Compile Remove="sccsmeshobject\tutorialchunkcubemap.cs" />
+    <Compile Remove="scnewlevelgen\sccslevelgen.cs" />
+    <Compile Remove="scnewlevelgen\sclevelgenglobals.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Form1 - 2023july06-0-newbase.resx" />
+    <EmbeddedResource Remove="Form1-2023july03-0.resx" />
+    <EmbeddedResource Remove="Form1-2023july05-2-fail.resx" />
+    <EmbeddedResource Remove="Form1-2023july05-8-NEWBASE.resx" />
+    <EmbeddedResource Remove="Form12023july03-2-newbase.resx" />
+    <EmbeddedResource Remove="Form12023july03-3-newbase.resx" />
+    <EmbeddedResource Remove="Form12023july03-4-newbase.resx" />
+    <EmbeddedResource Remove="Form12023july03-5-newbase.resx" />
+    <EmbeddedResource Remove="Form12023july03fail.resx" />
+    <EmbeddedResource Remove="Form12023july04-1-fail.resx" />
+    <EmbeddedResource Remove="Form12023july04-10-test-1.resx" />
+    <EmbeddedResource Remove="Form12023july04-10-test.resx" />
+    <EmbeddedResource Remove="Form12023july04-11-NEWBASE.resx" />
+    <EmbeddedResource Remove="Form12023july04-12-fail.resx" />
+    <EmbeddedResource Remove="Form12023july04-12-NEWBASE.resx" />
+    <EmbeddedResource Remove="Form12023july04-13-CLEANER.resx" />
+    <EmbeddedResource Remove="Form12023july04-13-SIMPLER.resx" />
+    <EmbeddedResource Remove="Form12023july04-14-NEWBASE.resx" />
+    <EmbeddedResource Remove="Form12023july04-2-fail.resx" />
+    <EmbeddedResource Remove="Form12023july04-3-newbase.resx" />
+    <EmbeddedResource Remove="Form12023july04-4-fail.resx" />
+    <EmbeddedResource Remove="Form12023july04-5-newbase.resx" />
+    <EmbeddedResource Remove="Form12023july04-6-newbase.resx" />
+    <EmbeddedResource Remove="Form12023july04-6-newbaseflatfail.resx" />
+    <EmbeddedResource Remove="Form12023july04-7-newbase.resx" />
+    <EmbeddedResource Remove="Form12023july04-7-newbaseflatfail.resx" />
+    <EmbeddedResource Remove="Form12023july04-8-fail.resx" />
+    <EmbeddedResource Remove="Form12023july04-9-sameas3.resx" />
+    <EmbeddedResource Remove="Form12023july04-9.resx" />
+    <EmbeddedResource Remove="Form12023july04-sameas3.resx" />
+    <EmbeddedResource Remove="Form12023july05-0.resx" />
+    <EmbeddedResource Remove="Form12023july05-04-fail.resx" />
+    <EmbeddedResource Remove="Form12023july05-05-NEWBASE.resx" />
+    <EmbeddedResource Remove="Form12023july05-06-NEWBASE.resx" />
+    <EmbeddedResource Remove="Form12023july05-07-brokenwtf.resx" />
+    <EmbeddedResource Remove="Form12023july05-07-newbase.resx" />
+    <EmbeddedResource Remove="Form12023july05-1-failbase.resx" />
+    <EmbeddedResource Remove="Form12023july05-1-NEWBASE.resx" />
+    <EmbeddedResource Remove="Form12023july05-3-NEWBASE.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="sccscore\i1qfsh2l.hsv~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpDX" Version="4.2.0" />
+    <PackageReference Include="SharpDX.D3DCompiler" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Desktop" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Direct2D1" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
+    <PackageReference Include="SharpDX.DirectInput" Version="4.2.0" />
+    <PackageReference Include="SharpDX.DirectSound" Version="4.2.0" />
+    <PackageReference Include="SharpDX.DXGI" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
+    <PackageReference Include="SharpDX.MediaFoundation" Version="4.2.0" />
+    <PackageReference Include="SharpDX.RawInput" Version="4.2.0" />
+    <PackageReference Include="SharpDX.XAudio2" Version="4.2.0" />
+    <PackageReference Include="SharpDX.XInput" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="sccsmeshobject\" />
+  </ItemGroup>
+
+</Project>

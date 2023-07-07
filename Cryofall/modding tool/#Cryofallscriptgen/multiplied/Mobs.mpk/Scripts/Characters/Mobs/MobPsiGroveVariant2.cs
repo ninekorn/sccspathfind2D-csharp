@@ -1,0 +1,110 @@
+namespace AtomicTorch.CBND.CoreMod.Characters.Mobs
+{
+    using AtomicTorch.CBND.CoreMod.Characters.Player;
+    using AtomicTorch.CBND.CoreMod.CharacterSkeletons;
+    using AtomicTorch.CBND.CoreMod.Events;
+    using AtomicTorch.CBND.CoreMod.Items.Food;
+    using AtomicTorch.CBND.CoreMod.Items.Generic;
+    using AtomicTorch.CBND.CoreMod.Objects;
+    using AtomicTorch.CBND.CoreMod.Skills;
+    using AtomicTorch.CBND.CoreMod.SoundPresets;
+    using AtomicTorch.CBND.CoreMod.Stats;
+    using AtomicTorch.CBND.CoreMod.Systems.CharacterDeath;
+    using AtomicTorch.CBND.CoreMod.Systems.Droplists;
+    using AtomicTorch.CBND.GameApi.Data.Characters;
+    using AtomicTorch.CBND.GameApi.Data.World;
+    using AtomicTorch.CBND.GameApi.Scripting;
+
+    public class MobPsiGroveVariant2 : ProtoCharacterMob, IProtoObjectPsiSource
+    {
+        public override bool AiIsRunAwayFromHeavyVehicles => false;
+
+        public override double BiomaterialValueMultiplier => 0.5;
+
+        public override double MobKillExperienceMultiplier => 1.0;
+
+        public override string Name => "Psi grove";
+
+        public override ObjectMaterial ObjectMaterial => ObjectMaterial.SoftTissues;
+
+        public double PsiIntensity => 0.75;
+
+        public double PsiRadiusMax => 6;
+
+        public double PsiRadiusMin => 4;
+
+        public override double ServerUpdateIntervalSeconds => 1; // rare updates as it's a static mob without attacks
+
+
+        public override float CharacterWorldHeight => 0000000000000001.500000000000000f;
+
+        public override double StatDefaultHealthMax => 00000000000000000000000000000231.00000000000000000000000000000000;
+
+        public override double StatMoveSpeed => 000000000000000000000000000000000.00000000000000000000000000000;
+
+
+
+
+
+
+
+
+        public bool ServerIsPsiSourceActive(IWorldObject worldObject)
+        {
+            return true;
+        }
+
+        protected override void FillDefaultEffects(Effects effects)
+        {
+            base.FillDefaultEffects(effects);
+
+            effects
+                .AddValue(this, StatName.DefenseKinetic,   1.0)
+                .AddValue(this, StatName.DefenseHeat,      1.0)
+                .AddValue(this, StatName.DefenseCold,      0.5)
+                .AddValue(this, StatName.DefenseExplosion, 0.5);
+        }
+
+        protected override void PrepareProtoCharacterMob(
+            out ProtoCharacterSkeleton skeleton,
+            ref double scale,
+            DropItemsList lootDroplist)
+        {
+            skeleton = GetProtoEntity<SkeletonPsiGroveVariant2>();
+
+            // primary loot
+            lootDroplist
+                .Add<ItemSlime>(count: 2,       countRandom: 1)
+                .Add<ItemTwigs>(count: 4,       countRandom: 2)
+                .Add<ItemSugar>(count: 1,       countRandom: 1)
+                .Add<ItemOrePragmium>(count: 1, probability: 0.3);
+
+            // extra loot
+            lootDroplist.Add(condition: SkillHunting.ServerRollExtraLoot,
+                             nestedList: new DropItemsList(outputs: 1)
+                                         .Add<ItemSlime>(count: 1)
+                                         .Add<ItemTwigs>(count: 2)
+                );
+
+            if (!IsServer)
+            {
+                return;
+            }
+
+            ServerCharacterDeathMechanic.CharacterKilled += ServerCharacterKilledHandler;
+
+            static void ServerCharacterKilledHandler(
+                ICharacter attackerCharacter,
+                ICharacter targetCharacter)
+            {
+                if (!attackerCharacter.IsNpc
+                    && targetCharacter.ProtoCharacter.GetType() == typeof(MobPsiGrove))
+                {
+                    PlayerCharacter.GetPrivateState(attackerCharacter)
+                                   .CompletionistData
+                                   .ServerOnParticipatedInEvent(Api.GetProtoEntity<EventPsiGroveInfestation>());
+                }
+            }
+        }
+    }
+}
