@@ -266,11 +266,18 @@ namespace sccs.sccore
 
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
+            
+
+
             /*
             ShowScrollBar(handle, (int)ScrollBarDirection.SB_VERT, false);
             ShowScrollBar(handle, (int)ScrollBarDirection.SB_HORZ, false);
             ShowScrollBar(handle, (int)ScrollBarDirection.SB_BOTH, false);
             */
+            ShowScrollBar(handle, (int)ScrollBarDirection.SB_VERT, true);
+            ShowScrollBar(handle, (int)ScrollBarDirection.SB_HORZ, true);
+            ShowScrollBar(handle, (int)ScrollBarDirection.SB_BOTH, true);
+
 
             _console_hasINIT = 1;
 

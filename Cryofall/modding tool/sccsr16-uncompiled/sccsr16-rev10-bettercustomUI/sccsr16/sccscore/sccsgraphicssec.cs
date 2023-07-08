@@ -8700,7 +8700,7 @@ namespace sccs
 
                         device.ImmediateContext.UnmapSubresource(theonboardcomputertextureFINAL, 0);
 
-
+                        
                         DirectoryInfo directoryFolder0 = new DirectoryInfo(finalPathmulFront);
                         directoryFolder0.Refresh();
                         //break;
@@ -8711,13 +8711,12 @@ namespace sccs
 
                         bitmapcounter++;
 
+                        //Console.WriteLine(finalPathmulFront + finalfilename + ".png");
 
                         DeleteObject(interptr1);
                         //DISCARDED
                         //DISCARDED
                         //DISCARDED
-
-
 
                         /*
                         somebitmap.Dispose();
