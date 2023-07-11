@@ -9,7 +9,7 @@ using AtomicTorch.GameEngine.Common.DataStructures;
 public class sccspathfindstructs //: MonoBehaviour
 {
 
-
+    /*
     //https://stackoverflow.com/questions/748387/how-to-remove-a-stack-item-which-is-not-on-the-top-of-the-stack-in-c-sharp
     public class itsalmostastack<T>
     {
@@ -59,7 +59,7 @@ public class sccspathfindstructs //: MonoBehaviour
             items.RemoveAt(itemAtPosition);
         }
     }
-
+    */
 
 
     public struct sccspathfindobstaclestruct
@@ -207,7 +207,10 @@ public class sccspathfindstructs //: MonoBehaviour
         public float distancecurrentlast;//;// = 0;
         public sccspathfindnode lastnode;//= new sccspathfindnode();
         public sccspathfindnode currentNode;
-        public itsalmostastack<sccspathfindnode> retracedpathlist;// = new itsalmostastack<sccspathfindnode>();
+        //public itsalmostastack<sccspathfindnode> retracedpathlist;// = new itsalmostastack<sccspathfindnode>();
+        public Queue<sccspathfindnode> retracedpathlist;// = new itsalmostastack<sccspathfindnode>();
+        //public Stack<sccspathfindnode> retracedpathlist;// = new itsalmostastack<sccspathfindnode>();
+
         //public Stack<sccspathfindnode> retracedpathlist;// = new Stack<sccspathfindnode>();
         public sccspathfindcombineddata sccspathfindcombineddatavar;// = new sccspathfindcombineddata();
         public sccspathfindnode theseekernode;//= new sccspathfindnode();
@@ -254,7 +257,7 @@ public class sccspathfindstructs //: MonoBehaviour
         public List<sccspathfindnode[]> log;
         public List<sccspathfindnode> openset;
         public List<sccspathfindnode> closedset;
-        public List<sccspathfindnode> finalset;
+        //public List<sccspathfindnode> finalset;
     }
 
     public struct sccspathfindcheckallsidesdata

@@ -6,6 +6,21 @@
     using AtomicTorch.CBND.CoreMod.SoundPresets;
     using AtomicTorch.CBND.CoreMod.Systems.Droplists;
 
+    using AtomicTorch.CBND.CoreMod.Characters;
+    using AtomicTorch.CBND.CoreMod.ConsoleCommands.Admin;
+
+    /*using sccspathfindnode = sccspathfindstructs.sccspathfindnode;
+    using sccspathfindcombineddata = sccspathfindstructs.sccspathfindcombineddata;
+    using sccspathfindgridWorldSize = sccspathfindstructs.sccspathfindgridWorldSize;
+    using sccsvec2int = sccspathfindstructs.sccsvec2int;
+    using static sccspathfindstructs;
+
+    using AtomicTorch.CBND.GameApi.Data.Physics;
+    using System.Collections.Generic;
+    using System;
+    using AtomicTorch.GameEngine.Common.Primitives;
+    using AtomicTorch.CBND.GameApi.Data.Characters;*/
+
     public class MobChicken : ProtoCharacterMob
     {
         public override bool AiIsRunAwayFromHeavyVehicles => true;
@@ -45,9 +60,23 @@
                                          .Add<ItemEggsRaw>(count: 1));
         }
 
+        ConsoleAdminNotifyPlayer adminnotify = new ConsoleAdminNotifyPlayer();
+        //int thenpcisdead = 
         protected override void ServerUpdateMob(ServerUpdateData data)
         {
             var character = data.GameObject;
+
+            /*
+            if (data.PublicState.CurrentStats.HealthCurrent <= 0)//data.PublicState.IsDead)
+            {
+                adminnotify.Execute(character, "npc is dead.");
+            }*/
+            /*var player = ServerCharacterAiHelper.GetClosestTargetPlayer(character);
+            if (data.PublicState.CurrentStats.HealthCurrent <= 0)//data.PublicState.IsDead)
+            {
+                adminnotify.Execute(player, "npc is dead.");
+            }*/
+
 
             ServerCharacterAiHelper.ProcessRetreatingAi(
                 character,

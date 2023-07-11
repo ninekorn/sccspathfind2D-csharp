@@ -21,7 +21,7 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
 
                 if (initpathfind == 0)
                 {
-                    sccspathfinddata.retracedpathlist.Push(node);
+                    sccspathfinddata.retracedpathlist.Enqueue(node);
 
                     currentX = (node.worldpositionx);
                     currentY = (node.worldpositiony);
@@ -41,7 +41,7 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                 }
                 else if (initpathfind == 1)
                 {
-                    sccspathfinddata.retracedpathlist.Push(node);
+                    sccspathfinddata.retracedpathlist.Enqueue(node);
 
                     currentX = (node.worldpositionx);
                     currentY = (node.worldpositiony);

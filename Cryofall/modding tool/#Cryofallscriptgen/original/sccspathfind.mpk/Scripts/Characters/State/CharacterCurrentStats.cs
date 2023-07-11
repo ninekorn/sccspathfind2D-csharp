@@ -26,6 +26,9 @@
         public float HealthCurrent { get; private set; } = 100;
 
 
+        public int themobidlesleepcountermax { get; set; } = 100;
+        public int themobidlesleepcounterswtc { get; set; } = 0;
+        public int themobidlesleepcounter { get; set; } = 0;
         public int indexinmainarray { get; set; } = -1;
         public int indexswtc { get; set; } = -1;
         public int mobtypeofindex { get; set; } = -1;

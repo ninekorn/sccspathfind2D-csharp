@@ -236,7 +236,7 @@ namespace AtomicTorch.CBND.CoreMod.Characters.sccsPathfind
 
                                     //sccspathfindcombineddatavar.openset.Add(sccspathfinddata.neighboors[j].node);
                                     sccspathfinddata.sccspathfindcombineddatavar.openset.Add(sccspathfinddata.sccspathfindcombineddatavar.log[sccspathfinddata.neighboors[j].node.gridindex][sccspathfinddata.neighboors[j].node.index]);
-                                    sccspathfinddata.sccspathfindcombineddatavar.finalset.Add(sccspathfinddata.sccspathfindcombineddatavar.log[sccspathfinddata.neighboors[j].node.gridindex][sccspathfinddata.neighboors[j].node.index]);
+                                    //sccspathfinddata.sccspathfindcombineddatavar.finalset.Add(sccspathfinddata.sccspathfindcombineddatavar.log[sccspathfinddata.neighboors[j].node.gridindex][sccspathfinddata.neighboors[j].node.index]);
 
                                     /*if (createpathfindvisuals == 1)
                                     {

@@ -29,22 +29,22 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                 pathfindscript.gridworldsize.yB = pathfindscript.gridyb;
                 pathfindscript.gridworldsize.yT = pathfindscript.gridyt;
 
-                sccsvec2int npcinitposofpathfindzerozero = new sccsvec2int();
+                sccsvec2int npcinitposofpathfindzerozero = sccspools.getpooledsccsvec2int();//new sccsvec2int();
                 npcinitposofpathfindzerozero.x = 0;
                 npcinitposofpathfindzerozero.y = 0;
 
-                pathfindscript.initialpathfindstartpos = new sccsvec2int();
+                pathfindscript.initialpathfindstartpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
                 pathfindscript.initialpathfindstartpos.x = npcinitposofpathfindzerozero.x;// + (int)this.transform.position.x;
                 pathfindscript.initialpathfindstartpos.y = npcinitposofpathfindzerozero.y;//+ (int)this.transform.position.y;
 
                 int targetlocationwithdiffxremoved = (int)targetpos.x - (int)npcpos.x;//(int)targetobj.transform.position.x -this.transform.position.x;
                 int targetlocationwithdiffyremoved = (int)targetpos.y - (int)npcpos.y;// (int)targetobj.transform.position.y -this.transform.position.y;
 
-                pathfindscript.initialpathfindnpcpos = new sccsvec2int();
+                pathfindscript.initialpathfindnpcpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
                 pathfindscript.initialpathfindnpcpos.x = (int)Math.Round((double)npcpos.x);
                 pathfindscript.initialpathfindnpcpos.y = (int)Math.Round((double)npcpos.y);
 
-                pathfindscript.targetobjingridpos = new sccsvec2int();
+                pathfindscript.targetobjingridpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
                 pathfindscript.targetobjingridpos.x = targetlocationwithdiffxremoved;
                 pathfindscript.targetobjingridpos.y = targetlocationwithdiffyremoved;
 
@@ -57,7 +57,7 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                 pathfindscript.theseekernode.worldpositionx = 0;
                 pathfindscript.theseekernode.worldpositiony = 0;
 
-                sccsvec2int finaltargetpos = new sccsvec2int();
+                sccsvec2int finaltargetpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
                 finaltargetpos.x = (int)targetpos.x; //+(int)this.transform.position.x
                 finaltargetpos.y = (int)targetpos.y; //+(int)this.transform.position.y
 
@@ -71,7 +71,7 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
 
                 if (pathfindscript.sccspathfindcombineddatavar.openset == null)
                 {
-                    pathfindscript.sccspathfindcombineddatavar.openset = new List<sccspathfindnode>();
+                    pathfindscript.sccspathfindcombineddatavar.openset = sccspools.getpooledsccspathfindnodelist();// new List<sccspathfindnode>();
                 }
                 else
                 {
@@ -80,26 +80,27 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
 
                 if (pathfindscript.sccspathfindcombineddatavar.closedset == null)
                 {
-                    pathfindscript.sccspathfindcombineddatavar.closedset = new List<sccspathfindnode>();
+                    pathfindscript.sccspathfindcombineddatavar.closedset = sccspools.getpooledsccspathfindnodelist();// new List<sccspathfindnode>();
                 }
                 else
                 {
                     pathfindscript.sccspathfindcombineddatavar.closedset.Clear();
                 }
 
-                if (pathfindscript.sccspathfindcombineddatavar.finalset == null)
+                /*if (pathfindscript.sccspathfindcombineddatavar.finalset == null)
                 {
-                    pathfindscript.sccspathfindcombineddatavar.finalset = new List<sccspathfindnode>();
+                    pathfindscript.sccspathfindcombineddatavar.finalset = new List<sccspathfindnode>();//sccspools.getpooledsccspathfindnodelist();// new List<sccspathfindnode>();
                 }
                 else
                 {
                     pathfindscript.sccspathfindcombineddatavar.finalset.Clear();
-                }
+                }*/
 
 
                 if (pathfindscript.sccspathfindcombineddatavar.log == null)
                 {
-                    pathfindscript.sccspathfindcombineddatavar.log = new List<sccspathfindnode[]>();
+              
+                    pathfindscript.sccspathfindcombineddatavar.log = sccspools.getpooledsccspathfindnodelistarray();// new List<sccspathfindnode[]>();
                 }
                 else
                 {
@@ -119,7 +120,7 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                 {
                     //pathfindscript.retracedpathlist = new Stack<sccspathfindnode>();
                     //pathfindscript.retracedpathlist = new List<sccspathfindnode>();
-                    pathfindscript.retracedpathlist = new sccspathfindstructs.itsalmostastack<sccspathfindnode>();
+                    pathfindscript.retracedpathlist = sccspools.getpooledsccspathfindnodestack();//  new sccspathfindstructs.itsalmostastack<sccspathfindnode>();
 
                 }
                 else
@@ -282,9 +283,9 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                             //https://stackoverflow.com/questions/4003835/sort-list-in-c-sharp-with-linq
                             //sccspathfindcombineddatavar.finalset = sccspathfindcombineddatavar.finalset.OrderBy(x => x.fcost).ThenBy(x => x.toinitcost).ThenBy(x => x.hcost).ToList();
 
-                            if (pathfindscript.sccspathfindcombineddatavar.finalset.Count > 0)
+                            if (pathfindscript.sccspathfindcombineddatavar.closedset.Count > 0)
                             {
-                                pathfindscript = sccspathfindretrace.RetracePath(pathfindscript.initialpathfindstartpos, pathfindscript.targetobjingridpos, pathfindscript.sccspathfindcombineddatavar.finalset[pathfindscript.sccspathfindcombineddatavar.finalset.Count - 1], 1, pathfindscript);// theseekernode);
+                                pathfindscript = sccspathfindretrace.RetracePath(pathfindscript.initialpathfindstartpos, pathfindscript.targetobjingridpos, pathfindscript.sccspathfindcombineddatavar.closedset[pathfindscript.sccspathfindcombineddatavar.closedset.Count - 1], 1, pathfindscript);// theseekernode);
                                 pathfindscript.retracedpathlistcounter++;
                             }
                             else
@@ -357,7 +358,7 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                             if (pathfindscript.retracedpathlist.Count > 0)
                             {
                                 //retracedpathlist.RemoveAt(retracedpathlist.Count-1);
-                                pathfindscript.retracedpathlist.Pop();
+                                pathfindscript.retracedpathlist.Dequeue();
                             }
                         }
                     }

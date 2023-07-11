@@ -27,20 +27,13 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
         {
             var currentnpcglobaldata = sccspathfindarrays.pathfindpermobdata[sccspathfindactionstruct.mobtypeofindex][theobjstate.CurrentStats.indexinmainarray];
 
-
-
             if (currentnpcglobaldata.pathfindscript.debugtoconsolemsg == 1)
             {
                 currentnpcglobaldata.adminnotify.Execute(currentnpcglobaldata.playercharacter, "CLEARING ARRAYS");
             }
 
-
-
             sccspathfindactionstruct.theplayercharacter = null;
             currentnpcglobaldata.playercharacter = null;
-
-
-         
 
             //currentnpcglobaldata.npccharacter = thegameobject;
 
@@ -69,7 +62,7 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
             currentnpcglobaldata.pathfindscript.gridyt = sccspathfindglobals.gridyt;//;
 
             //currentnpcglobaldata.pathfindscript.adminnotify = null; //new ConsoleAdminNotifyPlayer();
-            currentnpcglobaldata.pathfindscript.lastnode = new sccspathfindnode();
+            /*currentnpcglobaldata.pathfindscript.lastnode = new sccspathfindnode();
             currentnpcglobaldata.pathfindscript.theseekernode = new sccspathfindnode();
             currentnpcglobaldata.pathfindscript.initialpathfindnpcpos = new sccsvec2int();
             currentnpcglobaldata.pathfindscript.targetobjingridpos = new sccsvec2int();
@@ -80,23 +73,56 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
             //currentnpcglobaldata.pathfindscript.gridworldsize = new sccspathfindgridWorldSize();
 
             currentnpcglobaldata.pathfindscript.theseekernode = new sccspathfindnode();
-            currentnpcglobaldata.pathfindscript.lastnode = new sccspathfindnode();
             currentnpcglobaldata.pathfindscript.currentNode = new sccspathfindnode();
+            */
 
+            currentnpcglobaldata.pathfindscript.lastnode = sccspools.getpooledsccspathfindnode();// new sccspathfindnode();
+            currentnpcglobaldata.pathfindscript.theseekernode = sccspools.getpooledsccspathfindnode();//  new sccspathfindnode();
+            currentnpcglobaldata.pathfindscript.initialpathfindnpcpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+            currentnpcglobaldata.pathfindscript.targetobjingridpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+            currentnpcglobaldata.pathfindscript.initialpathfindstartpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+            currentnpcglobaldata.pathfindscript.tempttargetobjingridpospos = sccspools.getpooledsccsvec2int();// sccsvec2int();
+            currentnpcglobaldata.pathfindscript.lasttransformposition = sccspools.getpooledsccsvec2int();// new sccsvec2int();
+            currentnpcglobaldata.pathfindscript.targetobjingridposposlast = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+            //currentnpcglobaldata.pathfindscript.gridworldsize = new sccspathfindgridWorldSize();
+
+            currentnpcglobaldata.pathfindscript.currentNode = sccspools.getpooledsccspathfindnode();//  new sccspathfindnode();
+
+            /*
+            //currentnpcglobaldata.pathfindscript.adminnotify = sccspools.getpooledConsoleAdminNotifyPlayer();// new ConsoleAdminNotifyPlayer();
+            currentnpcglobaldata.pathfindscript.lastnode = sccspools.getpooledsccspathfindnode();// new sccspathfindnode();
+            currentnpcglobaldata.pathfindscript.retracedpathlist = sccspools.getpooledsccspathfindnodestack();//new itsalmostastack<sccspathfindnode>();//new Stack<sccspathfindnode>();
+            currentnpcglobaldata.pathfindscript.theseekernode = sccspools.getpooledsccspathfindnode();//new sccspathfindnode();
+
+            currentnpcglobaldata.pathfindscript.initialpathfindnpcpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+            currentnpcglobaldata.pathfindscript.targetobjingridpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+            currentnpcglobaldata.pathfindscript.initialpathfindstartpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+            currentnpcglobaldata.pathfindscript.tempttargetobjingridpospos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+            currentnpcglobaldata.pathfindscript.lasttransformposition = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+            currentnpcglobaldata.pathfindscript.targetobjingridposposlast = sccspools.getpooledsccsvec2int();// new sccsvec2int();
+            //currentnpcglobaldata.pathfindscript.gridworldsize = new sccspathfindgridWorldSize();
+            currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar = sccspools.getpooledsccspathfindcombineddata();// new sccspathfindcombineddata();
+            */
+
+
+
+
+
+            /*
             if (currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar.finalset!=null)
             {
                 currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar.finalset.Clear();
-            }
+            }*/
 
             if (currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar.openset != null)
             {
                 currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar.openset.Clear();
             }
-
+            /*
             if (currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar.finalset != null)
             {
                 currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar.finalset.Clear();
-            }
+            }*/
 
             if (currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar.closedset != null)
             {
@@ -156,7 +182,7 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                     {
                         currentnpcglobaldata.npccharacter = thegameobject;
 
-                        currentnpcglobaldata.pathfindscript = new sccspathfinddata();
+                        currentnpcglobaldata.pathfindscript = sccspools.getpooledsccspathfinddata(); //new sccspathfinddata();
                         currentnpcglobaldata.pathfindscript.hasinitswtc = 1;// 1;
                         currentnpcglobaldata.pathfindscript.mainSwitch = 1;//;
                         sccspathfindactionstruct.hasclearedarrays = 0;//= 0;
@@ -180,18 +206,22 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                         currentnpcglobaldata.pathfindscript.gridyb = sccspathfindglobals.gridyb;//;
                         currentnpcglobaldata.pathfindscript.gridyt = sccspathfindglobals.gridyt;//;
 
-                        currentnpcglobaldata.pathfindscript.adminnotify = new ConsoleAdminNotifyPlayer();
-                        currentnpcglobaldata.pathfindscript.lastnode = new sccspathfindnode();
-                        currentnpcglobaldata.pathfindscript.retracedpathlist = new itsalmostastack<sccspathfindnode>();//new Stack<sccspathfindnode>();
-                        currentnpcglobaldata.pathfindscript.theseekernode = new sccspathfindnode();
-                        currentnpcglobaldata.pathfindscript.initialpathfindnpcpos = new sccsvec2int();
-                        currentnpcglobaldata.pathfindscript.targetobjingridpos = new sccsvec2int();
-                        currentnpcglobaldata.pathfindscript.initialpathfindstartpos = new sccsvec2int();
-                        currentnpcglobaldata.pathfindscript.tempttargetobjingridpospos = new sccsvec2int();
-                        currentnpcglobaldata.pathfindscript.lasttransformposition = new sccsvec2int();
-                        currentnpcglobaldata.pathfindscript.targetobjingridposposlast = new sccsvec2int();
+                        currentnpcglobaldata.pathfindscript.adminnotify = sccspools.getpooledConsoleAdminNotifyPlayer();// new ConsoleAdminNotifyPlayer();
+                        currentnpcglobaldata.pathfindscript.lastnode = sccspools.getpooledsccspathfindnode();// new sccspathfindnode();
+                        currentnpcglobaldata.pathfindscript.retracedpathlist = sccspools.getpooledsccspathfindnodestack();//new itsalmostastack<sccspathfindnode>();//new Stack<sccspathfindnode>();
+                        currentnpcglobaldata.pathfindscript.theseekernode = sccspools.getpooledsccspathfindnode();//new sccspathfindnode();
+
+                        currentnpcglobaldata.pathfindscript.initialpathfindnpcpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+                        currentnpcglobaldata.pathfindscript.targetobjingridpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+                        currentnpcglobaldata.pathfindscript.initialpathfindstartpos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+                        currentnpcglobaldata.pathfindscript.tempttargetobjingridpospos = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+                        currentnpcglobaldata.pathfindscript.lasttransformposition = sccspools.getpooledsccsvec2int();//new sccsvec2int();
+                        currentnpcglobaldata.pathfindscript.targetobjingridposposlast = sccspools.getpooledsccsvec2int();// new sccsvec2int();
                         currentnpcglobaldata.pathfindscript.gridworldsize = new sccspathfindgridWorldSize();
-                        currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar = new sccspathfindcombineddata();
+                        currentnpcglobaldata.pathfindscript.sccspathfindcombineddatavar = sccspools.getpooledsccspathfindcombineddata();// new sccspathfindcombineddata();
+
+
+
 
                         if (currentnpcglobaldata.npccharacter != null)
                         {
@@ -203,6 +233,8 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
 
                                 if (currentnpcglobaldata.playercharacter != null)
                                 {
+                                    sccspathfindglobals.theplayercharacter = currentnpcglobaldata.playercharacter;
+
                                     if (currentnpcglobaldata.pathfindmaincountermax < 0)
                                     {
                                         currentnpcglobaldata.pathfindmaincountermax = 0;
@@ -212,11 +244,11 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                                     {
                                         currentnpcglobaldata.playercharactercenter = currentnpcglobaldata.playercharacter.Position + currentnpcglobaldata.playercharacter.PhysicsBody.CenterOffset;
 
-                                        currentnpcglobaldata.playerpos = new sccsvec2float();
+                                        currentnpcglobaldata.playerpos = sccspools.getpooledsccsvec2float();//new sccsvec2float();
                                         currentnpcglobaldata.playerpos.x = (float)currentnpcglobaldata.playercharactercenter.X;
                                         currentnpcglobaldata.playerpos.y = (float)currentnpcglobaldata.playercharactercenter.Y;
 
-                                        currentnpcglobaldata.npcpos = new sccsvec2float();
+                                        currentnpcglobaldata.npcpos = sccspools.getpooledsccsvec2float();//new sccsvec2float();
                                         currentnpcglobaldata.npcpos.x = (float)currentnpcglobaldata.npcCharacterCenter.X;
                                         currentnpcglobaldata.npcpos.y = (float)currentnpcglobaldata.npcCharacterCenter.Y;
 
@@ -232,345 +264,388 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                                 }
                             }
                         }
+                        else
+                        {
+                            //sccspathfindglobals.themobidlesleepcountermax = 0;
+                            theobjstate.CurrentStats.themobidlesleepcountermax = sccspathfindglobals.themobidlesleepcountermax;
+                        }
                     }
 
 
-                    if (currentnpcglobaldata.pathfindmaincounter >= currentnpcglobaldata.pathfindmaincountermax)
+
+
+                    //else
                     {
-                        if (currentnpcglobaldata.npccharacter != null)
+
+
+
+                        if (currentnpcglobaldata.pathfindmaincounter >= currentnpcglobaldata.pathfindmaincountermax)
                         {
-                            if (currentnpcglobaldata.npccharacter.PhysicsBody != null)
+                            if (currentnpcglobaldata.npccharacter != null)
                             {
 
 
-
-                                if (currentnpcglobaldata.pathfindscript.hasinitswtc == 1)
+                                if (currentnpcglobaldata.npccharacter.PhysicsBody != null)
                                 {
-                                    currentnpcglobaldata.npcCharacterCenter = currentnpcglobaldata.npccharacter.Position + currentnpcglobaldata.npccharacter.PhysicsBody.CenterOffset;
 
-                                    //currentnpcglobaldata.playercharacter = ServerCharacterAiHelper.GetClosestTargetPlayer(currentnpcglobaldata.npccharacter);
 
-                                    if (currentnpcglobaldata.playercharacter != null)
+
+                                    if (currentnpcglobaldata.pathfindscript.hasinitswtc == 1)
                                     {
-                                        if (currentnpcglobaldata.playercharacter.PhysicsBody != null)
+                                        currentnpcglobaldata.npcCharacterCenter = currentnpcglobaldata.npccharacter.Position + currentnpcglobaldata.npccharacter.PhysicsBody.CenterOffset;
+
+                                        //currentnpcglobaldata.playercharacter = ServerCharacterAiHelper.GetClosestTargetPlayer(currentnpcglobaldata.npccharacter);
+
+                                        if (currentnpcglobaldata.playercharacter != null)
                                         {
-                                            currentnpcglobaldata.playercharactercenter = currentnpcglobaldata.playercharacter.Position + currentnpcglobaldata.playercharacter.PhysicsBody.CenterOffset;
-
-                                            currentnpcglobaldata.playerpos = new sccsvec2float();
-                                            currentnpcglobaldata.playerpos.x = (float)currentnpcglobaldata.playercharactercenter.X;
-                                            currentnpcglobaldata.playerpos.y = (float)currentnpcglobaldata.playercharactercenter.Y;
-
-                                            currentnpcglobaldata.npcpos = new sccsvec2float();
-                                            currentnpcglobaldata.npcpos.x = (float)currentnpcglobaldata.npcCharacterCenter.X;
-                                            currentnpcglobaldata.npcpos.y = (float)currentnpcglobaldata.npcCharacterCenter.Y;
-
-
-                                            currentnpcglobaldata.distsquared = sccsmaths.GetDistancefloat2d(currentnpcglobaldata.playerpos, currentnpcglobaldata.npcpos);
-
-                                            if (currentnpcglobaldata.distsquared < currentnpcglobaldata.sccspathfinddistsquaredaggrodistancemax)
+                                            if (currentnpcglobaldata.playercharacter.PhysicsBody != null)
                                             {
-                                                currentnpcglobaldata.haschasedcharacter = 1;
-                                                currentnpcglobaldata.distnpctoplayersqrt = sccsmaths.GetDistancefloat2dsqrt(currentnpcglobaldata.playerpos, currentnpcglobaldata.npcpos);
+                                                currentnpcglobaldata.playercharactercenter = currentnpcglobaldata.playercharacter.Position + currentnpcglobaldata.playercharacter.PhysicsBody.CenterOffset;
 
-                                                //GETTING THE CURRENT DIRECTION OF THE NPC BASED ON THE LASTFRAME NPC POSITION AND CURRENT NPC POSITION
-                                                if (currentnpcglobaldata.npcposlast.x != float.NaN && currentnpcglobaldata.npcposlast.y != float.NaN)
+                                                currentnpcglobaldata.playerpos = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                currentnpcglobaldata.playerpos.x = (float)currentnpcglobaldata.playercharactercenter.X;
+                                                currentnpcglobaldata.playerpos.y = (float)currentnpcglobaldata.playercharactercenter.Y;
+
+                                                currentnpcglobaldata.npcpos = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                currentnpcglobaldata.npcpos.x = (float)currentnpcglobaldata.npcCharacterCenter.X;
+                                                currentnpcglobaldata.npcpos.y = (float)currentnpcglobaldata.npcCharacterCenter.Y;
+
+
+                                                currentnpcglobaldata.distsquared = sccsmaths.GetDistancefloat2d(currentnpcglobaldata.playerpos, currentnpcglobaldata.npcpos);
+
+                                                if (currentnpcglobaldata.distsquared < currentnpcglobaldata.sccspathfinddistsquaredaggrodistancemax)
                                                 {
-                                                    currentnpcglobaldata.currentnpcdirection = new sccsvec2float();
-                                                    currentnpcglobaldata.currentnpcdirection.x = currentnpcglobaldata.npcpos.x - currentnpcglobaldata.npcposlast.x;
-                                                    currentnpcglobaldata.currentnpcdirection.y = currentnpcglobaldata.npcpos.y - currentnpcglobaldata.npcposlast.y;
+                                                    //sccspathfindglobals.themobidlesleepcountermax = 0;
+                                                    //theobjstate.CurrentStats.themobidlesleep = 0;
 
-                                                    float distnpcposcurrenttonpcposlast = sccsmaths.GetDistancefloat2dsqrt(currentnpcglobaldata.npcposlast, currentnpcglobaldata.npcpos);
-
-                                                    currentnpcglobaldata.currentnpcdirection.x /= distnpcposcurrenttonpcposlast;
-                                                    currentnpcglobaldata.currentnpcdirection.y /= distnpcposcurrenttonpcposlast;
-
-                                                    //sccsvec2float posinfront = new sccsvec2float();
-                                                    //posinfront.x = npcpos.x + currentnpcdirection.x;
-                                                    //posinfront.y = npcpos.y + currentnpcdirection.y;
-
-                                                    //float disttofrontpoint = pathfindscript.GetDistancefloat2dsqrt(posinfront, npcpos);
-
-                                                    currentnpcglobaldata.frontdirectionposition = new Vector2D(currentnpcglobaldata.npcpos.x + currentnpcglobaldata.currentnpcdirection.x, currentnpcglobaldata.npcpos.y + currentnpcglobaldata.currentnpcdirection.y); // - new Vector2D(npcpos.x, npcpos.y)
-
-                                                    Vector2D posnpctoposfrontnpc = new Vector2D(currentnpcglobaldata.npcpos.x + currentnpcglobaldata.currentnpcdirection.x, currentnpcglobaldata.npcpos.y + currentnpcglobaldata.currentnpcdirection.y) - new Vector2D(currentnpcglobaldata.npcpos.x, currentnpcglobaldata.npcpos.y);
-
-                                                    Vector2D dirforlength = new Vector2D(currentnpcglobaldata.currentnpcdirection.x, currentnpcglobaldata.currentnpcdirection.y);
-
-                                                    currentnpcglobaldata.frontdirectionpositionnotnormalized = dirforlength.Length;
-                                                    //frontdirectionposition = frontdirectionposition.Normalized;
-                                                }
-                                                //GETTING THE CURRENT DIRECTION OF THE NPC BASED ON THE LASTFRAME NPC POSITION AND CURRENT NPC POSITION
-
-                                                //currentnpcglobaldata.adminnotify.Execute(currentnpcglobaldata.playercharacter, "/startpathfind:" + currentnpcglobaldata.pathfindscript.startpathfind + "/counter:" + currentnpcglobaldata.pathfindscript.hasstartedpathfindcounter);
-
-
-                                                if (currentnpcglobaldata.distnpctoplayersqrt > sccspathfindglobals.distnpctoplayersqrt)
-                                                {
-                                                    sccsvec2float dirnpctoplayer0 = new sccsvec2float();
-                                                    dirnpctoplayer0.x = currentnpcglobaldata.playerpos.x - currentnpcglobaldata.npcpos.x;
-                                                    dirnpctoplayer0.y = currentnpcglobaldata.playerpos.y - currentnpcglobaldata.npcpos.y;
-
-                                                    dirnpctoplayer0.x /= currentnpcglobaldata.distnpctoplayersqrt;
-                                                    dirnpctoplayer0.y /= currentnpcglobaldata.distnpctoplayersqrt;
-
-
-
-
-                                                    sccsvec2float dirright0 = new sccsvec2float();
-                                                    dirright0.x = 1.0f;
-                                                    dirright0.y = 0.0f;
-
-                                                    float anglerad0 = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer0.x, dirnpctoplayer0.y), new Vector2F(dirright0.x, dirright0.y));
-
-                                                    sccspathfindactionstruct.totargetdirection = new Vector2F(dirnpctoplayer0.x, dirnpctoplayer0.y);
-                                                    sccspathfindactionstruct.totargetanglerad = anglerad0;
-
-
-                                                    //pathfindscript.startpathfind = 1;
-
-                                                    Vector2F dirtoplayer = new Vector2F(dirnpctoplayer0.x, dirnpctoplayer0.y);
-
-                                                    float thedotnpcdirtoplayerdirandnpcdirtonode = sccsmaths.Dot(dirnpctoplayer0.x, dirnpctoplayer0.y, currentnpcglobaldata.currentnpcdirection.x, currentnpcglobaldata.currentnpcdirection.y);
-
-
-
-                                                    if (currentnpcglobaldata.frontdirectionpositionnotnormalized > 0.0)
+                                                    if (theobjstate.CurrentStats.themobidlesleepcountermax != sccspathfindglobals.themobidlesleepcountermin)
                                                     {
-                                                        if (thedotnpcdirtoplayerdirandnpcdirtonode != float.NaN)
-                                                        {
-                                                            if (thedotnpcdirtoplayerdirandnpcdirtonode < sccspathfindglobals.dotnpcrotdirmin)
-                                                            {
-                                                                currentnpcglobaldata.pathfindscript.startpathfind = 1;
-                                                                sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
-                                                            }
-                                                        }
+                                                        theobjstate.CurrentStats.themobidlesleepcountermax = sccspathfindglobals.themobidlesleepcountermin;
                                                     }
 
-                                                    //INITIALIZING PATHFIND UNWALKABLE TILES... ONLY WHEN THE PATHFIND IS IN STATUS #1
-                                                    if (currentnpcglobaldata.pathfindscript.startpathfind == 1)
+
+                                                    currentnpcglobaldata.haschasedcharacter = 1;
+                                                    currentnpcglobaldata.distnpctoplayersqrt = sccsmaths.GetDistancefloat2dsqrt(currentnpcglobaldata.playerpos, currentnpcglobaldata.npcpos);
+
+                                                    //GETTING THE CURRENT DIRECTION OF THE NPC BASED ON THE LASTFRAME NPC POSITION AND CURRENT NPC POSITION
+                                                    if (currentnpcglobaldata.npcposlast.x != float.NaN && currentnpcglobaldata.npcposlast.y != float.NaN)
                                                     {
-                                                        var character0 = thegameobject;
-                                                        var currentStats0 = theobjstate.CurrentStats;
+                                                        currentnpcglobaldata.currentnpcdirection = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                        currentnpcglobaldata.currentnpcdirection.x = currentnpcglobaldata.npcpos.x - currentnpcglobaldata.npcposlast.x;
+                                                        currentnpcglobaldata.currentnpcdirection.y = currentnpcglobaldata.npcpos.y - currentnpcglobaldata.npcposlast.y;
 
-                                                        if (thedotnpcdirtoplayerdirandnpcdirtonode != float.NaN)
+                                                        float distnpcposcurrenttonpcposlast = sccsmaths.GetDistancefloat2dsqrt(currentnpcglobaldata.npcposlast, currentnpcglobaldata.npcpos);
+
+                                                        currentnpcglobaldata.currentnpcdirection.x /= distnpcposcurrenttonpcposlast;
+                                                        currentnpcglobaldata.currentnpcdirection.y /= distnpcposcurrenttonpcposlast;
+
+                                                        //sccsvec2float posinfront = new sccsvec2float();
+                                                        //posinfront.x = npcpos.x + currentnpcdirection.x;
+                                                        //posinfront.y = npcpos.y + currentnpcdirection.y;
+
+                                                        //float disttofrontpoint = pathfindscript.GetDistancefloat2dsqrt(posinfront, npcpos);
+
+                                                        currentnpcglobaldata.frontdirectionposition = new Vector2D(currentnpcglobaldata.npcpos.x + currentnpcglobaldata.currentnpcdirection.x, currentnpcglobaldata.npcpos.y + currentnpcglobaldata.currentnpcdirection.y); // - new Vector2D(npcpos.x, npcpos.y)
+
+                                                        Vector2D posnpctoposfrontnpc = new Vector2D(currentnpcglobaldata.npcpos.x + currentnpcglobaldata.currentnpcdirection.x, currentnpcglobaldata.npcpos.y + currentnpcglobaldata.currentnpcdirection.y) - new Vector2D(currentnpcglobaldata.npcpos.x, currentnpcglobaldata.npcpos.y);
+
+                                                        Vector2D dirforlength = new Vector2D(currentnpcglobaldata.currentnpcdirection.x, currentnpcglobaldata.currentnpcdirection.y);
+
+                                                        currentnpcglobaldata.frontdirectionpositionnotnormalized = dirforlength.Length;
+                                                        //frontdirectionposition = frontdirectionposition.Normalized;
+                                                    }
+                                                    //GETTING THE CURRENT DIRECTION OF THE NPC BASED ON THE LASTFRAME NPC POSITION AND CURRENT NPC POSITION
+
+                                                    //currentnpcglobaldata.adminnotify.Execute(currentnpcglobaldata.playercharacter, "/startpathfind:" + currentnpcglobaldata.pathfindscript.startpathfind + "/counter:" + currentnpcglobaldata.pathfindscript.hasstartedpathfindcounter);
+
+
+                                                    if (currentnpcglobaldata.distnpctoplayersqrt > sccspathfindglobals.distnpctoplayersqrt)
+                                                    {
+                                                        sccsvec2float dirnpctoplayer0 = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                        dirnpctoplayer0.x = currentnpcglobaldata.playerpos.x - currentnpcglobaldata.npcpos.x;
+                                                        dirnpctoplayer0.y = currentnpcglobaldata.playerpos.y - currentnpcglobaldata.npcpos.y;
+
+                                                        dirnpctoplayer0.x /= currentnpcglobaldata.distnpctoplayersqrt;
+                                                        dirnpctoplayer0.y /= currentnpcglobaldata.distnpctoplayersqrt;
+
+
+
+
+                                                        sccsvec2float dirright0 = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                        dirright0.x = 1.0f;
+                                                        dirright0.y = 0.0f;
+
+                                                        float anglerad0 = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer0.x, dirnpctoplayer0.y), new Vector2F(dirright0.x, dirright0.y));
+
+                                                        sccspathfindactionstruct.totargetdirection = new Vector2F(dirnpctoplayer0.x, dirnpctoplayer0.y);
+                                                        sccspathfindactionstruct.totargetanglerad = anglerad0;
+
+
+                                                        //pathfindscript.startpathfind = 1;
+
+                                                        Vector2F dirtoplayer = new Vector2F(dirnpctoplayer0.x, dirnpctoplayer0.y);
+
+                                                        float thedotnpcdirtoplayerdirandnpcdirtonode = sccsmaths.Dot(dirnpctoplayer0.x, dirnpctoplayer0.y, currentnpcglobaldata.currentnpcdirection.x, currentnpcglobaldata.currentnpcdirection.y);
+
+
+
+                                                        if (currentnpcglobaldata.frontdirectionpositionnotnormalized > 0.0)
                                                         {
-                                                            if (thedotnpcdirtoplayerdirandnpcdirtonode < sccspathfindglobals.dotnpcrotdirmin)
+                                                            if (thedotnpcdirtoplayerdirandnpcdirtonode != float.NaN)
                                                             {
-                                                                sccsvec2float dirright = new sccsvec2float();
-                                                                dirright.x = 1.0f;
-                                                                dirright.y = 0.0f;
-
-                                                                sccsvec2float dirnpctoplayer = new sccsvec2float();
-                                                                dirnpctoplayer.x = currentnpcglobaldata.playerpos.x - currentnpcglobaldata.npcpos.x;
-                                                                dirnpctoplayer.y = currentnpcglobaldata.playerpos.y - currentnpcglobaldata.npcpos.y;
-
-                                                                dirnpctoplayer.x /= currentnpcglobaldata.distnpctoplayersqrt;
-                                                                dirnpctoplayer.y /= currentnpcglobaldata.distnpctoplayersqrt;
-
-
-
-
-                                                                float anglerad1 = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y), new Vector2F(dirright0.x, dirright0.y));
-
-                                                                sccspathfindactionstruct.totargetdirection = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
-                                                                sccspathfindactionstruct.totargetanglerad = anglerad1;
-
-
-
-                                                                float anglerad = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y), new Vector2F(dirright.x, dirright.y));
-
-                                                                sccspathfindactionstruct.movementoptiontype = 3;
-                                                                sccspathfindactionstruct.anglerad = anglerad;
-                                                                sccspathfindactionstruct.direction = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
+                                                                if (thedotnpcdirtoplayerdirandnpcdirtonode < sccspathfindglobals.dotnpcrotdirmin)
+                                                                {
+                                                                    currentnpcglobaldata.pathfindscript.startpathfind = 1;
+                                                                    sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
+                                                                }
                                                             }
                                                         }
 
-
-
-
-                                                        currentnpcglobaldata.pathfindscript.hasstartedpathfindcounter = 0;
-                                                        currentnpcglobaldata.pathfindscript.framecounterpathfind = 0;
-                                                        currentnpcglobaldata.pathfindscript.retracedpathlistcounter = 0;
-
-                                                        currentnpcglobaldata.pathfindscript.counting = 0;
-
-                                                        sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
-                                                        currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
-                                                        currentnpcglobaldata.haschasedcharacter = 0;
-                                                        currentnpcglobaldata.hasreachedpathend = 0;
-                                                        currentnpcglobaldata.decrementcounterforpath = 0;
-                                                        currentnpcglobaldata.haspopped = false;
-                                                        currentnpcglobaldata.firstnodeofpathfindpoppedswtc = 0;
-                                                        currentnpcglobaldata.swtcobstaclesontheway = 0;
-                                                        currentnpcglobaldata.pathfindretracedpathswtc = 0;
-                                                        currentnpcglobaldata.haspoppedcounter = 0;
-
-                                                        var physicsSpace = currentnpcglobaldata.npccharacter.PhysicsBody.PhysicsSpace;
-
-                                                        currentnpcglobaldata.obstacles = physicsSpace.TestLine(
-                                                            currentnpcglobaldata.npcCharacterCenter,
-                                                              currentnpcglobaldata.frontdirectionposition,
-                                                              CollisionGroup.Default,
-                                                              sendDebugEvent: true);
-
-                                                        if (currentnpcglobaldata.listofobstaclesinit != null)
+                                                        //INITIALIZING PATHFIND UNWALKABLE TILES... ONLY WHEN THE PATHFIND IS IN STATUS #1
+                                                        if (currentnpcglobaldata.pathfindscript.startpathfind == 1)
                                                         {
-                                                            currentnpcglobaldata.listofobstaclesinit.Clear();
-                                                        }
-                                                        else
-                                                        {
-                                                            currentnpcglobaldata.listofobstaclesinit = new List<sccspathfindobstaclestruct>();
-                                                        }
+                                                            var character0 = thegameobject;
+                                                            var currentStats0 = theobjstate.CurrentStats;
 
-                                                        if (currentnpcglobaldata.obstacles != null)
-                                                        {
-                                                            if (currentnpcglobaldata.obstacles.Count > 0)
+                                                            if (thedotnpcdirtoplayerdirandnpcdirtonode != float.NaN)
                                                             {
-                                                                var isTraversableTile = true;
-                                                                foreach (var result in currentnpcglobaldata.obstacles.AsList())
+                                                                if (thedotnpcdirtoplayerdirandnpcdirtonode < sccspathfindglobals.dotnpcrotdirmin)
                                                                 {
-                                                                    var body = result.PhysicsBody;
-                                                                    if (body.AssociatedProtoTile is not null)
-                                                                    {
-                                                                        //currentnpcglobaldata.adminnotify.Execute(currentnpcglobaldata.playercharacter, "/0obstacle:" + body.AssociatedProtoTile.Name);
+                                                                    sccsvec2float dirright = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                                    dirright.x = 1.0f;
+                                                                    dirright.y = 0.0f;
 
-                                                                        /*if (body.AssociatedProtoTile.Name == "Forest (Temperate)" || body.AssociatedProtoTile.Name == "Forest (temperate)")
+                                                                    sccsvec2float dirnpctoplayer = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                                    dirnpctoplayer.x = currentnpcglobaldata.playerpos.x - currentnpcglobaldata.npcpos.x;
+                                                                    dirnpctoplayer.y = currentnpcglobaldata.playerpos.y - currentnpcglobaldata.npcpos.y;
+
+                                                                    dirnpctoplayer.x /= currentnpcglobaldata.distnpctoplayersqrt;
+                                                                    dirnpctoplayer.y /= currentnpcglobaldata.distnpctoplayersqrt;
+
+
+
+
+                                                                    float anglerad1 = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y), new Vector2F(dirright0.x, dirright0.y));
+
+                                                                    sccspathfindactionstruct.totargetdirection = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
+                                                                    sccspathfindactionstruct.totargetanglerad = anglerad1;
+
+
+
+                                                                    float anglerad = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y), new Vector2F(dirright.x, dirright.y));
+
+                                                                    sccspathfindactionstruct.movementoptiontype = 1; //3
+                                                                    sccspathfindactionstruct.anglerad = anglerad;
+                                                                    sccspathfindactionstruct.direction = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
+                                                                }
+                                                            }
+
+
+
+
+                                                            currentnpcglobaldata.pathfindscript.hasstartedpathfindcounter = 0;
+                                                            currentnpcglobaldata.pathfindscript.framecounterpathfind = 0;
+                                                            currentnpcglobaldata.pathfindscript.retracedpathlistcounter = 0;
+
+                                                            currentnpcglobaldata.pathfindscript.counting = 0;
+
+                                                            sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
+                                                            currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
+                                                            currentnpcglobaldata.haschasedcharacter = 0;
+                                                            currentnpcglobaldata.hasreachedpathend = 0;
+                                                            currentnpcglobaldata.decrementcounterforpath = 0;
+                                                            currentnpcglobaldata.haspopped = false;
+                                                            currentnpcglobaldata.firstnodeofpathfindpoppedswtc = 0;
+                                                            currentnpcglobaldata.swtcobstaclesontheway = 0;
+                                                            currentnpcglobaldata.pathfindretracedpathswtc = 0;
+                                                            currentnpcglobaldata.haspoppedcounter = 0;
+
+                                                            var physicsSpace = currentnpcglobaldata.npccharacter.PhysicsBody.PhysicsSpace;
+
+                                                            currentnpcglobaldata.obstacles = physicsSpace.TestLine(
+                                                                currentnpcglobaldata.npcCharacterCenter,
+                                                                  currentnpcglobaldata.frontdirectionposition,
+                                                                  CollisionGroup.Default,
+                                                                  sendDebugEvent: true);
+
+                                                            if (currentnpcglobaldata.listofobstaclesinit != null)
+                                                            {
+                                                                currentnpcglobaldata.listofobstaclesinit.Clear();
+                                                            }
+                                                            else
+                                                            {
+                                                                currentnpcglobaldata.listofobstaclesinit = new List<sccspathfindobstaclestruct>();
+                                                            }
+
+                                                            if (currentnpcglobaldata.obstacles != null)
+                                                            {
+                                                                if (currentnpcglobaldata.obstacles.Count > 0)
+                                                                {
+                                                                    var isTraversableTile = true;
+                                                                    foreach (var result in currentnpcglobaldata.obstacles.AsList())
+                                                                    {
+                                                                        var body = result.PhysicsBody;
+                                                                        if (body.AssociatedProtoTile is not null)
                                                                         {
-                                                                            isTraversableTile = true;
+                                                                            //currentnpcglobaldata.adminnotify.Execute(currentnpcglobaldata.playercharacter, "/0obstacle:" + body.AssociatedProtoTile.Name);
+
+                                                                            /*if (body.AssociatedProtoTile.Name == "Forest (Temperate)" || body.AssociatedProtoTile.Name == "Forest (temperate)")
+                                                                            {
+                                                                                isTraversableTile = true;
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                isTraversableTile = true;
+                                                                            }*/
+                                                                            // untraversable tile - a cliff or water
+                                                                            //break;
+                                                                            isTraversableTile = false;
                                                                         }
                                                                         else
                                                                         {
-                                                                            isTraversableTile = true;
-                                                                        }*/
-                                                                        // untraversable tile - a cliff or water
-                                                                        //break;
-                                                                        isTraversableTile = false;
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        isTraversableTile = false;
-                                                                    }
+                                                                            isTraversableTile = false;
+                                                                        }
 
-                                                                    if (body.AssociatedWorldObject is not null)
-                                                                    {
-                                                                        isTraversableTile = false;
-                                                                        /*if (body.AssociatedWorldObject.GameObjectType == GameApi.Data.GameObjectType.Character)
+                                                                        if (body.AssociatedWorldObject is not null)
                                                                         {
-                                                                            if (body.AssociatedWorldObject.AbstractPublicState.GameObject.ProtoGameObject.Name == "Wolf")
+                                                                            isTraversableTile = false;
+                                                                            /*if (body.AssociatedWorldObject.GameObjectType == GameApi.Data.GameObjectType.Character)
                                                                             {
+                                                                                if (body.AssociatedWorldObject.AbstractPublicState.GameObject.ProtoGameObject.Name == "Wolf")
+                                                                                {
+
+                                                                                }
+
+
+
+
+                                                                                isTraversableTile = true;
 
                                                                             }
+                                                                            else
+                                                                            {
+                                                                                isTraversableTile = false;
+                                                                            }*/
+                                                                            //currentnpcglobaldata.adminnotify.Execute(currentnpcglobaldata.playercharacter, "/1obstacle:" + body.AssociatedWorldObject.GameObjectType);
+
+                                                                            // an obstacle - a world object
+
+                                                                            //break;
 
 
-
-
-                                                                            isTraversableTile = true;
 
                                                                         }
                                                                         else
                                                                         {
                                                                             isTraversableTile = false;
-                                                                        }*/
-                                                                        //currentnpcglobaldata.adminnotify.Execute(currentnpcglobaldata.playercharacter, "/1obstacle:" + body.AssociatedWorldObject.GameObjectType);
+                                                                        }
 
-                                                                        // an obstacle - a world object
+                                                                        if (isTraversableTile == false)
+                                                                        {
+                                                                            Vector2Ushort vec = body.Position.ToVector2Ushort();// + new Vector2Ushort(testPhysicsBody.CenterOffset.X, testPhysicsBody.CenterOffset.Y);
 
-                                                                        //break;
-
-
-
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        isTraversableTile = false;
-                                                                    }
-
-                                                                    if (isTraversableTile == false)
-                                                                    {
-                                                                        Vector2Ushort vec = body.Position.ToVector2Ushort();// + new Vector2Ushort(testPhysicsBody.CenterOffset.X, testPhysicsBody.CenterOffset.Y);
-
-                                                                        sccsvec2int posofobstacle = new sccsvec2int();
-                                                                        posofobstacle.x = (int)Math.Round((decimal)vec.X) + (int)Math.Round((decimal)body.CenterOffset.X);
-                                                                        posofobstacle.y = (int)Math.Round((decimal)vec.Y) + (int)Math.Round((decimal)body.CenterOffset.Y);
+                                                                            sccsvec2int posofobstacle = new sccsvec2int();
+                                                                            posofobstacle.x = (int)Math.Round((decimal)vec.X) + (int)Math.Round((decimal)body.CenterOffset.X);
+                                                                            posofobstacle.y = (int)Math.Round((decimal)vec.Y) + (int)Math.Round((decimal)body.CenterOffset.Y);
 
 
-                                                                        sccspathfindobstaclestruct obstaclestruct = new sccspathfindobstaclestruct();
+                                                                            sccspathfindobstaclestruct obstaclestruct = new sccspathfindobstaclestruct();
 
-                                                                        obstaclestruct.theobstacleposition = new sccsvec2int();
-                                                                        obstaclestruct.theobstacleposition.x = posofobstacle.x;
-                                                                        obstaclestruct.theobstacleposition.y = posofobstacle.y;
+                                                                            obstaclestruct.theobstacleposition = new sccsvec2int();
+                                                                            obstaclestruct.theobstacleposition.x = posofobstacle.x;
+                                                                            obstaclestruct.theobstacleposition.y = posofobstacle.y;
 
-                                                                        obstaclestruct.obstaclenodeswtc = 1;
+                                                                            obstaclestruct.obstaclenodeswtc = 1;
 
-                                                                        currentnpcglobaldata.listofobstaclesinit.Add(obstaclestruct);
+                                                                            currentnpcglobaldata.listofobstaclesinit.Add(obstaclestruct);
+                                                                        }
                                                                     }
                                                                 }
                                                             }
+
+                                                            currentnpcglobaldata.initialpathfindstartpos = currentnpcglobaldata.npcpos;
+                                                            currentnpcglobaldata.initialpathfindtargetpos = currentnpcglobaldata.playerpos;
+
+                                                            //INITILIASES THE PATHFIND. THE STARTPATHFIND VARIABLE BECOMES 2 INSIDE THE PATHFIND SCRIPT AFTER ONE PASS
+                                                            currentnpcglobaldata.pathfindscript = sccspathfindupdatemain.pathfindupdatemainfunction(currentnpcglobaldata.initialpathfindstartpos, currentnpcglobaldata.initialpathfindtargetpos, currentnpcglobaldata.listofobstaclesinit, currentnpcglobaldata.npccharacter, currentnpcglobaldata.playercharacter, currentnpcglobaldata.pathfindscript);
+                                                            //INITILIASES THE PATHFIND. THE STARTPATHFIND VARIABLE BECOMES 2 INSIDE THE PATHFIND SCRIPT AFTER ONE PASS
+
                                                         }
+                                                        //INITIALIZING PATHFIND UNWALKABLE TILES... ONLY WHEN THE PATHFIND IS IN STATUS #1
 
-                                                        currentnpcglobaldata.initialpathfindstartpos = currentnpcglobaldata.npcpos;
-                                                        currentnpcglobaldata.initialpathfindtargetpos = currentnpcglobaldata.playerpos;
-
-                                                        //INITILIASES THE PATHFIND. THE STARTPATHFIND VARIABLE BECOMES 2 INSIDE THE PATHFIND SCRIPT AFTER ONE PASS
-                                                        currentnpcglobaldata.pathfindscript = sccspathfindupdatemain.pathfindupdatemainfunction(currentnpcglobaldata.initialpathfindstartpos, currentnpcglobaldata.initialpathfindtargetpos, currentnpcglobaldata.listofobstaclesinit, currentnpcglobaldata.npccharacter, currentnpcglobaldata.playercharacter, currentnpcglobaldata.pathfindscript);
-                                                        //INITILIASES THE PATHFIND. THE STARTPATHFIND VARIABLE BECOMES 2 INSIDE THE PATHFIND SCRIPT AFTER ONE PASS
-
-                                                    }
-                                                    //INITIALIZING PATHFIND UNWALKABLE TILES... ONLY WHEN THE PATHFIND IS IN STATUS #1
-
-                                                    //WHILE THE PATHFIND IS NOT IN STATUS #4, LOOP PATHFIND. STATUS 4 IS TARGET POS FOUND AND PATH RETRACED.
-                                                    else if (currentnpcglobaldata.pathfindscript.startpathfind == 2 || currentnpcglobaldata.pathfindscript.startpathfind == 3)
-                                                    {
-                                                        currentnpcglobaldata.pathfindscript = sccspathfindupdatemain.pathfindupdatemainfunction(currentnpcglobaldata.initialpathfindstartpos, currentnpcglobaldata.initialpathfindtargetpos, currentnpcglobaldata.listofobstaclesinit, currentnpcglobaldata.npccharacter, currentnpcglobaldata.playercharacter, currentnpcglobaldata.pathfindscript);
-                                                    }
-                                                    //WHILE THE PATHFIND IS NOT IN STATUS #4, LOOP PATHFIND. STATUS 4 IS TARGET POS FOUND AND PATH RETRACED.
-
-                                                    else if (currentnpcglobaldata.pathfindscript.startpathfind == 4)
-                                                    {
-                                                        //distnpctoplayersqrt = pathfindscript.GetDistancefloat2dsqrt(playerpos, npcpos);
-
-                                                        //TRYING TO REMOVE A FIRST NODE
-                                                        if (currentnpcglobaldata.pathfindretracedpathswtc == 0)
+                                                        //WHILE THE PATHFIND IS NOT IN STATUS #4, LOOP PATHFIND. STATUS 4 IS TARGET POS FOUND AND PATH RETRACED.
+                                                        else if (currentnpcglobaldata.pathfindscript.startpathfind == 2 || currentnpcglobaldata.pathfindscript.startpathfind == 3)
                                                         {
-                                                            if (currentnpcglobaldata.pathfindscript.retracedpathlist != null)
+                                                            currentnpcglobaldata.pathfindscript = sccspathfindupdatemain.pathfindupdatemainfunction(currentnpcglobaldata.initialpathfindstartpos, currentnpcglobaldata.initialpathfindtargetpos, currentnpcglobaldata.listofobstaclesinit, currentnpcglobaldata.npccharacter, currentnpcglobaldata.playercharacter, currentnpcglobaldata.pathfindscript);
+                                                        }
+                                                        //WHILE THE PATHFIND IS NOT IN STATUS #4, LOOP PATHFIND. STATUS 4 IS TARGET POS FOUND AND PATH RETRACED.
+
+                                                        else if (currentnpcglobaldata.pathfindscript.startpathfind == 4)
+                                                        {
+                                                            //distnpctoplayersqrt = pathfindscript.GetDistancefloat2dsqrt(playerpos, npcpos);
+
+                                                            //TRYING TO REMOVE A FIRST NODE
+                                                            if (currentnpcglobaldata.pathfindretracedpathswtc == 0)
                                                             {
-                                                                if (currentnpcglobaldata.pathfindscript.retracedpathlist.Count > 1)
+                                                                if (currentnpcglobaldata.pathfindscript.retracedpathlist != null)
                                                                 {
-                                                             
-                                                                    if (currentnpcglobaldata.firstnodeofpathfindpoppedswtc == 0)
+                                                                    if (currentnpcglobaldata.pathfindscript.retracedpathlist.Count > 1)
                                                                     {
-                                                                        currentnpcglobaldata.decrementcounterforpath = currentnpcglobaldata.pathfindscript.retracedpathlist.Count;
 
-                                                                        currentnpcglobaldata.firstnodeofpathfindpoppedswtc = 1;
-                                                                    }
+                                                                        if (currentnpcglobaldata.firstnodeofpathfindpoppedswtc == 0)
+                                                                        {
+                                                                            currentnpcglobaldata.decrementcounterforpath = currentnpcglobaldata.pathfindscript.retracedpathlist.Count;
 
-                                                                    //currentnpcglobaldata.haspopped = currentnpcglobaldata.pathfindscript.retracedpathlist.TryPop(out currentnpcglobaldata.poppednode);
-                                                                    currentnpcglobaldata.poppednode = currentnpcglobaldata.pathfindscript.retracedpathlist.Pop();
+                                                                            currentnpcglobaldata.firstnodeofpathfindpoppedswtc = 1;
+                                                                        }
 
-                                                                    if (currentnpcglobaldata.poppednode.nodeinitswtc == 1)
-                                                                    {
-                                                                        currentnpcglobaldata.haspopped = true;
+                                                                        //currentnpcglobaldata.haspopped = currentnpcglobaldata.pathfindscript.retracedpathlist.TryPop(out currentnpcglobaldata.poppednode);
+                                                                        currentnpcglobaldata.poppednode = currentnpcglobaldata.pathfindscript.retracedpathlist.Dequeue();
+
+                                                                        if (currentnpcglobaldata.poppednode.nodeinitswtc == 1)
+                                                                        {
+                                                                            currentnpcglobaldata.haspopped = true;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            currentnpcglobaldata.haspopped = false;
+                                                                        }
+
+
+                                                                        currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
+
+                                                                        currentnpcglobaldata.haspoppedcounter++;
+                                                                        currentnpcglobaldata.decrementcounterforpath--;
+
+
+                                                                        currentnpcglobaldata.pathfindretracedpathswtc = 1;
                                                                     }
                                                                     else
                                                                     {
-                                                                        currentnpcglobaldata.haspopped = false;
+                                                                        if (currentnpcglobaldata.distnpctoplayersqrt <= sccspathfindglobals.distnpctoplayersqrt)
+                                                                        {
+                                                                            currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
+
+
+                                                                            currentnpcglobaldata.hasreachedandattackedplayer = 1;
+
+                                                                            sccspathfindactionstruct.movementoptiontype = 1;
+                                                                            //sccspathfindactionstruct.anglerad = anglerad;
+                                                                            //sccspathfindactionstruct.direction = currentnpcglobaldata.directionnpctopathfindnodef;
+
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            currentnpcglobaldata.pathfindscript.startpathfind = 1;
+                                                                            sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
+                                                                        }
                                                                     }
-
-
-                                                                    currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
-
-                                                                    currentnpcglobaldata.haspoppedcounter++;
-                                                                    currentnpcglobaldata.decrementcounterforpath--;
-
-
-                                                                    currentnpcglobaldata.pathfindretracedpathswtc = 1;
                                                                 }
                                                                 else
                                                                 {
                                                                     if (currentnpcglobaldata.distnpctoplayersqrt <= sccspathfindglobals.distnpctoplayersqrt)
                                                                     {
                                                                         currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
-
 
                                                                         currentnpcglobaldata.hasreachedandattackedplayer = 1;
 
@@ -586,174 +661,161 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                                                                     }
                                                                 }
                                                             }
-                                                            else
-                                                            {
-                                                                if (currentnpcglobaldata.distnpctoplayersqrt <= sccspathfindglobals.distnpctoplayersqrt)
-                                                                {
-                                                                    currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
-
-                                                                    currentnpcglobaldata.hasreachedandattackedplayer = 1;
-
-                                                                    sccspathfindactionstruct.movementoptiontype = 1;
-                                                                    //sccspathfindactionstruct.anglerad = anglerad;
-                                                                    //sccspathfindactionstruct.direction = currentnpcglobaldata.directionnpctopathfindnodef;
-
-                                                                }
-                                                                else
-                                                                {
-                                                                    currentnpcglobaldata.pathfindscript.startpathfind = 1;
-                                                                    sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
-                                                                }
-                                                            }
-                                                        }
-                                                        //TRYING TO REMOVE A FIRST NODE
-                                                    }
-                                                    else
-                                                    {
-
-                                                    }
-
-
-                                                    if (currentnpcglobaldata.decrementcounterforpath <= 0 && currentnpcglobaldata.firstnodeofpathfindpoppedswtc == 1)
-                                                    {
-                                                        currentnpcglobaldata.hasreachedandattackedplayer = 1;
-
-
-                                                        if (currentnpcglobaldata.distnpctoplayersqrt <= sccspathfindglobals.distnpctoplayersqrt)
-                                                        {
-                                                            currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
-                                                            sccspathfindactionstruct.movementoptiontype = 1;
-                                                            //sccspathfindactionstruct.anglerad = anglerad;
-                                                            //sccspathfindactionstruct.direction = currentnpcglobaldata.directionnpctopathfindnodef;
-
-                                                            currentnpcglobaldata.pathfindretracedpathswtc = 0;
-                                                            currentnpcglobaldata.hasreachedandattackedplayer = 1;
-                                                            currentnpcglobaldata.firstnodeofpathfindpoppedswtc = -2;
-
+                                                            //TRYING TO REMOVE A FIRST NODE
                                                         }
                                                         else
                                                         {
-                                                            currentnpcglobaldata.pathfindscript.startpathfind = 1;
-                                                            sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
+
                                                         }
-                                                    }
-                                                    else
-                                                    {
 
-                                                    }
 
-                                                    if (currentnpcglobaldata.firstnodeofpathfindpoppedswtc == 1)
-                                                    {
+                                                        if (currentnpcglobaldata.decrementcounterforpath <= 0 && currentnpcglobaldata.firstnodeofpathfindpoppedswtc == 1)
+                                                        {
+                                                            currentnpcglobaldata.hasreachedandattackedplayer = 1;
 
-                                                        if (currentnpcglobaldata.hasreachingnodestuckframecounter >= currentnpcglobaldata.hasreachingnodestuckframecountermax)
+
+                                                            if (currentnpcglobaldata.distnpctoplayersqrt <= sccspathfindglobals.distnpctoplayersqrt)
+                                                            {
+                                                                currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
+                                                                sccspathfindactionstruct.movementoptiontype = 1;
+                                                                //sccspathfindactionstruct.anglerad = anglerad;
+                                                                //sccspathfindactionstruct.direction = currentnpcglobaldata.directionnpctopathfindnodef;
+
+                                                                currentnpcglobaldata.pathfindretracedpathswtc = 0;
+                                                                currentnpcglobaldata.hasreachedandattackedplayer = 1;
+                                                                currentnpcglobaldata.firstnodeofpathfindpoppedswtc = -2;
+
+                                                            }
+                                                            else
+                                                            {
+                                                                currentnpcglobaldata.pathfindscript.startpathfind = 1;
+                                                                sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
+                                                            }
+                                                        }
+                                                        else
                                                         {
 
-                                                            if (sccspathfindglobals.checkforobstaclesonthewayswtc == 1)
+                                                        }
+
+                                                        if (currentnpcglobaldata.firstnodeofpathfindpoppedswtc == 1)
+                                                        {
+
+                                                            if (currentnpcglobaldata.hasreachingnodestuckframecounter >= currentnpcglobaldata.hasreachingnodestuckframecountermax)
                                                             {
-                                                                sccspathfindobstaclecheck.checkforobstaclesontheway(currentnpcglobaldata.npccharacter, currentnpcglobaldata.frontdirectionposition, currentnpcglobaldata.playercharacter, currentnpcglobaldata);
+
+                                                                if (sccspathfindglobals.checkforobstaclesonthewayswtc == 1)
+                                                                {
+                                                                    sccspathfindobstaclecheck.checkforobstaclesontheway(currentnpcglobaldata.npccharacter, currentnpcglobaldata.frontdirectionposition, currentnpcglobaldata.playercharacter, currentnpcglobaldata);
+                                                                }
+
+                                                                currentnpcglobaldata.pathfindscript.startpathfind = 1;
+                                                                currentnpcglobaldata.firstnodeofpathfindpoppedswtc = 0;
+                                                                currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
                                                             }
 
-                                                            currentnpcglobaldata.pathfindscript.startpathfind = 1;
-                                                            currentnpcglobaldata.firstnodeofpathfindpoppedswtc = 0;
-                                                            currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
-                                                        }
 
-
-                                                        if (currentnpcglobaldata.haspopped)
-                                                        {
-
-                                                            sccsvec2float thenodepos = new sccsvec2float();
-                                                            thenodepos.x = currentnpcglobaldata.poppednode.worldpositionx;
-                                                            thenodepos.y = currentnpcglobaldata.poppednode.worldpositiony;
-
-                                                            sccsvec2float npctoinitnpcdiff = new sccsvec2float();
-                                                            npctoinitnpcdiff.x = (int)Math.Round((double)currentnpcglobaldata.npcpos.x) - (int)Math.Round((double)currentnpcglobaldata.initialpathfindstartpos.x);
-                                                            npctoinitnpcdiff.y = (int)Math.Round((double)currentnpcglobaldata.npcpos.y) - (int)Math.Round((double)currentnpcglobaldata.initialpathfindstartpos.y);
-
-                                                            currentnpcglobaldata.disttonode = sccsmaths.GetDistancefloat2dsqrt(npctoinitnpcdiff, thenodepos);
-
-                                                            sccsvec2float dirnodetoinitpos = new sccsvec2float();
-                                                            dirnodetoinitpos.x = thenodepos.x - npctoinitnpcdiff.x; //-thenodepos.x;//
-                                                            dirnodetoinitpos.y = thenodepos.y - npctoinitnpcdiff.y; //-thenodepos.y;//
-
-                                                            //float hypothenuse = disttonode;
-                                                            //float opposite = dirnodetoinitpos.y;
-                                                            //float adjacent = dirnodetoinitpos.x;
-                                                            //float rotationangledeg = 0;
-
-                                                            if (currentnpcglobaldata.disttonode == 0 || currentnpcglobaldata.disttonode < 0.75f)
+                                                            if (currentnpcglobaldata.haspopped)
                                                             {
-                                                                if (currentnpcglobaldata.distnpctoplayersqrt <= sccspathfindglobals.distnpctoplayersqrt)
-                                                                {
-                                                                    currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
-                                                                    currentnpcglobaldata.hasreachedandattackedplayer = 1;
 
-                                                                    sccspathfindactionstruct.movementoptiontype = 1;
-                                                                    //sccspathfindactionstruct.anglerad = anglerad;
-                                                                    //sccspathfindactionstruct.direction = currentnpcglobaldata.directionnpctopathfindnodef;
+                                                                sccsvec2float thenodepos = sccspools.getpooledsccsvec2float();// new sccsvec2float();
+                                                                thenodepos.x = currentnpcglobaldata.poppednode.worldpositionx;
+                                                                thenodepos.y = currentnpcglobaldata.poppednode.worldpositiony;
+
+                                                                sccsvec2float npctoinitnpcdiff = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                                npctoinitnpcdiff.x = (int)Math.Round((double)currentnpcglobaldata.npcpos.x) - (int)Math.Round((double)currentnpcglobaldata.initialpathfindstartpos.x);
+                                                                npctoinitnpcdiff.y = (int)Math.Round((double)currentnpcglobaldata.npcpos.y) - (int)Math.Round((double)currentnpcglobaldata.initialpathfindstartpos.y);
+
+                                                                currentnpcglobaldata.disttonode = sccsmaths.GetDistancefloat2dsqrt(npctoinitnpcdiff, thenodepos);
+
+                                                                sccsvec2float dirnodetoinitpos = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                                dirnodetoinitpos.x = thenodepos.x - npctoinitnpcdiff.x; //-thenodepos.x;//
+                                                                dirnodetoinitpos.y = thenodepos.y - npctoinitnpcdiff.y; //-thenodepos.y;//
+
+                                                                //float hypothenuse = disttonode;
+                                                                //float opposite = dirnodetoinitpos.y;
+                                                                //float adjacent = dirnodetoinitpos.x;
+                                                                //float rotationangledeg = 0;
+
+                                                                if (currentnpcglobaldata.disttonode == 0 || currentnpcglobaldata.disttonode < 0.75f)
+                                                                {
+                                                                    if (currentnpcglobaldata.distnpctoplayersqrt <= sccspathfindglobals.distnpctoplayersqrt)
+                                                                    {
+                                                                        currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
+                                                                        currentnpcglobaldata.hasreachedandattackedplayer = 1;
+
+                                                                        sccspathfindactionstruct.movementoptiontype = 1;
+                                                                        //sccspathfindactionstruct.anglerad = anglerad;
+                                                                        //sccspathfindactionstruct.direction = currentnpcglobaldata.directionnpctopathfindnodef;
+                                                                    }
+                                                                    else
+                                                                    {
+
+                                                                    }
+
+                                                                    currentnpcglobaldata.pathfindretracedpathswtc = 0;
                                                                 }
                                                                 else
                                                                 {
 
-                                                                }
-
-                                                                currentnpcglobaldata.pathfindretracedpathswtc = 0;
-                                                            }
-                                                            else
-                                                            {
-
-                                                                if (currentnpcglobaldata.disttonode != float.NaN && currentnpcglobaldata.disttonode != 0)
-                                                                {
-                                                                    dirnodetoinitpos.x /= currentnpcglobaldata.disttonode;
-                                                                    dirnodetoinitpos.y /= currentnpcglobaldata.disttonode;
-
-                                                                    currentnpcglobaldata.directionnpctopathfindnodef = new Vector2F(dirnodetoinitpos.x, dirnodetoinitpos.y);
-
-                                                                    if (currentnpcglobaldata.directionnpctopathfindnodef.X != float.NaN && currentnpcglobaldata.directionnpctopathfindnodef.Y != float.NaN)
+                                                                    if (currentnpcglobaldata.disttonode != float.NaN && currentnpcglobaldata.disttonode != 0)
                                                                     {
+                                                                        dirnodetoinitpos.x /= currentnpcglobaldata.disttonode;
+                                                                        dirnodetoinitpos.y /= currentnpcglobaldata.disttonode;
 
-                                                                        if (currentnpcglobaldata.directionnpctopathfindnodef.X == 0 && currentnpcglobaldata.directionnpctopathfindnodef.Y == 0)
+                                                                        currentnpcglobaldata.directionnpctopathfindnodef = new Vector2F(dirnodetoinitpos.x, dirnodetoinitpos.y);
+
+                                                                        if (currentnpcglobaldata.directionnpctopathfindnodef.X != float.NaN && currentnpcglobaldata.directionnpctopathfindnodef.Y != float.NaN)
                                                                         {
-                                                                            currentnpcglobaldata.pathfindretracedpathswtc = 0;
-                                                                            currentnpcglobaldata.pathfindscript.startpathfind = 1;
+
+                                                                            if (currentnpcglobaldata.directionnpctopathfindnodef.X == 0 && currentnpcglobaldata.directionnpctopathfindnodef.Y == 0)
+                                                                            {
+                                                                                currentnpcglobaldata.pathfindretracedpathswtc = 0;
+                                                                                currentnpcglobaldata.pathfindscript.startpathfind = 1;
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                sccsvec2float dirnpctoplayer = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                                                dirnpctoplayer.x = currentnpcglobaldata.playerpos.x - currentnpcglobaldata.npcpos.x;
+                                                                                dirnpctoplayer.y = currentnpcglobaldata.playerpos.y - currentnpcglobaldata.npcpos.y;
+
+                                                                                dirnpctoplayer.x /= currentnpcglobaldata.distnpctoplayersqrt;
+                                                                                dirnpctoplayer.y /= currentnpcglobaldata.distnpctoplayersqrt;
+
+
+                                                                                sccsvec2float dirright = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                                                dirright.x = 1.0f;
+                                                                                dirright.y = 0.0f;
+
+                                                                                float anglerad1 = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y), new Vector2F(dirright0.x, dirright0.y));
+
+                                                                                sccspathfindactionstruct.totargetdirection = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
+                                                                                sccspathfindactionstruct.totargetanglerad = anglerad1;
+
+
+                                                                                float anglerad = Vector2F.AngleDeg(new Vector2F(currentnpcglobaldata.directionnpctopathfindnodef.X, currentnpcglobaldata.directionnpctopathfindnodef.Y), new Vector2F(dirright.x, dirright.y));
+
+                                                                                //pathfindscript.startpathfind = 1;
+
+                                                                                sccspathfindactionstruct.movementoptiontype = 2;
+                                                                                sccspathfindactionstruct.anglerad = anglerad;
+                                                                                sccspathfindactionstruct.direction = currentnpcglobaldata.directionnpctopathfindnodef;
+
+                                                                                //float thedotnpcdirtoplayerdirandnpcdirtonode = Dot(dirnpctoplayer.x, dirnpctoplayer.y, directionnpctopathfindnodef.X, directionnpctopathfindnodef.Y);
+
+
+                                                                                if (((int)npctoinitnpcdiff.x == currentnpcglobaldata.poppednode.worldpositionx && (int)npctoinitnpcdiff.y == currentnpcglobaldata.poppednode.worldpositiony) ||
+                                                                               (int)Math.Round((decimal)currentnpcglobaldata.npcpos.x) == currentnpcglobaldata.poppednode.worldpositionx + (int)Math.Round((decimal)currentnpcglobaldata.initialpathfindstartpos.x) &&
+                                                                               (int)Math.Round((decimal)currentnpcglobaldata.npcpos.y) == currentnpcglobaldata.poppednode.worldpositiony + (int)Math.Round((decimal)currentnpcglobaldata.initialpathfindstartpos.y))
+                                                                                {
+                                                                                    currentnpcglobaldata.pathfindretracedpathswtc = 0;
+                                                                                }
+                                                                            }
                                                                         }
                                                                         else
                                                                         {
-                                                                            sccsvec2float dirnpctoplayer = new sccsvec2float();
-                                                                            dirnpctoplayer.x = currentnpcglobaldata.playerpos.x - currentnpcglobaldata.npcpos.x;
-                                                                            dirnpctoplayer.y = currentnpcglobaldata.playerpos.y - currentnpcglobaldata.npcpos.y;
-
-                                                                            dirnpctoplayer.x /= currentnpcglobaldata.distnpctoplayersqrt;
-                                                                            dirnpctoplayer.y /= currentnpcglobaldata.distnpctoplayersqrt;
-
-
-                                                                            sccsvec2float dirright = new sccsvec2float();
-                                                                            dirright.x = 1.0f;
-                                                                            dirright.y = 0.0f;
-
-                                                                            float anglerad1 = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y), new Vector2F(dirright0.x, dirright0.y));
-
-                                                                            sccspathfindactionstruct.totargetdirection = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
-                                                                            sccspathfindactionstruct.totargetanglerad = anglerad1;
-
-
-                                                                            float anglerad = Vector2F.AngleDeg(new Vector2F(currentnpcglobaldata.directionnpctopathfindnodef.X, currentnpcglobaldata.directionnpctopathfindnodef.Y), new Vector2F(dirright.x, dirright.y));
-
-                                                                            //pathfindscript.startpathfind = 1;
-
-                                                                            sccspathfindactionstruct.movementoptiontype = 2;
-                                                                            sccspathfindactionstruct.anglerad = anglerad;
-                                                                            sccspathfindactionstruct.direction = currentnpcglobaldata.directionnpctopathfindnodef;
-
-                                                                            //float thedotnpcdirtoplayerdirandnpcdirtonode = Dot(dirnpctoplayer.x, dirnpctoplayer.y, directionnpctopathfindnodef.X, directionnpctopathfindnodef.Y);
-
-
-                                                                            if (((int)npctoinitnpcdiff.x == currentnpcglobaldata.poppednode.worldpositionx && (int)npctoinitnpcdiff.y == currentnpcglobaldata.poppednode.worldpositiony) ||
-                                                                           (int)Math.Round((decimal)currentnpcglobaldata.npcpos.x) == currentnpcglobaldata.poppednode.worldpositionx + (int)Math.Round((decimal)currentnpcglobaldata.initialpathfindstartpos.x) &&
-                                                                           (int)Math.Round((decimal)currentnpcglobaldata.npcpos.y) == currentnpcglobaldata.poppednode.worldpositiony + (int)Math.Round((decimal)currentnpcglobaldata.initialpathfindstartpos.y))
-                                                                            {
-                                                                                currentnpcglobaldata.pathfindretracedpathswtc = 0;
-                                                                            }
+                                                                            currentnpcglobaldata.pathfindretracedpathswtc = 0;
+                                                                            currentnpcglobaldata.pathfindscript.startpathfind = 1;
+                                                                            sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
                                                                         }
                                                                     }
                                                                     else
@@ -763,45 +825,114 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                                                                         sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
                                                                     }
                                                                 }
-                                                                else
-                                                                {
-                                                                    currentnpcglobaldata.pathfindretracedpathswtc = 0;
-                                                                    currentnpcglobaldata.pathfindscript.startpathfind = 1;
-                                                                    sccspathfindactionstruct.movementoptiontype = 1; //<=TEST
-                                                                }
                                                             }
+                                                            else
+                                                            {
+
+                                                            }
+
+                                                            currentnpcglobaldata.hasreachingnodestuckframecounter++;
                                                         }
                                                         else
                                                         {
 
                                                         }
-
-                                                        currentnpcglobaldata.hasreachingnodestuckframecounter++;
                                                     }
-                                                    else
+                                                    else if (currentnpcglobaldata.distnpctoplayersqrt <= sccspathfindglobals.distnpctoplayersqrt)
                                                     {
+                                                        currentnpcglobaldata.hasreachedandattackedplayer = 1;
+                                                        currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
 
+                                                        sccspathfindactionstruct.movementoptiontype = 1;
                                                     }
+
                                                 }
-                                                else if (currentnpcglobaldata.distnpctoplayersqrt <= sccspathfindglobals.distnpctoplayersqrt)
+                                                else
                                                 {
+                                                    //sccspathfindglobals.themobidlesleepcountermax = 0;
+                                                    //theobjstate.CurrentStats.themobidlesleep = 1;
+                                                    theobjstate.CurrentStats.themobidlesleepcountermax = sccspathfindglobals.themobidlesleepcountermax;
+
+
+
                                                     currentnpcglobaldata.hasreachedandattackedplayer = 1;
+
                                                     currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
+                                                    var character0 = thegameobject;
+                                                    var currentStats0 = theobjstate.CurrentStats;
+
+                                                    sccsvec2float dirright = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                    dirright.x = 1.0f;
+                                                    dirright.y = 0.0f;
+
+                                                    sccsvec2float dirnpctoplayer = sccspools.getpooledsccsvec2float();//new sccsvec2float();
+                                                    dirnpctoplayer.x = currentnpcglobaldata.playerpos.x - currentnpcglobaldata.npcpos.x;
+                                                    dirnpctoplayer.y = currentnpcglobaldata.playerpos.y - currentnpcglobaldata.npcpos.y;
+
+                                                    dirnpctoplayer.x /= currentnpcglobaldata.distnpctoplayersqrt;
+                                                    dirnpctoplayer.y /= currentnpcglobaldata.distnpctoplayersqrt;
+
+
+
+                                                    float anglerad = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y), new Vector2F(dirright.x, dirright.y));
+
+
 
                                                     sccspathfindactionstruct.movementoptiontype = 1;
+                                                    sccspathfindactionstruct.anglerad = anglerad;
+                                                    sccspathfindactionstruct.direction = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
+
+
+
+
+                                                    sccspathfindactionstruct.totargetdirection = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
+                                                    sccspathfindactionstruct.totargetanglerad = anglerad;
+
+
+                                                    if (currentnpcglobaldata.haschasedcharacter == 1)
+                                                    {
+                                                        if (sccspathfindactionstruct.hasclearedarrays == 0)
+                                                        {
+                                                            //var pathfindpermobdata = sccspathfindactionstruct;
+
+                                                            sccspathfindactionstruct = sccspathfindaction.cleararrays(theobjstate, sccspathfindactionstruct.thenpccharacter, sccspathfindactionstruct);
+
+                                                            //sccspathfindactionstruct.theplayercharacter = null;
+                                                            //currentnpcglobaldata.playercharacter = null;
+                                                            sccspathfindactionstruct.hasclearedarrays = 1;
+                                                            //sccspathfindactionstruct = pathfindpermobdata;
+                                                        }
+
+                                                        currentnpcglobaldata.haschasedcharacter = 0;
+                                                    }
+
+
+
+                                                    /*
+                                                    if (sccspathfindactionstruct.theplayercharacter != null)
+                                                    {
+                                                        if (sccspathfindactionstruct.hasclearedarrays == 0)
+                                                        {
+                                                            //var pathfindpermobdata = sccspathfindactionstruct;
+
+                                                            sccspathfindaction.cleararrays(theobjstate, sccspathfindactionstruct.thenpccharacter, sccspathfindactionstruct);
+
+                                                            sccspathfindactionstruct.theplayercharacter = null;
+                                                            currentnpcglobaldata.playercharacter = null;
+                                                            sccspathfindactionstruct.hasclearedarrays = 1;
+                                                            //sccspathfindactionstruct = pathfindpermobdata;
+                                                        }
+                                                    }*/
+
+
                                                 }
 
+
+                                                currentnpcglobaldata.npcposlast = currentnpcglobaldata.npcpos;
                                             }
-                                            else
+
+                                            /*if (currentnpcglobaldata.playercharacter.IsDestroyed)
                                             {
-
-
-
-
-
-                                                currentnpcglobaldata.hasreachedandattackedplayer = 1;
-
-                                                currentnpcglobaldata.hasreachingnodestuckframecounter = 0;
                                                 var character0 = thegameobject;
                                                 var currentStats0 = theobjstate.CurrentStats;
 
@@ -816,92 +947,40 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                                                 dirnpctoplayer.x /= currentnpcglobaldata.distnpctoplayersqrt;
                                                 dirnpctoplayer.y /= currentnpcglobaldata.distnpctoplayersqrt;
 
-
-
                                                 float anglerad = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y), new Vector2F(dirright.x, dirright.y));
-
 
 
                                                 sccspathfindactionstruct.movementoptiontype = 1;
                                                 sccspathfindactionstruct.anglerad = anglerad;
                                                 sccspathfindactionstruct.direction = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
 
-
-
-
                                                 sccspathfindactionstruct.totargetdirection = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
                                                 sccspathfindactionstruct.totargetanglerad = anglerad;
+                                            }*/
 
-
-                                                if (currentnpcglobaldata.haschasedcharacter == 1)
-                                                {
-                                                    if (sccspathfindactionstruct.hasclearedarrays == 0)
-                                                    {
-                                                        //var pathfindpermobdata = sccspathfindactionstruct;
-
-                                                        sccspathfindactionstruct = sccspathfindaction.cleararrays(theobjstate, sccspathfindactionstruct.thenpccharacter, sccspathfindactionstruct);
-
-                                                        //sccspathfindactionstruct.theplayercharacter = null;
-                                                        //currentnpcglobaldata.playercharacter = null;
-                                                        sccspathfindactionstruct.hasclearedarrays = 1;
-                                                        //sccspathfindactionstruct = pathfindpermobdata;
-                                                    }
-
-                                                    currentnpcglobaldata.haschasedcharacter = 0;
-                                                }
-                                            
-
-
-                                                /*
-                                                if (sccspathfindactionstruct.theplayercharacter != null)
-                                                {
-                                                    if (sccspathfindactionstruct.hasclearedarrays == 0)
-                                                    {
-                                                        //var pathfindpermobdata = sccspathfindactionstruct;
-
-                                                        sccspathfindaction.cleararrays(theobjstate, sccspathfindactionstruct.thenpccharacter, sccspathfindactionstruct);
-
-                                                        sccspathfindactionstruct.theplayercharacter = null;
-                                                        currentnpcglobaldata.playercharacter = null;
-                                                        sccspathfindactionstruct.hasclearedarrays = 1;
-                                                        //sccspathfindactionstruct = pathfindpermobdata;
-                                                    }
-                                                }*/
-
-
-                                            }
-
-                                           
-                                            currentnpcglobaldata.npcposlast = currentnpcglobaldata.npcpos;
                                         }
-
-                                        /*if (currentnpcglobaldata.playercharacter.IsDestroyed)
+                                        else
                                         {
-                                            var character0 = thegameobject;
-                                            var currentStats0 = theobjstate.CurrentStats;
 
-                                            sccsvec2float dirright = new sccsvec2float();
-                                            dirright.x = 1.0f;
-                                            dirright.y = 0.0f;
+                                            if (currentnpcglobaldata.haschasedcharacter == 1)
+                                            {
+                                                if (sccspathfindactionstruct.hasclearedarrays == 0)
+                                                {
+                                                    //var pathfindpermobdata = sccspathfindactionstruct;
 
-                                            sccsvec2float dirnpctoplayer = new sccsvec2float();
-                                            dirnpctoplayer.x = currentnpcglobaldata.playerpos.x - currentnpcglobaldata.npcpos.x;
-                                            dirnpctoplayer.y = currentnpcglobaldata.playerpos.y - currentnpcglobaldata.npcpos.y;
+                                                    sccspathfindactionstruct = sccspathfindaction.cleararrays(theobjstate, sccspathfindactionstruct.thenpccharacter, sccspathfindactionstruct);
 
-                                            dirnpctoplayer.x /= currentnpcglobaldata.distnpctoplayersqrt;
-                                            dirnpctoplayer.y /= currentnpcglobaldata.distnpctoplayersqrt;
+                                                    //sccspathfindactionstruct.theplayercharacter = null;
+                                                    //currentnpcglobaldata.playercharacter = null;
+                                                    sccspathfindactionstruct.hasclearedarrays = 1;
+                                                    //sccspathfindactionstruct = pathfindpermobdata;
+                                                }
 
-                                            float anglerad = Vector2F.AngleDeg(new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y), new Vector2F(dirright.x, dirright.y));
-
-
+                                                currentnpcglobaldata.haschasedcharacter = 0;
+                                            }
                                             sccspathfindactionstruct.movementoptiontype = 1;
-                                            sccspathfindactionstruct.anglerad = anglerad;
-                                            sccspathfindactionstruct.direction = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
 
-                                            sccspathfindactionstruct.totargetdirection = new Vector2F(dirnpctoplayer.x, dirnpctoplayer.y);
-                                            sccspathfindactionstruct.totargetanglerad = anglerad;
-                                        }*/
-
+                                        }
                                     }
                                     else
                                     {
@@ -923,49 +1002,33 @@ namespace AtomicTorch.CBND.CoreMod.Scripts.sccsPathfind
                                             currentnpcglobaldata.haschasedcharacter = 0;
                                         }
                                         sccspathfindactionstruct.movementoptiontype = 1;
-
                                     }
-                                }
-                                else
-                                {
-
-                                    if (currentnpcglobaldata.haschasedcharacter == 1)
-                                    {
-                                        if (sccspathfindactionstruct.hasclearedarrays == 0)
-                                        {
-                                            //var pathfindpermobdata = sccspathfindactionstruct;
-
-                                            sccspathfindactionstruct = sccspathfindaction.cleararrays(theobjstate, sccspathfindactionstruct.thenpccharacter, sccspathfindactionstruct);
-
-                                            //sccspathfindactionstruct.theplayercharacter = null;
-                                            //currentnpcglobaldata.playercharacter = null;
-                                            sccspathfindactionstruct.hasclearedarrays = 1;
-                                            //sccspathfindactionstruct = pathfindpermobdata;
-                                        }
-
-                                        currentnpcglobaldata.haschasedcharacter = 0;
-                                    }
-                                    sccspathfindactionstruct.movementoptiontype = 1;
                                 }
                             }
-                        }
-                        else
-                        {
-                          
-                        }
-                        currentnpcglobaldata.distnpctoplayersqrtlast = currentnpcglobaldata.distnpctoplayersqrt;
-                        currentnpcglobaldata.lasthaspopped = currentnpcglobaldata.haspopped;
-                        currentnpcglobaldata.lasthaspoppedcounter = currentnpcglobaldata.haspoppedcounter;
-                        currentnpcglobaldata.lastdistnpctoplayersqrt = currentnpcglobaldata.distnpctoplayersqrt;
+                            else
+                            {
+                                if (theobjstate.CurrentStats.themobidlesleepcountermax != sccspathfindglobals.themobidlesleepcountermax)
+                                {
+                                    theobjstate.CurrentStats.themobidlesleepcountermax = sccspathfindglobals.themobidlesleepcountermax;
+                                }
+                                //sccspathfindglobals.themobidlesleepcountermax = 0;
+                                //theobjstate.CurrentStats.themobidlesleep = 1;
+
+                            }
+                            currentnpcglobaldata.distnpctoplayersqrtlast = currentnpcglobaldata.distnpctoplayersqrt;
+                            currentnpcglobaldata.lasthaspopped = currentnpcglobaldata.haspopped;
+                            currentnpcglobaldata.lasthaspoppedcounter = currentnpcglobaldata.haspoppedcounter;
+                            currentnpcglobaldata.lastdistnpctoplayersqrt = currentnpcglobaldata.distnpctoplayersqrt;
 
 
-                        currentnpcglobaldata.pathfindmaincounter = 0;
+                            currentnpcglobaldata.pathfindmaincounter = 0;
+                        }
+                        currentnpcglobaldata.pathfindmaincounter++;
+
+                        currentnpcglobaldata.lasthasreachedandattackedplayer = currentnpcglobaldata.hasreachedandattackedplayer;
+
+                        sccspathfindarrays.pathfindpermobdata[sccspathfindactionstruct.mobtypeofindex][theobjstate.CurrentStats.indexinmainarray] = currentnpcglobaldata;
                     }
-                    currentnpcglobaldata.pathfindmaincounter++;
-
-                    currentnpcglobaldata.lasthasreachedandattackedplayer = currentnpcglobaldata.hasreachedandattackedplayer;
-
-                    sccspathfindarrays.pathfindpermobdata[sccspathfindactionstruct.mobtypeofindex][theobjstate.CurrentStats.indexinmainarray] = currentnpcglobaldata;
 
                 }
             }

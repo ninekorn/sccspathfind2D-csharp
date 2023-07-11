@@ -1,53 +1,22 @@
 ﻿namespace AtomicTorch.CBND.CoreMod.CharacterSkeletons
 {
     using AtomicTorch.CBND.GameApi.Resources;
-    using AtomicTorch.CBND.GameApi.ServicesClient.Components;
-
-    public class SkeletonSkeleton : ProtoCharacterSkeletonHuman// SkeletonHuman
-    {
-        public override SkeletonResource SkeletonResourceBack { get; }
-            = new SkeletonResource("Skeleton/MaleBack");
-
-        public override SkeletonResource SkeletonResourceFront { get; }
-            = new SkeletonResource("Skeleton/MaleFront");
-
-        public override double WorldScale => 0.165;
-
-        public override void ClientSetupShadowRenderer(IComponentSpriteRenderer shadowRenderer, double scaleMultiplier)
-        {
-            shadowRenderer.PositionOffset = (0, -0.06 * scaleMultiplier);
-            shadowRenderer.Scale = 0.7 * scaleMultiplier;
-        }
-    }
-}
-
-
-
-
-
-
-
-/*namespace AtomicTorch.CBND.CoreMod.CharacterSkeletons
-{
     using AtomicTorch.CBND.CoreMod.Systems.Physics;
     using AtomicTorch.CBND.GameApi.Data.Physics;
     using AtomicTorch.CBND.GameApi.ServicesClient.Components;
+    using AtomicTorch.GameEngine.Common.Primitives;
 
-    public class SkeletonSkeleton : ProtoCharacterSkeleton
+    public class SkeletonSkeleton : ProtoCharacterSkeletonAnimal
     {
+        public override double DefaultMoveSpeed => 1.0;
 
-        public override SkeletonResource SkeletonResourceBack { get; }
-    = new SkeletonResource("Skeleton/Back");
+        public override double IconScale => 0.15;
 
-        public override SkeletonResource SkeletonResourceFront { get; }
-            = new SkeletonResource("Skeleton/Front");
-        public override void ClientSetupShadowRenderer(IComponentSpriteRenderer shadowRenderer, double scaleMultiplier)
-        {
-            shadowRenderer.PositionOffset = (0, -0.15 * scaleMultiplier);
-            shadowRenderer.Scale = 1.75 * scaleMultiplier;
-        }
+        public override double WorldScale => 0.15;
 
+        //From ProtoCharacterSkeletonHuman.
 
+        public const double LegsColliderRadius = 0.2;
 
         public const double MeleeHitboxHeight = 0.7;
 
@@ -57,29 +26,35 @@
 
         public const double RangedHitboxOffset = 0;
 
-        public override double DefaultMoveSpeed => 1.5;
+        //End ProtoCharacterSkeletonHuman.
 
-        public override bool HasMoveStartAnimations => true;
+        public override SkeletonResource SkeletonResourceBack { get; }
+            = new SkeletonResource("Skeleton/MaleBack");
 
-        public override float OrientationDownExtraAngle => 35;
+        public override SkeletonResource SkeletonResourceFront { get; }
+            = new SkeletonResource("Skeleton/MaleFront");
 
-        public override float OrientationThresholdDownHorizontalFlipDeg => 25;
+        public override string SlotNameItemInHand => "Weapon";
 
-        public override float OrientationThresholdDownToUpFlipDeg => 45;
+        public override void ClientResetItemInHand(IComponentSkeleton skeletonRenderer)
+        {
+            skeletonRenderer.SetAttachmentSprite(this.SlotNameItemInHand,
+                                                 attachmentName: "WeaponRifle",
+                                                 textureResource: null);
+            skeletonRenderer.SetAttachment(this.SlotNameItemInHand, attachmentName: "WeaponRifle");
+        }
 
-        public override float OrientationThresholdUpHorizontalFlipDeg => 20;
+        protected override string SoundsFolderPath => "Skeletons/Human";
 
-        public override double SpeedMultiplier => 1;
-
-        public override double WorldScale => 0.15;
-
-        protected override string SoundsFolderPath => "Skeletons/Scorpion";
-
+        public override void ClientSetupShadowRenderer(IComponentSpriteRenderer shadowRenderer, double scaleMultiplier)
+        {
+            shadowRenderer.PositionOffset = (0, -0.2 * scaleMultiplier);
+            shadowRenderer.Scale = 1.5 * scaleMultiplier;
+        }
+        //From ProtoCharacterSkeletonHuman
         public override void CreatePhysics(IPhysicsBody physicsBody)
         {
-            // human legs collider
-            var radius = 0.2;
-
+            const double radius = LegsColliderRadius;
             physicsBody.AddShapeCircle(
                 radius / 2,
                 center: (-radius / 2, 0));
@@ -103,13 +78,7 @@
                 size: (0.5, RangedHitboxHeight),
                 offset: (-0.25, RangedHitboxOffset),
                 group: CollisionGroups.HitboxRanged);
-        }
-
-        public override void OnSkeletonCreated(IComponentSkeleton skeleton)
-        {
-            base.OnSkeletonCreated(skeleton);
-
-            //skeleton.SetMixDuration("Torch", 0.3f);
+            //End ProtoCharacterSkeletonHuman.
         }
     }
-}*/
+}
